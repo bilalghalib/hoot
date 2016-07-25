@@ -1,0 +1,13 @@
+{
+  "name": "Hoot",
+  "app_id": "",
+ "gulpStartupTasks": [
+    "watch"
+  ],
+  "documentRoot": "grunt-app/app",
+  "watchPatterns": [
+    "grunt-app/app/src/**/*.js",
+    "grunt-app/app/src/**/*.html",
+    "grunt-app/app/styles/css/*"
+  ]
+}

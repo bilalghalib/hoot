@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+  <title></title>
+  <!-- build:css styles/ionic.css -->
+  <link rel="stylesheet" href="styles/css/ionic-custom.min.css">
+
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/ng-material-floating-button/mfb/dist/mfb.min.css">
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/css/main.css">
+  <!-- endbuild -->
+</head>
+
+<body ng-app="app" class="container">
+<div ui-view=""></div>
+</body>
+
+<!-- build:js scripts/ionic.js -->
+<script src="bower_components/ionic/release/js/ionic.bundle.min.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/ngCordova.js -->
+<script src="bower_components/ngCordova/dist/ng-cordova.min.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/swiper.js -->
+<script src="bower_components/Swiper/dist/js/swiper.jquery.min.js"></script>
+<script src="bower_components/Swiper/dist/js/swiper.min.js"></script>
+<!-- endbuild -->
+
+<script src="cordova.js"></script>
+
+<!-- build:js scripts/app.js -->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/lodash/dist/lodash.min.js"></script>
+<script src="bower_components/restangular/dist/restangular.js"></script>
+<script src="bower_components/ng-material-floating-button/src/mfb-directive.js"></script>
+
+
+<script src="src/main/main.module.js"></script>
+<script src="src/main/main.config.js"></script>
+
+<script src="src/app.module.js"></script>
+
+<script src="src/core/core.module.js"></script>
+<script src="src/core/core.run.js"></script>
+<script src="src/core/httpStatus.constant.js"></script>
+<script src="src/core/map.directive.js"></script>
+<script src="src/core/restangular.config.js"></script>
+<script src="src/core/router.config.js"></script>
+
+<script src="src/common/common.module.js"></script>
+<script src="src/common/layout.factory.js"></script>
+<script src="src/common/rbpServer.factory.js"></script>
+
+<script src="src/homepage/homepage.module.js"></script>
+<script src="src/homepage/homepage.config.js"></script>
+<script src="src/homepage/homePageCtrl.controller.js"></script>
+<!-- endbuild -->
+
+</html>

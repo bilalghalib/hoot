@@ -1,0 +1,14 @@
+{
+  "name": "App",
+  "version": "0.0.0",
+  "dependencies": {
+    "lodash": "*",
+    "driftyco/ionic": "*",
+    "restangular": "*",
+    "ngCordova": "^0.1.26-alpha",
+    "jquery": "^2.2.3",
+    "font-awesome": "fontawesome#^4.6.3",
+    "ng-material-floating-button": "ng-mfb#^0.6.2",
+    "Swiper": "swiper#^3.3.1"
+  }
+}
