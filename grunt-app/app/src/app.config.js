@@ -1,9 +1,12 @@
 (function () {
 
   angular.module('app')
+    .config(configuration);
 
-    .config(function ($ionicConfigProvider) {
-      $ionicConfigProvider.views.swipeBackEnabled(false);
-    });
+
+
+  function configuration ($ionicConfigProvider) {
+    $ionicConfigProvider.views.swipeBackEnabled(false);
+  };
 
 })();

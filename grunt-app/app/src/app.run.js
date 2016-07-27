@@ -1,8 +1,9 @@
 (function () {
 
   angular.module('app')
-    .run(function ($ionicPlatform, $cordovaSplashscreen, $timeout) {
+    .run(run);
 
+   function run ($ionicPlatform, $cordovaSplashscreen, $timeout) {
 
       if (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) {
         console.log('Running run function');
@@ -16,9 +17,8 @@
             catch (e) {
               console.log(e);
             }
-
           });
-        }, 2000);
+        }, 5000);
       }
 
       $ionicPlatform.ready(function() {
@@ -32,6 +32,6 @@
           StatusBar.styleDefault();
         }
       });
-    })
+    }
 
 })();

@@ -1,3 +1,3 @@
 module.exports = {
-    echo_something: 'echo cd .. && ionic upload'
+    ionic: 'echo cd .. && ionic upload'
 }

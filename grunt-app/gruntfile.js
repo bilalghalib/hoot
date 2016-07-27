@@ -34,7 +34,8 @@ module.exports = function (grunt) {
     'uglify',
     'cssmin',
     'usemin',
-    'clean:app'
+    'clean:app',
+    'replace'
   ]);
 
 

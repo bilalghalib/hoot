@@ -17,6 +17,7 @@ module.exports = {
       {
         from: '../../images',
         to: '../images'
-      }]
+      }
+    ]
   }
 };

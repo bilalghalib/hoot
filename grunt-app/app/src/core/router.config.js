@@ -9,12 +9,12 @@
   'use strict';
 
   angular.module('app.core')
-    .config(configuration)
+    .config(configuration);
 
   /* @ngInject */
   function configuration($urlRouterProvider)
   {
-    $urlRouterProvider.otherwise('/homepage');
+    $urlRouterProvider.otherwise('/login');
   }
 
 

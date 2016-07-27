@@ -2,22 +2,25 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center top;
-  background-image: url("../../images/background.png");
-}
+  background-size: 640px 1050px;
+  background-image: url("../../images/background.png"); }
 
 #small-space {
-  line-height: 5px;
-}
+  line-height: 5px; }
 
 IMG.centered {
   display: block;
   padding-top: 250px;
-  margin-left: -33px
-}
+  margin-left: -33px; }
 
-#map{
-  width:80%;
-  height:400px;
-  margin:10px auto;
-  box-shadow:0 3px 25px black;
-}
+#map {
+  width: 80%;
+  height: 400px;
+  margin: 10px auto;
+  box-shadow: 0 3px 25px black; }
+
+.img-center {
+  width: 100%;
+  margin-top: 60%; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,14 +1,12 @@
 <ion-pane style="background-color: #182330;" >
   <ion-content class="padding" >
-    <img ng-src={{vm.model.hootimage}} class="centered"/>
+    <img ng-src={{vm.model.hootimage}}/>
 
-    <button class="button button-block button-assertive">
-      <div style="position:relative; margin-top:-20px; ">
-        <br />
-        Log In
-        <br />
+    <img class="img-center" ng-src="images/preHoot.png" />
+    <button class="button button-block button-assertive" ng-click="vm.createUser();">
+      <div style="position:relative;">
+        Sign In
       <div>
-
     </button>
 
   </ion-content>

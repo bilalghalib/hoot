@@ -1,9 +1,9 @@
 <ion-pane style="background-color: #182330;" >
-  <ion-content class="padding" >
+  <ion-content class="padding" ng-cloak>
     <img ng-src={{vm.model.hootimage}} class="centered"/>
 
     <button class="button button-block button-assertive"
-            on-touch="vm.downloadFile(); vm.record()" on-release=vm.stopRecordingAndUpload()>
+            on-touch="vm.addMessage(); vm.downloadFile(); vm.record()" on-release=vm.stopRecordingAndUpload()>
 
       <i class="icon ion-mic-a"></i>
       <br id="small-space"/>
@@ -14,12 +14,14 @@
             on-touch=vm.getLatLong()>
       <div style="position:relative; margin-top:-20px; "></b>getLat</b><div>
     </button>
-
+    <button class="button button-block button-assertive"
+            on-touch=vm.changeState('login');>
+      <div>Sign Out<div>
+    </button>
 
     <div>
       <div id="map" lat="-23.639492" lng="133.709107" zoom="8" map>
       </div>
-
     </div>
 
   </ion-content>

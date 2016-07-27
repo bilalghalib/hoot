@@ -6,6 +6,7 @@
     .run(routingEvents);
   /* @ngInject */
   function routingEvents($rootScope, $ionicPlatform, $ionicSideMenuDelegate){
+    
     //on routing error
     $rootScope.$on('$stateNotFound', function(event, unfoundState, fromState, fromParams){
       //do some logging and toasting

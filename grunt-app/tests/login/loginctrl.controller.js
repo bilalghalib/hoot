@@ -7,7 +7,7 @@
   describe('Controller: Loginctrl', function(){
 
     beforeEach(module('app.core'));
-    beforeEach(module('app.login'));
+    beforeEach(module('app.homepage'));
 
     var ctrl;
     var scope;

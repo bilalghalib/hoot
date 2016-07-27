@@ -1,6 +1,6 @@
 /**
  * @ngdoc overview
- * @name app.homepage
+ * @name app.login
  * @description < description placeholder >
  */
 
@@ -9,7 +9,8 @@
   'use strict';
 
   angular
-    .module('app.homepage', [
+    .module('app.login', [
+      
     ]);
 
 

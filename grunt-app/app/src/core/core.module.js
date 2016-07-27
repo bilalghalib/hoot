@@ -11,8 +11,7 @@
     'ui.router',
     'restangular',
     'ionic',
-    'ngCordova',
-    'ng-mfb'
+    'ngCordova'
   ]);
 
 }());

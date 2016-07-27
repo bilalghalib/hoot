@@ -15,8 +15,10 @@
     /**
      * Application modules
      **/
+    'app.homepage',
     'app.main',
-    'app.login'
-  ]);
+    'app.login',
+    'firebase'
+  ])
 
 }());

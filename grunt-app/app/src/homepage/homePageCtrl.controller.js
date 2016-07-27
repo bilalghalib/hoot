@@ -1,6 +1,6 @@
 /**
  * @ngdoc controller
- * @name app.login.controller:Loginctrl
+ * @name app.homepage.controller:Loginctrl
  * @description < description placeholder >
  */
 
@@ -9,12 +9,11 @@
   'use strict';
 
 	angular
-		.module('app.login')
-		.controller('homePageCtrl', Loginctrl);
+		.module('app.homepage')
+		.controller('homePageCtrl', homePageCtrl);
 
   /* @ngInject */
-	function Loginctrl($state,$ionicScrollDelegate, $cordovaFile, $window,
-                     $cordovaFileTransfer, $cordovaMedia, $cordovaGeolocation) {
+	function homePageCtrl($state, $cordovaFile, $window, $cordovaFileTransfer, $cordovaGeolocation, $firebaseArray , FIREBASE_URI) {
     var vm = this;
 
     //-------------- Declarations
@@ -31,18 +30,11 @@
     vm.record = record;
     vm.stopRecordingAndUpload = stopRecordingAndUpload;
     vm.getLatLong = getLatLong;
+    vm.changeState = changeState;
 
     /////////////////////
 
-    /**
-     * @ngdoc method
-     * @name testFunction
-     * @param {number} num number is the number of the number
-     * @methodOf app.login.controller:Loginctrl
-     * @description
-     * My Description rules
-     */
-
+  /*
 
     ionic.Platform.ready(function() {
       if ($window.cordova) {
@@ -82,11 +74,26 @@
         alert('code: ' + error.code + '\n' +
           'message: ' + error.message + '\n');
       }
-    });
+    });*/
+
+
+
+
+    // vm.addMessage = function() {
+    //   vm.messages.$add({
+    //     text: 'testing123'
+    //   });
+    // };
+
+
+
+
+
+
     vm.model = {
       src: "",
       path: "",
-      hootimage: "/images/preHoot.png",
+      hootimage: "images/preHoot.png",
       currentPlatform: ionic.Platform.platform(),
       showDelete: false,
       showMove: false
@@ -140,9 +147,9 @@
     }
 
     function stopRecordingAndUpload() {
-      vm.model.hootimage = "/images/postHoot.png";
+      vm.model.hootimage = "images/postHoot.png";
       console.log("stopRecordingAndUpload");
-      vm.media.stopRecord();
+     // vm.media.stopRecord();
       $cordovaFile.checkFile(vm.model.path, vm.model.src)
         .then(function(success) {
           console.log("Found you!");
@@ -230,6 +237,12 @@
           console.log("err");
         });
     }
+
+    function changeState(name) {
+      console.log(name);
+      $state.go(name);
+    }
+
 
 
   }
