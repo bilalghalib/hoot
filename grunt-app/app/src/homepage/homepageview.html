@@ -2,9 +2,7 @@
   <ion-content class="padding" ng-cloak>
     <img ng-src={{vm.model.hootimage}} class="centered"/>
 
-    <button class="button button-block button-assertive"
-            on-touch="vm.addMessage(); vm.downloadFile(); vm.record()" on-release=vm.stopRecordingAndUpload()>
-
+    <button class="button button-block button-assertive" ng-click="vm.record()">
       <i class="icon ion-mic-a"></i>
       <br id="small-space"/>
       <div style="position:relative; margin-top:-20px; "></b>Record Hoot</b><div>

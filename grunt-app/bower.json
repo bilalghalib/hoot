@@ -8,5 +8,8 @@
     "ngCordova": "^0.1.26-alpha",
     "jquery": "^2.2.3",
     "font-awesome": "fontawesome#^4.6.3"
+  },
+  "devDependencies": {
+    "ngCordova-IMEI": "git://github.com/konstantinkrassmann/ngCordova-IMEI"
   }
 }

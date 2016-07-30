@@ -17,8 +17,9 @@
 
     var vm = this;
 
-    vm.email = "test@test.com";
-    vm.password = "ThisisKeWeL32";
+    vm.email = "00.00.00.00.00.00@hoot.com";
+    vm.email = "test@hoot.com";
+    vm.password = "testingtestingtesting";
 
     /** Function Declaration **/
     vm.changeState = changeState;
@@ -32,7 +33,29 @@
     }
 
     function createUser() {
+      // window.MacAddress.getMacAddress(
+      //   function(macAddress) {
+      //     //alert(macAddress);
+      //     vm.email = macAddress + "@hoot.com";
+      //     var str = vm.email;
+      //     vm.email = str.replace(/:/g, ".");
+      //     alert(vm.email);
+      //     vm.password = macAddress;
+      //     alert(vm.password);
+      //   },
+      //   function(fail) {
+      //     alert(fail);
+      //   }
+      // );
+
       hootAPI.createUser(vm.email, vm.password);
+      firebase.auth().onAuthStateChanged(function(user) {
+        if (user !== null) {
+          console.log('Weloome!');
+          changeState('homepage');
+        }
+      });
+
     }
 
   }

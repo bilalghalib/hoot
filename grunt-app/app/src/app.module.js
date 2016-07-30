@@ -19,6 +19,7 @@
     'app.main',
     'app.login',
     'firebase'
-  ])
+
+    ])
 
 }());

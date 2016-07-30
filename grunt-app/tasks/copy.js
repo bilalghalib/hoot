@@ -16,6 +16,12 @@ module.exports = {
         src: '**/*.*',
         dest: 'dist/images/',
         expand: true
+      },
+      {
+        cwd: 'app/sounds',
+        src: '**/*.*',
+        dest: 'dist/sounds/',
+        expand: true
       }
     ]
   },
