@@ -74,6 +74,20 @@
      });*/
 
 
+     document.addEventListener("deviceready", onDeviceReady, false);
+      function onDeviceReady() {
+        var src = getMediaURL("sounds/myrecording.amr");
+        var media = new Media(src,
+        function() {
+            alert("recordAudio():Audio Success");
+        },
+
+        function(err) {
+            alert("recordAudio():Audio Error: "+ err.code);
+        });
+    }
+
+
 
     vm.model = {
       src: "",
@@ -113,6 +127,7 @@
     function play() {
       // vm.model.hootimage = "images/postHoot.png";
       console.log("In Play Function!");
+      media.play();    
       // var iOSPlayOptions = {
       //   numberOfLoops: 2,
       //   playAudioWhenScreenIsLocked : false
@@ -126,26 +141,13 @@
 
     function record() {
       alert("Recording");
-      var src = "sounds/myrecording.amr";
-      var media = new Media(src,
-        function() {
-            console.log("recordAudio():Audio Success");
-        },
-
-        function(err) {
-            console.log("recordAudio():Audio Error: "+ err.code);
-        });
-
-      media.play();     
       media.startRecord();
 
       setTimeout(function(){
         media.stopRecord();
-      }, 2000);
-
-      alert("Now Playing");
-      media.play();     
-    }   
+        alert("Now Playing");
+      }, 3000);
+     }   
 
 
     function getMediaURL(s) {
