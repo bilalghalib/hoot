@@ -6,7 +6,7 @@
     .module('app.homepage')
     .config(configuration);
 
-  function configuration($stateProvider){
+  function configuration($stateProvider, recorderServiceProvider){
     //add your state mappings here
     $stateProvider
       .state('homepage', {
@@ -15,6 +15,10 @@
           controller: 'homePageCtrl as vm'
         }
       );
+    recorderServiceProvider
+      .forceSwf(false)
+//      .setSwfUrl('/lib/recorder.wav')
+      .withMp3Conversion(false);
   }
 
 }());

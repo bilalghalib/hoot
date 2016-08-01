@@ -8,13 +8,15 @@
 
   'use strict';
 
-	angular
-		.module('app.homepage')
-		.controller('homePageCtrl', homePageCtrl);
+  angular
+    .module('app.homepage')
+    .controller('homePageCtrl', homePageCtrl);
 
   /* @ngInject */
-	function homePageCtrl($state, $cordovaGeolocation, $cordovaMedia, $ionicLoading) {
+  function homePageCtrl($state, $cordovaGeolocation, $cordovaMedia, $ionicLoading) {
     var vm = this;
+    var media;
+    var extension = null;
 
     //-------------- Declarations
     //-----Variables Declarations
@@ -23,6 +25,7 @@
 
     //-----Functions Declarations
 
+    vm.onDeviceReady = onDeviceReady;
     vm.getLatLong = getLatLong;
     vm.changeState = changeState;
     vm.play = play;
@@ -73,18 +76,23 @@
      }
      });*/
 
+    document.addEventListener("deviceready", onDeviceReady, false);
 
-     document.addEventListener("deviceready", onDeviceReady, false);
-      function onDeviceReady() {
-        var src = getMediaURL("sounds/myrecording.amr");
-        var media = new Media(src,
-        function() {
-            alert("recordAudio():Audio Success");
-        },
+    function onDeviceReady() {
+      if(device.platform == "iOS")
+      {
+        var path = cordova.file.tempDirectory;
+      }
+      else if(device.platform == "Android")
+      {
+        var path = cordova.file.externalRootDirectory;
+      }
 
-        function(err) {
-            alert("recordAudio():Audio Error: "+ err.code);
-        });
+      var src = getMediaURL("myrecording");
+      src = path + src;
+
+      alert(src);
+      media = new Media(src, function(e){alert(e + " success");}, function(e){alert(e + " error");});
     }
 
 
@@ -108,8 +116,8 @@
       };
       $cordovaGeolocation.getCurrentPosition(posOptions).then(
         function (position) {
-          var lat = position.coords.latitude
-          var long = position.coords.longitude
+          var lat = position.coords.latitude;
+          var long = position.coords.longitude;
           console.log("lat" + position.coords.latitude);
           console.log("long" + position.coords.longitude);
         }, function (err) {
@@ -127,34 +135,46 @@
     function play() {
       // vm.model.hootimage = "images/postHoot.png";
       console.log("In Play Function!");
-      media.play();    
+      media.play();
+
+
       // var iOSPlayOptions = {
       //   numberOfLoops: 2,
       //   playAudioWhenScreenIsLocked : false
       // }
-      // media.stopRecord(); 
+      // media.stopRecord();
       // setTimeout(function(){
-      //  media.play();     
+      //  media.play();
       // }, 2000);
 
     }
 
     function record() {
+      vm.model.hootimage = "images/postHoot.png";
       alert("Recording");
       media.startRecord();
 
       setTimeout(function(){
+        alert("Stop Record");
         media.stopRecord();
-        alert("Now Playing");
-      }, 3000);
-     }   
+      }, 2000);
+
+    }
 
 
     function getMediaURL(s) {
+
       var isAndroid = ionic.Platform.isAndroid();
-      if (isAndroid) return "/android_asset/www/" + s;
+      if (isAndroid){
+        extension = ".amr";
+      }
+      else {
+        extension = ".wav";
+      }
+
+      s = s + extension;
       return s;
     }
 
   }
-  }());
+}());

@@ -18,8 +18,8 @@
     'app.homepage',
     'app.main',
     'app.login',
-    'firebase'
-
+    'firebase',
+    'angularAudioRecorder'
     ])
 
 }());
