@@ -21,7 +21,7 @@
           {{recorder.status.isStopped || recorder.status.isPaused ? 'Play' : 'Pause'}}
         </button>
 
-        <button  class="button button-block button-assertive" ng-click="recorder.save('test1')" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
+        <button  class="button button-block button-assertive" ng-click="recorder.save();" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
           Download
         </button>
 
@@ -39,8 +39,6 @@
             <ng-audio-recorder-wave-view wave-color="yellow" bar-color="red"></ng-audio-recorder-wave-view>
           </div>
         </div>
-
-        <ng-audio-recorder-wave-view ></ng-audio-recorder-wave-view>
 
         <h2 style="font-family: sans-serif; text-align: center; width: 60px; border-radius: 20px;
         border: solid 2px #333; padding: 20px 10px;" ng-if="recorder.status.isRecording">
