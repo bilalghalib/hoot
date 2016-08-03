@@ -2,6 +2,7 @@
   <ion-content class="padding">
     <img ng-src={{vm.model.hootimage}} class="centered"/>
 
+
     <ng-audio-recorder id="mainAudio" audio-model="recorded" show-player="false" time-limit="timeLimit">
       <div ng-if="recorder.isAvailable">
 
@@ -12,16 +13,16 @@
                 ng-disabled="recorder.status.isDenied === true || recorder.status.isRecording">
           Start Record
         </button>
-        <button  class="button button-block button-assertive" ng-click="recorder.stopRecord()" type="button" ng-disabled="recorder.status.isRecording === false">
+        <button class="button button-block button-assertive" ng-click="recorder.stopRecord()" type="button" ng-disabled="recorder.status.isRecording === false">
           Stop Record
         </button>
 
-        <button  class="button button-block button-assertive" ng-click="recorder.status.isPlaying ? recorder.playbackPause() : recorder.playbackResume()"
-                 type="button" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
+        <button class="button button-block button-assertive" ng-click="recorder.status.isPlaying ? recorder.playbackPause() : recorder.playbackResume()"
+                type="button" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
           {{recorder.status.isStopped || recorder.status.isPaused ? 'Play' : 'Pause'}}
         </button>
 
-        <button  class="button button-block button-assertive" ng-click="recorder.save();" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
+        <button class="button button-block button-assertive" ng-click="recorder.save()" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
           Download
         </button>
 
@@ -61,19 +62,22 @@
         use this feature.
       </div>
     </ng-audio-recorder>
+
     <button class="button button-block button-assertive"
             on-touch=vm.getLatLong()>
       <div style="position:relative; margin-top:-20px; "></b>getLat</b></div>
     </button>
-    <button class="button button-block button-assertive"
-            on-touch=vm.changeState('login');>
-      <div>Sign Out</div>
-    </button>
+
 
     <div>
       <div id="map" lat="-23.639492" lng="133.709107" zoom="8" map>
       </div>
     </div>
+
+    <button class="button button-block button-assertive"
+            on-touch=vm.changeState('login');>
+      <div>Sign Out</div>
+    </button>
 
   </ion-content>
   <h1 id="audio_position"></p></h1>

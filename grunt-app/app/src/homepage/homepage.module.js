@@ -10,7 +10,8 @@
 
   angular
     .module('app.homepage', [
-    'angularAudioRecorder'
+    'angularAudioRecorder',
+    'angularAudioRecorder.controllers'
     ]);
 
 }());

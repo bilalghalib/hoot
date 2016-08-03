@@ -1,7 +1,7 @@
 {
   "name": "Hoot",
-  "app_id": "",
- "gulpStartupTasks": [
+  "app_id": "d9b9c089",
+  "gulpStartupTasks": [
     "watch"
   ],
   "documentRoot": "grunt-app/app",

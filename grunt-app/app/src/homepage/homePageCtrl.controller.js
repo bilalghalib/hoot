@@ -13,7 +13,7 @@
     .controller('homePageCtrl', homePageCtrl);
 
   /* @ngInject */
-  function homePageCtrl($state, $cordovaGeolocation, $cordovaMedia, $ionicLoading) {
+  function homePageCtrl($state, $cordovaGeolocation, $scope) {
     var vm = this;
     var media;
     var extension = null;
@@ -95,6 +95,11 @@
       media = new Media(src, function(e){alert(e + " success");}, function(e){alert(e + " error");});
     }
 
+
+    console.log($scope.recorder);
+    $scope.log = function (value) {
+      console.log(value);
+    }
 
 
     vm.model = {
