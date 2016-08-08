@@ -33,21 +33,20 @@
     }
 
     function createUser() {
-      // window.MacAddress.getMacAddress(
-      //   function(macAddress) {
-      //     //alert(macAddress);
-      //     vm.email = macAddress + "@hoot.com";
-      //     var str = vm.email;
-      //     vm.email = str.replace(/:/g, ".");
-      //     alert(vm.email);
-      //     vm.password = macAddress;
-      //     alert(vm.password);
-      //   },
-      //   function(fail) {
-      //     alert(fail);
-      //   }
-      // );
-
+      window.MacAddress.getMacAddress(
+        function(macAddress) {
+          //alert(macAddress);
+          vm.email = macAddress + "@hoot.com";
+          var str = vm.email;
+          vm.email = str.replace(/:/g, ".");
+          // alert(vm.email);
+          vm.password = macAddress;
+          // alert(vm.password);
+        },
+        function(fail) {
+          alert(fail);
+        }
+      );
       hootAPI.createUser(vm.email, vm.password);
       firebase.auth().onAuthStateChanged(function(user) {
         if (user !== null) {

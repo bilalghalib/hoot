@@ -25,13 +25,9 @@
 
     //-----Functions Declarations
 
-    vm.onDeviceReady = onDeviceReady;
     vm.getLatLong = getLatLong;
     vm.changeState = changeState;
-    vm.play = play;
-    vm.record = record;
-    vm.getMediaURL = getMediaURL;
-
+    vm.signOut = signOut;
     /////////////////////
 
     /*
@@ -76,32 +72,6 @@
      }
      });*/
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    function onDeviceReady() {
-      if(device.platform == "iOS")
-      {
-        var path = cordova.file.tempDirectory;
-      }
-      else if(device.platform == "Android")
-      {
-        var path = cordova.file.externalRootDirectory;
-      }
-
-      var src = getMediaURL("myrecording");
-      src = path + src;
-
-      alert(src);
-      media = new Media(src, function(e){alert(e + " success");}, function(e){alert(e + " error");});
-    }
-
-
-    console.log($scope.recorder);
-    $scope.log = function (value) {
-      console.log(value);
-    }
-
-
     vm.model = {
       src: "",
       path: "",
@@ -136,49 +106,8 @@
       $state.go(name);
     }
 
-
-    function play() {
-      // vm.model.hootimage = "images/postHoot.png";
-      console.log("In Play Function!");
-      media.play();
-
-
-      // var iOSPlayOptions = {
-      //   numberOfLoops: 2,
-      //   playAudioWhenScreenIsLocked : false
-      // }
-      // media.stopRecord();
-      // setTimeout(function(){
-      //  media.play();
-      // }, 2000);
-
-    }
-
-    function record() {
-      vm.model.hootimage = "images/postHoot.png";
-      alert("Recording");
-      media.startRecord();
-
-      setTimeout(function(){
-        alert("Stop Record");
-        media.stopRecord();
-      }, 2000);
-
-    }
-
-
-    function getMediaURL(s) {
-
-      var isAndroid = ionic.Platform.isAndroid();
-      if (isAndroid){
-        extension = ".amr";
-      }
-      else {
-        extension = ".wav";
-      }
-
-      s = s + extension;
-      return s;
+    function signOut(name){
+      vm.changeState(name);
     }
 
   }

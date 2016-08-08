@@ -22,6 +22,12 @@ module.exports = {
         src: '**/*.*',
         dest: 'dist/sounds/',
         expand: true
+      },
+      {
+        cwd: 'app/lib',
+        src: '**/*.*',
+        dest: 'dist/lib/',
+        expand: true
       }
     ]
   },

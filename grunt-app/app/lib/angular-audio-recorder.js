@@ -199,85 +199,151 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
   };
 
   control.getAudioPlayer = function () {
+    console.log("Object ID   " + audioObjId);
     return service.isCordova ? cordovaMedia.player : document.getElementById(audioObjId);
   };
 
 
   control.startRecord = function () {
-    if (!service.isAvailable()) {
-      return;
-    }
+    setTimeout(function(){
 
-    if (status.isPlaying) {
-      control.playbackPause();
-      //indicate that this is not paused.
-      status.playback = PLAYBACK.STOPPED;
-    }
+      if (!service.isAvailable()) {
+        return;
+      }
 
-    //clear audio previously recorded
-    control.audioModel = null;
+      if (status.isPlaying) {
+        control.playbackPause();
+        //indicate that this is not paused.
+        status.playback = PLAYBACK.STOPPED;
+      }
 
-    var id = control.id, recordHandler = service.getHandler();
-    //Record initiation based on browser type
-    var start = function () {
-      if (service.isCordova) {
-        cordovaMedia.url = recorderUtils.cordovaAudioUrl(control.id);
-        //mobile app needs wav extension to save recording
-        cordovaMedia.recorder = new Media(cordovaMedia.url, function () {
-          console.log('Media successfully played');
-        }, function (err) {
-          console.log('Media could not be launched' + err.code, err);
+      //clear audio previously recorded
+      control.audioModel = null;
+
+      var id = control.id, recordHandler = service.getHandler();
+      //Record initiation based on browser type
+      var start = function () {
+        if (service.isCordova) {
+          cordovaMedia.url = recorderUtils.cordovaAudioUrl(control.id);
+          //mobile app needs wav extension to save recording
+          cordovaMedia.recorder = new Media(cordovaMedia.url, function () {
+            console.log('Media successfully played');
+          }, function (err) {
+            console.log('Media could not be launched' + err.code, err);
+          });
+          console.log('CordovaRecording');
+          cordovaMedia.recorder.startRecord();
+        }
+        else if (service.isHtml5) {
+          //HTML5 recording
+          if (!recordHandler) {
+            return;
+          }
+          console.log('HTML5Recording');
+          recordHandler.clear();
+          recordHandler.record();
+        }
+        else {
+          //Flash recording
+          if (!service.isReady) {
+            //Stop recording if the flash object is not ready
+            return;
+          }
+          console.log('FlashRecording');
+          recordHandler.record(id, 'audio.wav');
+        }
+
+        status.isRecording = true;
+        control.onRecordStart();
+        control.elapsedTime = 0;
+        timing = $interval(function () {
+          ++control.elapsedTime;
+          if (control.timeLimit && control.timeLimit > 0 && control.elapsedTime >= control.timeLimit) {
+            control.stopRecord();
+          }
+        }, 1000);
+      };
+
+      if (service.isCordova || recordHandler) {
+        start();
+      } else if (!status.isDenied) {
+        //probably permission was never asked
+        service.showPermission({
+          onDenied: function () {
+            status.isDenied = true;
+            $scope.$apply();
+          },
+          onAllowed: function () {
+            status.isDenied = false;
+            recordHandler = service.getHandler();
+            start();
+            scopeApply();
+          }
         });
-        console.log('CordovaRecording');
-        cordovaMedia.recorder.startRecord();
-      }
-      else if (service.isHtml5) {
-        //HTML5 recording
-        if (!recordHandler) {
-          return;
-        }
-        console.log('HTML5Recording');
-        recordHandler.clear();
-        recordHandler.record();
-      }
-      else {
-        //Flash recording
-        if (!service.isReady) {
-          //Stop recording if the flash object is not ready
-          return;
-        }
-        console.log('FlashRecording');
-        recordHandler.record(id, 'audio.wav');
       }
 
-      status.isRecording = true;
-      control.onRecordStart();
-      control.elapsedTime = 0;
-      timing = $interval(function () {
-        ++control.elapsedTime;
-        if (control.timeLimit && control.timeLimit > 0 && control.elapsedTime >= control.timeLimit) {
-          control.stopRecord();
-        }
-      }, 1000);
-    };
+    }, 200);
+  };
 
-    if (service.isCordova || recordHandler) {
-      start();
-    } else if (!status.isDenied) {
-      //probably permission was never asked
-      service.showPermission({
-        onDenied: function () {
-          status.isDenied = true;
-          $scope.$apply();
-        },
-        onAllowed: function () {
-          status.isDenied = false;
-          recordHandler = service.getHandler();
-          start();
-          scopeApply();
+
+  control.save = function (fileName) {
+      console.log(control.audioModel);
+      if (!service.isAvailable() || status.isRecording || !control.audioModel) {
+        return false;
+      }
+
+      if (fileName === undefined) {
+        var timeInMs = Date.now();
+        fileName = 'audio_recording_' + timeInMs + (control.audioModel.type.indexOf('mp3') > -1 ? '.mp3' : '.wav');
+        console.log(fileName);
+      }
+      console.log("Control Audio Model ");
+      // var a = document.createElement('a');
+      // a.href = blobUrl;
+      // a.target = '_blank';
+      // a.download = fileName;
+      // var click = document.createEvent("Event");
+      // click.initEvent("click", true, true);
+      // a.dispatchEvent(click);
+      alert(cordovaMedia.url);
+      hootAPI.storeAudio(control.audioModel, cordovaMedia.url, fileName);
+
+    // var reader = new window.FileReader();
+    // reader.readAsDataURL(control.audioModel);
+    // reader.onloadend = function() {
+    //   var base64data = reader.result;
+    //   console.log(base64data);
+    // };
+
+
+
+/*
+      var xhr = new XMLHttpRequest();
+      console.log( (window.URL || window.webkitURL).createObjectURL(control.audioModel));
+      xhr.open('GET', (window.URL || window.webkitURL).createObjectURL(control.audioModel), true);
+      xhr.responseType = 'blob';
+      alert(xhr);
+      xhr.onload = function(e) {
+        alert(this.status)
+        if (this.status == 200) {
+          var myBlob = this.response;
+          var base64str = btoa(myBlob);
+          console.log(base64str);
+          var reader = new window.FileReader();
+          reader.readAsDataURL(myBlob);
+          reader.onloadend = function() {
+            var base64data = reader.result;
+            console.log(hootAPI);
+            hootAPI.storeAudio(myBlob, myBlob, fileName);
+          }
+        } else {
+          alert("Something went Wrong...")
         }
-      });
-    }
+      };
+      setTimeout(function () {
+        alert("Initiating Send");
+        xhr.send();
+      },2000)*/
   };
 
   control.stopRecord = function () {
@@ -327,6 +393,8 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
       recordHandler.stopRecording(id);
       completed(recordHandler.getBlob(id));
     }
+    console.log(control.audioModel);
+    control.playbackResume();
   };
 
   control.playbackRecording = function () {
@@ -335,6 +403,7 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
     }
 
     if (service.isCordova) {
+      alert(cordovaMedia.url);
       cordovaMedia.player = new Media(cordovaMedia.url, playbackOnEnded, function () {
         console.log('Playback failed');
       });
@@ -358,63 +427,24 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
   };
 
   control.playbackResume = function () {
-    if (status.isPlaying || !service.isAvailable() || status.isRecording || !control.audioModel) {
-      return false;
-    }
-
-    if (status.isPaused) {
-      //previously paused, just resume
-      control.getAudioPlayer().play();
-      if (service.isCordova) {
-        playbackOnResume();
+    setTimeout(function () {
+      if (status.isPlaying || !service.isAvailable() || status.isRecording || !control.audioModel) {
+        return false;
       }
-    } else {
-      control.playbackRecording();
-    }
-
-  };
-
-
-  control.save = function (fileName) {
-    if (!service.isAvailable() || status.isRecording || !control.audioModel) {
-      return false;
-    }
-
-    if (fileName === undefined) {
-      fileName = 'audio_recording_' + control.id + (control.audioModel.type.indexOf('mp3') > -1 ? '.mp3' : '.wav');
-      console.log(fileName);
-    }
-
-    var blobUrl = window.URL.createObjectURL(control.audioModel);
-    // var a = document.createElement('a');
-    // a.href = blobUrl;
-    // a.target = '_blank';
-    // a.download = fileName;
-    // var click = document.createEvent("Event");
-    // click.initEvent("click", true, true);
-    // a.dispatchEvent(click);
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', blobUrl, true);
-    xhr.responseType = 'blob';
-    xhr.onload = function(e) {
-      if (this.status == 200) {
-        var myBlob = this.response;
-        var base64str = btoa(myBlob);
-        console.log(base64str);
-        var reader = new window.FileReader();
-        reader.readAsDataURL(myBlob);
-        reader.onloadend = function() {
-          var base64data = reader.result;
-          console.log(hootAPI);
-          hootAPI.storeAudio(blobUrl, myBlob, fileName);
+      if (status.isPaused) {
+        //previously paused, just resume
+        control.getAudioPlayer().play();
+        if (service.isCordova) {
+          playbackOnResume();
         }
+      } else {
+        control.playbackRecording();
       }
-    };
-    xhr.send();
 
+    }, 500);
 
   };
+
 
   control.isHtml5 = function () {
     return service.isHtml5;
@@ -1293,15 +1323,15 @@ angular.module('angularAudioRecorder.services')
     var fnString = fn.toString();
     if (fnString.match(/\[native\s*code\]/i)) {
       throw("You cannot bind a native function to a worker");
-    }
-    ;
+    };
 
     params = params || {};
     if (typeof params !== 'object') {
       console.warn('Params must be an object that is serializable with JSON.stringify, specified is: ' + (typeof params));
     }
 
-    var blobURL = window.URL.createObjectURL(new Blob(['(', fnString, ')(this,', JSON.stringify(params), ')'], {type: 'application/javascript'}));
+    var blobURL =
+      (window.URL || window.webkitURL || window || {}).createObjectURL(new Blob(['(', fnString, ')(this,', JSON.stringify(params), ')'], {type: 'application/javascript'}));
 
     return blobURL;
   };
@@ -1310,7 +1340,7 @@ angular.module('angularAudioRecorder.services')
     var url = workerToBlobUrl(this, params);
     return new Worker(url);
   };
-})();
+  })();
 /*License (MIT)
 
  Copyright © 2013 Matt Diamond

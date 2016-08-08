@@ -9,10 +9,11 @@
         <div ng-if="recorder.status.isDenied === true" style="color: red;">
           You need to grant permission for this application to USE your microphone.
         </div>
-        <button class="button button-block button-assertive" ng-click="recorder.startRecord()" type="button"
+        <button class="button button-block button-assertive" on-touch="recorder.startRecord()" on-release="recorder.stopRecord();" type="button"
                 ng-disabled="recorder.status.isDenied === true || recorder.status.isRecording">
           Start Record
         </button>
+
         <button class="button button-block button-assertive" ng-click="recorder.stopRecord()" type="button" ng-disabled="recorder.status.isRecording === false">
           Stop Record
         </button>
@@ -22,19 +23,14 @@
           {{recorder.status.isStopped || recorder.status.isPaused ? 'Play' : 'Pause'}}
         </button>
 
-        <button class="button button-block button-assertive" ng-click="recorder.save()" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
-          Download
+        <button class="button button-block button-assertive" on-tap="recorder.save()" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
+          Upload
         </button>
-
+        
         <div style="max-width: 600px">
           <div ng-show="recorder.status.isConverting">
             Please wait while your recording is processed.
           </div>
-
-          <div ng-show="recorder.isHtml5 && recorder.status.isRecording">
-            <ng-audio-recorder-analyzer></ng-audio-recorder-analyzer>
-          </div>
-          <br/>
 
           <div ng-show="!recorder.status.isRecording && recorder.audioModel">
             <ng-audio-recorder-wave-view wave-color="yellow" bar-color="red"></ng-audio-recorder-wave-view>
@@ -46,11 +42,6 @@
           {{recorder.elapsedTime > 9 ? recorder.elapsedTime : ('0'+recorder.elapsedTime)}}
         </h2>
 
-
-        <h2 style="font-family: sans-serif; text-align: center; border: solid 2px #333; padding: 20px 10px;"
-            ng-if="recorder.status.isRecording">
-          Remaining Time: {{recorder.timeLimit - recorder.elapsedTime}}
-        </h2>
       </div>
 
 
@@ -65,7 +56,7 @@
 
     <button class="button button-block button-assertive"
             on-touch=vm.getLatLong()>
-      <div style="position:relative; margin-top:-20px; "></b>getLat</b></div>
+      <div style="position:relative; margin-top:-10px;margin-bottom:-10px ">getLat</div>
     </button>
 
 
