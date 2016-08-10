@@ -7,7 +7,7 @@
     .controller('loginCtrl', loginCtrl);
 
 
-  function loginCtrl($state, hootAPI) {
+  function loginCtrl($state, dataService) {
 
 
     // var FirebaseTokenGenerator = require("firebase-token-generator");
@@ -17,9 +17,14 @@
 
     var vm = this;
 
-    vm.email = "00.00.00.00.00.00@hoot.com";
-    vm.email = "test@hoot.com";
-    vm.password = "testingtestingtesting";
+    var email = "00.00.00.00.00.00@hoot.com";
+    // var email = "test@hoot.com";
+    var password = "testingtestingtesting";
+
+    var user = {
+      username : email,
+      password : password 
+    }
 
     /** Function Declaration **/
     vm.changeState = changeState;
@@ -33,28 +38,53 @@
     }
 
     function createUser() {
-      window.MacAddress.getMacAddress(
-        function(macAddress) {
-          //alert(macAddress);
-          vm.email = macAddress + "@hoot.com";
-          var str = vm.email;
-          vm.email = str.replace(/:/g, ".");
-          // alert(vm.email);
-          vm.password = macAddress;
-          // alert(vm.password);
-        },
-        function(fail) {
-          alert(fail);
+      // window.MacAddress.getMacAddress(
+      //   function(macAddress) {
+      //     //alert(macAddress);
+      //     vm.email = macAddress + "@hoot.com";
+      //     var str = vm.email;
+      //     vm.email = str.replace(/:/g, ".");
+      //     // alert(vm.email);
+      //     vm.password = macAddress;
+      //     // alert(vm.password);
+      //   },
+      //   function(fail) {
+      //     alert(fail);
+      //   }
+      // );
+      // hootAPI.createUser(vm.email, vm.password);
+      dataService.auth.login(user).then(function(res){
+        if(res.success){
+          console.log('user found and go inside the app');
+          console.log(res);
         }
-      );
-      hootAPI.createUser(vm.email, vm.password);
-      firebase.auth().onAuthStateChanged(function(user) {
-        if (user !== null) {
-          console.log('Weloome!');
-          changeState('homepage');
+
+        else{
+          console.log('user not found signup , login and then go inside the app');
+          dataService.auth.signup(user).then(function(res){
+            if(res.success){
+              dataService.auth.login(user).then(function(res){
+
+              },
+              function(err){
+
+              })
+            }
+          }, function(err){
+            console.log(err);
+          });
         }
+      },
+      function(err){
+            
       });
 
+      // firebase.auth().onAuthStateChanged(function(user) {
+      //   if (user !== null) {
+      //     console.log('Weloome!');
+      //     changeState('homepage');
+      //   }
+      // });
     }
 
   }

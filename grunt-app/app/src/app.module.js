@@ -18,7 +18,6 @@
     'app.homepage',
     'app.main',
     'app.login',
-    'firebase',
     'angularAudioRecorder'
     ])
 

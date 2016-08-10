@@ -14,7 +14,7 @@
   /* @ngInject */
   function configuration(RestangularProvider){
 
-    RestangularProvider.setBaseUrl('/api');
+    RestangularProvider.setBaseUrl('http://localhost:3000/api');
 
   }
 

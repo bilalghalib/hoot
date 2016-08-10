@@ -106,8 +106,17 @@
       $state.go(name);
     }
 
+
     function signOut(name){
-      vm.changeState(name);
+      console.log(firebase.auth().currentUser);
+      firebase.auth().signOut().then(function() {
+        console.log("Signed Out! ");
+      }, function(error) {
+        alert(error);
+      });
+      setTimeout(function(){
+        vm.changeState(name);
+      }, 1000)
     }
 
   }
