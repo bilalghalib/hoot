@@ -19,13 +19,17 @@
           return Restangular.one('users').one('login').post('',user);
         },
         signup: function (user) {
-            return Restangular.one('users').one('register').post('',user);
+          return Restangular.one('users').one('register').post('',user);
+        },
+        logout: function(){
+          return Restangular.one('users').one('logout').get();
         }
     };
-
-
-
-
+    var hoot = {
+        add: function (data){
+          return Restangular.one('hoot').one().post('',data);
+        }
+    };
 
 		return {
       auth:auth

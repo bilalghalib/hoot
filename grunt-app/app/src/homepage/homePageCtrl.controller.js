@@ -13,7 +13,7 @@
     .controller('homePageCtrl', homePageCtrl);
 
   /* @ngInject */
-  function homePageCtrl($state, $cordovaGeolocation, $scope) {
+  function homePageCtrl($state, $cordovaGeolocation, $scope, dataService) {
     var vm = this;
     var media;
     var extension = null;
@@ -108,15 +108,19 @@
 
 
     function signOut(name){
-      console.log(firebase.auth().currentUser);
-      firebase.auth().signOut().then(function() {
-        console.log("Signed Out! ");
-      }, function(error) {
-        alert(error);
+      dataService.auth.logout().then(function(res){
+      if(res.success){
+        console.log('Logging Out');
+        console.log(res);
+        }
+      },
+      function(err){
+        console.log(err);
       });
-      setTimeout(function(){
-        vm.changeState(name);
-      }, 1000)
+
+      // setTimeout(function(){
+      //   vm.changeState(name);
+      // }, 1000)
     }
 
   }

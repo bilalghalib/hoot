@@ -57,6 +57,9 @@
         if(res.success){
           console.log('user found and go inside the app');
           console.log(res);
+          setTimeout(function(){
+            vm.changeState('homepage');    
+          },300)
         }
 
         else{
