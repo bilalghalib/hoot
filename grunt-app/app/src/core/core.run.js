@@ -5,8 +5,15 @@
   angular.module('app.core')
     .run(routingEvents);
   /* @ngInject */
-  function routingEvents($rootScope, $ionicPlatform, $ionicSideMenuDelegate){
-    
+  function routingEvents($rootScope, $ionicPlatform, $ionicSideMenuDelegate, $localStorage, Restangular){
+
+
+    if ($localStorage.token) {
+      Restangular.setDefaultHeaders({
+        'x-access-token': $localStorage.token
+      });
+    }
+
     //on routing error
     $rootScope.$on('$stateNotFound', function(event, unfoundState, fromState, fromParams){
       //do some logging and toasting

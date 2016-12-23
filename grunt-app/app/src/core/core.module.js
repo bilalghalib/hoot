@@ -11,7 +11,8 @@
     'ui.router',
     'restangular',
     'ionic',
-    'ngCordova'
+    'ngCordova',
+    'ngStorage'
   ]);
 
 }());

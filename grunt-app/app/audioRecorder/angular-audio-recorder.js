@@ -61,7 +61,7 @@ var blobToDataURL = function (blob, callback) {
   a.readAsDataURL(blob);
 };
 
-var RecorderController = function (element, service, recorderUtils, $scope, $timeout, $interval, PLAYBACK) {
+var RecorderController = function (element, service, recorderUtils, $scope, $timeout, $interval, PLAYBACK, dataService) {
   //used in NON-Angular Async process
   var scopeApply = function (fn) {
     var phase = $scope.$root.$$phase;
@@ -288,13 +288,19 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
 
   control.save = function (fileName) {
       console.log(control.audioModel);
+
+      var ext;
+      var contentType = control.audioModel.type;
+      contentType = contentType.replace('audio/', '');
+
+
       if (!service.isAvailable() || status.isRecording || !control.audioModel) {
         return false;
       }
 
       if (fileName === undefined) {
         var timeInMs = Date.now();
-        fileName = 'audio_recording_' + timeInMs + (control.audioModel.type.indexOf('mp3') > -1 ? '.mp3' : '.wav');
+        fileName = 'audio_recording_' + timeInMs +'.amr';
         console.log(fileName);
       }
       console.log("Control Audio Model ");
@@ -305,7 +311,7 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
       var click = document.createEvent("Event");
       click.initEvent("click", true, true);
       a.dispatchEvent(click);
-      alert(cordovaMedia.url);
+      //alert(cordovaMedia.url);
 
 
       function base64String(blob, url,  filename) {
@@ -334,19 +340,19 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
 
         getFileContentAsBase64(url,function(base64Audio){
         //window.open(base64Image);
-          console.log(base64Audio);
+          //console.log(base64Audio);
           base64 = base64Audio;
 
-          alert(base64);
+          //alert(base64);
 
           var data = {
             audio : base64
           };
 
           dataService.hoot.add(data).then(function(res){
-            alert(res);
+            //alert(res);
           }, function(err){
-            alert(err);
+            //alert(err);
           });
         });
       };
@@ -357,38 +363,57 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
     reader.readAsDataURL(control.audioModel);
     reader.onloadend = function() {
       var base64data = reader.result;
-      console.log(base64data);
+    //  console.log(base64data);
+
+
+
+      var data = {
+        audio : base64data,
+        type: contentType,
+        name: fileName
+      };
+
+      console.log(data);
+
+      for(var i = 0; i < 10; i ++){
+        dataService.hoot.add(data).then(function(res){
+          alert(res);
+        }, function(err){
+          alert(err);
+        });
+      }
+
     };
 
 
 
 
-      var xhr = new XMLHttpRequest();
-      console.log( (window.URL || window.webkitURL).createObjectURL(control.audioModel));
-      xhr.open('GET', (window.URL || window.webkitURL).createObjectURL(control.audioModel), true);
-      xhr.responseType = 'blob';
-      alert(xhr);
-      xhr.onload = function(e) {
-        alert(this.status)
-        if (this.status == 200) {
-          var myBlob = this.response;
-          var base64str = btoa(myBlob);
-          console.log(base64str);
-          var reader = new window.FileReader();
-          reader.readAsDataURL(myBlob);
-          reader.onloadend = function() {
-            var base64data = reader.result;
-            console.log(hootAPI);
-            hootAPI.storeAudio(myBlob, myBlob, fileName);
-          }
-        } else {
-          alert("Something went Wrong...")
-        }
-      };
-      setTimeout(function () {
-        alert("Initiating Send");
-        xhr.send();
-      },2000);
+      // var xhr = new XMLHttpRequest();
+      // console.log( (window.URL || window.webkitURL).createObjectURL(control.audioModel));
+      // xhr.open('GET', (window.URL || window.webkitURL).createObjectURL(control.audioModel), true);
+      // xhr.responseType = 'blob';
+      // alert(xhr);
+      // xhr.onload = function(e) {
+      //   alert(this.status)
+      //   if (this.status == 200) {
+      //     var myBlob = this.response;
+      //     var base64str = btoa(myBlob);
+      //     console.log(base64str);
+      //     var reader = new window.FileReader();
+      //     reader.readAsDataURL(myBlob);
+      //     reader.onloadend = function() {
+      //       var base64data = reader.result;
+      //       console.log(hootAPI);
+      //       hootAPI.storeAudio(myBlob, myBlob, fileName);
+      //     }
+      //   } else {
+      //     alert("Something went Wrong...")
+      //   }
+      // };
+      // setTimeout(function () {
+      //   alert("Initiating Send");
+      //   xhr.send();
+      // },2000);
   };
 
   control.stopRecord = function () {
@@ -505,7 +530,7 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
 
 };
 
-RecorderController.$inject = ['$element', 'recorderService', 'recorderUtils', '$scope', '$timeout', '$interval', 'recorderPlaybackStatus'];
+RecorderController.$inject = ['$element', 'recorderService', 'recorderUtils', '$scope', '$timeout', '$interval', 'recorderPlaybackStatus', 'dataService'];
 
 angular.module('angularAudioRecorder.controllers')
   .controller('recorderController', RecorderController)

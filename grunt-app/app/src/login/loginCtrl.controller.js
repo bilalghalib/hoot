@@ -7,7 +7,7 @@
     .controller('loginCtrl', loginCtrl);
 
 
-  function loginCtrl($state, dataService) {
+  function loginCtrl($state, dataService, $rootScope, $localStorage, Restangular) {
 
 
     // var FirebaseTokenGenerator = require("firebase-token-generator");
@@ -23,7 +23,7 @@
 
     var user = {
       username : email,
-      password : password 
+      password : password
     }
 
     /** Function Declaration **/
@@ -57,8 +57,11 @@
         if(res.success){
           console.log('user found and go inside the app');
           console.log(res);
+
+          $localStorage.token = res.data.token;
+          Restangular.setDefaultHeaders({'x-access-token': res.data.token});
           setTimeout(function(){
-            vm.changeState('homepage');    
+            vm.changeState('homepage');
           },300)
         }
 
@@ -79,7 +82,7 @@
         }
       },
       function(err){
-            
+
       });
 
       // firebase.auth().onAuthStateChanged(function(user) {

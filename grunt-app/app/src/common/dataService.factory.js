@@ -27,12 +27,13 @@
     };
     var hoot = {
         add: function (data){
-          return Restangular.one('hoot').one().post('',data);
+          return Restangular.one('hoot').post('',data);
         }
     };
 
 		return {
-      auth:auth
+      auth:auth,
+      hoot: hoot
 		};
 
 	}
