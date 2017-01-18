@@ -688,6 +688,7 @@ angular.module('angularAudioRecorder.directives')
         restrict: 'EA',
         scope: {
           audioModel: '=',
+          vm: '=',
           id: '@',
           onRecordStart: '&',
           onRecordComplete: '&',
@@ -711,7 +712,8 @@ angular.module('angularAudioRecorder.directives')
             '</div>';
         },
         controller: 'recorderController',
-        link: function (scope, element, attrs) {
+        link: function (scope, element, attrs, parentCtrl) {
+          scope.vm = parentCtrl.vm;
           $timeout(function () {
             if (recorderService.isAvailable && !(recorderService.isHtml5 || recorderService.isCordova)) {
               var params = {

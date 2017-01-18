@@ -1,32 +1,38 @@
 <ion-pane style="background-color: #182330;" ng-cloak="">
+  <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="timeLimit">
   <ion-content class="padding">
     <img ng-src={{vm.model.hootimage}} class="centered"/>
 
-
-    <ng-audio-recorder id="mainAudio" audio-model="recorded" show-player="false" time-limit="timeLimit">
       <div ng-if="recorder.isAvailable">
 
         <div ng-if="recorder.status.isDenied === true" style="color: red;">
           You need to grant permission for this application to USE your microphone.
         </div>
-        <button class="button button-block button-assertive" on-touch="recorder.startRecord()" on-release="recorder.stopRecord();" type="button"
+        <button class="button button-block button-assertive" ng-click="vm.test(recorder)">
+          Test
+        </button>
+        <button class="button button-block button-assertive" on-touch="recorder.startRecord()"
+                on-release="recorder.stopRecord();" type="button"
                 ng-disabled="recorder.status.isDenied === true || recorder.status.isRecording">
           Start Record
         </button>
 
-        <button class="button button-block button-assertive" ng-click="recorder.stopRecord()" type="button" ng-disabled="recorder.status.isRecording === false">
+        <button class="button button-block button-assertive" ng-click="recorder.stopRecord()" type="button"
+                ng-disabled="recorder.status.isRecording === false">
           Stop Record
         </button>
 
-        <button class="button button-block button-assertive" ng-click="recorder.status.isPlaying ? recorder.playbackPause() : recorder.playbackResume()"
+        <button class="button button-block button-assertive"
+                ng-click="recorder.status.isPlaying ? recorder.playbackPause() : recorder.playbackResume()"
                 type="button" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
           {{recorder.status.isStopped || recorder.status.isPaused ? 'Play' : 'Pause'}}
         </button>
 
-        <button class="button button-block button-assertive" on-tap="recorder.save()" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
+        <button class="button button-block button-assertive" on-tap="recorder.save()"
+                ng-disabled="recorder.status.isRecording || !recorder.audioModel">
           Upload
         </button>
-        
+
         <div style="max-width: 600px">
           <div ng-show="recorder.status.isConverting">
             Please wait while your recording is processed.
@@ -52,7 +58,7 @@
         Safari or Internet Explorer, you can install <a href="https://get.adobe.com/flashplayer/">Adobe Flash</a> to
         use this feature.
       </div>
-    </ng-audio-recorder>
+
 
     <button class="button button-block button-assertive"
             on-touch=vm.getLatLong()>
@@ -69,6 +75,6 @@
             on-touch="vm.signOut('login')">
       <div>Sign Out</div>
     </button>
-
   </ion-content>
-  <h1 id="audio_position"></p></h1>
+  </ng-audio-recorder>
+</ion-pane>

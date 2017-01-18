@@ -13,7 +13,7 @@
     .controller('homePageCtrl', homePageCtrl);
 
   /* @ngInject */
-  function homePageCtrl($state, $cordovaGeolocation, $scope, dataService) {
+  function homePageCtrl($state, $cordovaGeolocation, dataService) {
     var vm = this;
     var media;
     var extension = null;
@@ -28,6 +28,11 @@
     vm.getLatLong = getLatLong;
     vm.changeState = changeState;
     vm.signOut = signOut;
+
+    vm.test = function(recorder){
+      console.log("Hello");
+      console.log(recorder);
+    };
     /////////////////////
 
     /*
