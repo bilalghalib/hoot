@@ -13,7 +13,7 @@
     .controller('homePageCtrl', homePageCtrl);
 
   /* @ngInject */
-  function homePageCtrl($state, $cordovaGeolocation, dataService) {
+  function homePageCtrl($state, dataService) {
     var vm = this;
     var media;
     var extension = null;
@@ -25,13 +25,17 @@
 
     //-----Functions Declarations
 
-    vm.getLatLong = getLatLong;
+    // vm.getLatLong = getLatLong;
     vm.changeState = changeState;
     vm.signOut = signOut;
 
-    vm.test = function(recorder){
-      console.log("Hello");
-      console.log(recorder);
+    vm.test1 = function(rightSwipe){
+      console.log("I am right swipe");
+      // console.log(recorder);
+    };
+
+    vm.test2 = function(leftSwipe){
+      console.log("I am left Swipe")
     };
     /////////////////////
 
@@ -87,23 +91,23 @@
     };
 
 
-    function getLatLong() {
-      var isIOS = ionic.Platform.isIOS();
-      var posOptions = {
-        maximumAge: 3000,
-        timeout: 5000,
-        enableHighAccuracy: true
-      };
-      $cordovaGeolocation.getCurrentPosition(posOptions).then(
-        function (position) {
-          var lat = position.coords.latitude;
-          var long = position.coords.longitude;
-          console.log("lat" + position.coords.latitude);
-          console.log("long" + position.coords.longitude);
-        }, function (err) {
-          console.log("err");
-        });
-    }
+    // function getLatLong() {
+    //   var isIOS = ionic.Platform.isIOS();
+    //   var posOptions = {
+    //     maximumAge: 3000,
+    //     timeout: 5000,
+    //     enableHighAccuracy: true
+    //   };
+    //   $cordovaGeolocation.getCurrentPosition(posOptions).then(
+    //     function (position) {
+    //       var lat = position.coords.latitude;
+    //       var long = position.coords.longitude;
+    //       console.log("lat" + position.coords.latitude);
+    //       console.log("long" + position.coords.longitude);
+    //     }, function (err) {
+    //       console.log("err");
+    //     });
+    // }
 
 
     function changeState(name) {

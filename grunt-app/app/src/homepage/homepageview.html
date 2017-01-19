@@ -1,6 +1,7 @@
 <ion-pane style="background-color: #182330;" ng-cloak="">
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="timeLimit">
-  <ion-content class="padding">
+  <ion-content class="padding" on-swipe-up="recorder.startRecord()" on-tap="recorder.stopRecord()" on-swipe-left="vm.test1(leftSwipe)"
+  on-swipe-right="vm.test2(rightSwipe)">
     <img ng-src={{vm.model.hootimage}} class="centered"/>
 
       <div ng-if="recorder.isAvailable">
@@ -11,16 +12,16 @@
         <button class="button button-block button-assertive" ng-click="vm.test(recorder)">
           Test
         </button>
-        <button class="button button-block button-assertive" on-touch="recorder.startRecord()"
-                on-release="recorder.stopRecord();" type="button"
-                ng-disabled="recorder.status.isDenied === true || recorder.status.isRecording">
-          Start Record
-        </button>
+        <!--<button class="button button-block button-assertive" on-swipe-up="recorder.startRecord(recorder)"-->
+                <!--on-release="recorder.stopRecord();" type="button"-->
+                <!--ng-disabled="recorder.status.isDenied === true || recorder.status.isRecording">-->
+          <!--Start Record-->
+        <!--</button>-->
 
-        <button class="button button-block button-assertive" ng-click="recorder.stopRecord()" type="button"
-                ng-disabled="recorder.status.isRecording === false">
-          Stop Record
-        </button>
+        <!--<button class="button button-block button-assertive" on-tap="recorder.stopRecord(recorder)" type="button"-->
+                <!--ng-disabled="recorder.status.isRecording === false">-->
+          <!--Stop Record-->
+        <!--</button>-->
 
         <button class="button button-block button-assertive"
                 ng-click="recorder.status.isPlaying ? recorder.playbackPause() : recorder.playbackResume()"
@@ -38,38 +39,38 @@
             Please wait while your recording is processed.
           </div>
 
-          <div ng-show="!recorder.status.isRecording && recorder.audioModel">
-            <ng-audio-recorder-wave-view wave-color="yellow" bar-color="red"></ng-audio-recorder-wave-view>
-          </div>
+          <!--<div ng-show="!recorder.status.isRecording && recorder.audioModel">-->
+            <!--<ng-audio-recorder-wave-view wave-color="yellow" bar-color="red"></ng-audio-recorder-wave-view>-->
+          <!--</div>-->
         </div>
 
-        <h2 style="font-family: sans-serif; text-align: center; width: 60px; border-radius: 20px;
-        border: solid 2px #333; padding: 20px 10px;" ng-if="recorder.status.isRecording">
-          {{recorder.elapsedTime > 9 ? recorder.elapsedTime : ('0'+recorder.elapsedTime)}}
-        </h2>
+        <!--<h2 style="font-family: sans-serif; text-align: center; width: 60px; border-radius: 20px;-->
+        <!--border: solid 2px #333; padding: 20px 10px;" ng-if="recorder.status.isRecording">-->
+          <!--{{recorder.elapsedTime > 9 ? recorder.elapsedTime : ('0'+recorder.elapsedTime)}}-->
+        <!--</h2>-->
 
       </div>
 
 
-      <div ng-if="!recorder.isAvailable">
-        Your browser does not support this feature natively, please use latest version of <a
-        href="https://www.google.com/chrome/browser" target="_blank">Google Chrome</a> or <a
-        href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Mozilla Firefox</a>. If you're on
-        Safari or Internet Explorer, you can install <a href="https://get.adobe.com/flashplayer/">Adobe Flash</a> to
-        use this feature.
-      </div>
+      <!--<div ng-if="!recorder.isAvailable">-->
+        <!--Your browser does not support this feature natively, please use latest version of <a-->
+        <!--href="https://www.google.com/chrome/browser" target="_blank">Google Chrome</a> or <a-->
+        <!--href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Mozilla Firefox</a>. If you're on-->
+        <!--Safari or Internet Explorer, you can install <a href="https://get.adobe.com/flashplayer/">Adobe Flash</a> to-->
+        <!--use this feature.-->
+      <!--</div>-->
 
 
-    <button class="button button-block button-assertive"
-            on-touch=vm.getLatLong()>
-      <div style="position:relative; margin-top:-10px;margin-bottom:-10px ">getLat</div>
-    </button>
+    <!--<button class="button button-block button-assertive"-->
+            <!--on-touch=vm.getLatLong()>-->
+      <!--<div style="position:relative; margin-top:-10px;margin-bottom:-10px ">getLat</div>-->
+    <!--</button>-->
 
 
-    <div>
-      <div id="map" lat="-23.639492" lng="133.709107" zoom="8" map>
-      </div>
-    </div>
+    <!--<div>-->
+      <!--<div id="map" lat="-23.639492" lng="133.709107" zoom="8" map>-->
+      <!--</div>-->
+    <!--</div>-->
 
     <button class="button button-block button-assertive"
             on-touch="vm.signOut('login')">
