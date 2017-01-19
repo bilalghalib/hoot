@@ -375,13 +375,13 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
 
       console.log(data);
 
-      for(var i = 0; i < 10; i ++){
+
         dataService.hoot.add(data).then(function(res){
           alert(res);
         }, function(err){
           alert(err);
         });
-      }
+
 
     };
 
