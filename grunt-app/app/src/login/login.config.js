@@ -22,7 +22,7 @@
         cache: false,
         url: '/homepage',
         templateUrl: 'src/homepage/homepageview.html',
-        /*controller: 'homePageCtrl as vm'*/
+        controller: 'homePageCtrl as vm'
       });
   }
 

@@ -71,7 +71,7 @@
 
               vm.changeState('listenHoot');
 
-            
+
               // getHoots = [];
               // vm.getHoots = [
               //   {path:'s3.amazonaws.com/hoot-app-audio/.wav'},
