@@ -21,7 +21,7 @@
 </head>
 
 <body ng-app="app" class="container" ng-cloak="">
-<div ui-view=""></div>
+<ion-nav-view animation></ion-nav-view>
 </body>
 
 <script>
@@ -47,34 +47,29 @@
 
 <!-- build:js scripts/app.js -->
 <script src="src/main/main.module.js"></script>
+<script src="src/core/core.module.js"></script>
+<script src="src/common/common.module.js"></script>
 <script src="src/main/main.config.js"></script>
-
+<script src="src/app.module.js"></script>
+<script src="src/conversation/listenHoots.module.js"></script>
+<script src="src/login/login.module.js"></script>
 <script src="src/homepage/homepage.module.js"></script>
-<script src="src/homepage/homepage.config.js"></script>
+
+<script src="src/conversation/listenHoots.controller.js"></script>
+<script src="src/login/loginCtrl.controller.js"></script>
 <script src="src/homepage/homePageCtrl.controller.js"></script>
 
-<script src="src/conversation/listenHoots.module.js"></script>
 <script src="src/conversation/listenHoots.config.js"></script>
-<script src="src/conversation/listenHoots.controller.js"></script>
+<script src="src/login/login.config.js"></script>
+<script src="src/homepage/homepage.config.js"></script>
 
-
-
-<script src="src/app.module.js"></script>
 <script src="src/app.run.js"></script>
 <script src="src/app.config.js"></script>
-
-<script src="src/login/login.module.js"></script>
-<script src="src/login/login.config.js"></script>
-<script src="src/login/loginCtrl.controller.js"></script>
-
-<script src="src/core/core.module.js"></script>
 <script src="src/core/core.run.js"></script>
 <script src="src/core/httpStatus.constant.js"></script>
 <script src="src/core/map.directive.js"></script>
 <script src="src/core/restangular.config.js"></script>
 <script src="src/core/router.config.js"></script>
-
-<script src="src/common/common.module.js"></script>
 <script src="src/common/layout.factory.js"></script>
 <script src="src/common/rbpServer.factory.js"></script>
 <script src="src/common/common.const.js"></script>
