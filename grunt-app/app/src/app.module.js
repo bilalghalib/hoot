@@ -16,6 +16,7 @@
      * Application modules
      **/
     'app.homepage',
+    'app.listenHoot',
     'app.main',
     'app.login',
     'angularAudioRecorder'

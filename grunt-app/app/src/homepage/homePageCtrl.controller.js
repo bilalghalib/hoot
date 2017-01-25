@@ -65,13 +65,13 @@
     
     function getHoots(){
       dataService.hoot.getHoot().then(function(res){
-            if(res.success){
+            if(res.success) {
               console.log('Hoot rec');
               console.log(res.data);
 
               vm.changeState('listenHoot');
 
-
+            
               // getHoots = [];
               // vm.getHoots = [
               //   {path:'s3.amazonaws.com/hoot-app-audio/.wav'},
