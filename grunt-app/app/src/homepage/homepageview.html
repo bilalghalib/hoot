@@ -1,17 +1,48 @@
-<ion-pane style="background-color: #182330;" ng-cloak="">
-  <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="timeLimit">
-  <ion-content class="padding" on-swipe-up="recorder.startRecord()" on-tap="recorder.stopRecord()" on-swipe-left="vm.test1(leftSwipe)"
-  on-swipe-right="vm.test2(rightSwipe)">
-    <img ng-src={{vm.model.hootimage}} class="centered"/>
+<ion-pane style="background-color: floralwhite;" ng-cloak="">
+  <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
+  <ion-content class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-left="vm.getHoots()"
+  on-swipe-right="vm.test2(recorder)">
+
+    <!--<div on-tap="vm.test1(leftSwipe)">-->
+<div class="container"  on-tap="recorder.save()" on-swipe-up="recorder.startRecord()">
+  <p>
+
+
+
+  </p>
+
+  <div class="hoot">
+
+    <ion-spinner
+
+            ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">
+
+    </ion-spinner>
+
+    <section class="left" on-tap="vm.test1()" ng-if="vm.getHoots == true">
+
+        <h2>Left tap</h2>
+
+    </section>
+
+    <section class="right" on-tap="vm.test2()" ng-if="vm.getHoots == true">
+
+          <h2>right tap </h2>
+
+    </section>
+
+    <!--<img ng-src={{vm.model.hootimage}} class="centered"/>-->
 
       <div ng-if="recorder.isAvailable">
 
         <div ng-if="recorder.status.isDenied === true" style="color: red;">
           You need to grant permission for this application to USE your microphone.
         </div>
-        <button class="button button-block button-assertive" ng-click="vm.test(recorder)">
-          Test
-        </button>
+
+
+        <!--<button class="button button-block button-assertive" ng-click="vm.test(recorder)">-->
+          <!--Test-->
+        <!--</button>-->
         <!--<button class="button button-block button-assertive" on-swipe-up="recorder.startRecord(recorder)"-->
                 <!--on-release="recorder.stopRecord();" type="button"-->
                 <!--ng-disabled="recorder.status.isDenied === true || recorder.status.isRecording">-->
@@ -23,21 +54,21 @@
           <!--Stop Record-->
         <!--</button>-->
 
-        <button class="button button-block button-assertive"
-                ng-click="recorder.status.isPlaying ? recorder.playbackPause() : recorder.playbackResume()"
-                type="button" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
-          {{recorder.status.isStopped || recorder.status.isPaused ? 'Play' : 'Pause'}}
-        </button>
+        <!--<button class="button button-block button-assertive"-->
+                <!--ng-click="recorder.status.isPlaying ? recorder.playbackPause() : recorder.playbackResume()"-->
+                <!--type="button" ng-disabled="recorder.status.isRecording || !recorder.audioModel">-->
+          <!--{{recorder.status.isStopped || recorder.status.isPaused ? 'Play' : 'Pause'}}-->
+        <!--</button>-->
 
-        <button class="button button-block button-assertive" on-tap="recorder.save()"
-                ng-disabled="recorder.status.isRecording || !recorder.audioModel">
-          Upload
-        </button>
+        <!--<button class="button button-block button-assertive" on-tap="recorder.save()"-->
+                <!--ng-disabled="recorder.status.isRecording || !recorder.audioModel">-->
+          <!--Upload-->
+        <!--</button>-->
 
-        <div style="max-width: 600px">
-          <div ng-show="recorder.status.isConverting">
-            Please wait while your recording is processed.
-          </div>
+        <!--<div style="max-width: 600px">-->
+          <!--<div ng-show="recorder.status.isConverting">-->
+            <!--Please wait while your recording is processed.-->
+          <!--</div>-->
 
           <!--<div ng-show="!recorder.status.isRecording && recorder.audioModel">-->
             <!--<ng-audio-recorder-wave-view wave-color="yellow" bar-color="red"></ng-audio-recorder-wave-view>-->
@@ -50,32 +81,30 @@
         <!--</h2>-->
 
       </div>
+<div class="recorder">
+  <h4>
+    Record a Hoot
+  </h4>
+    <span>
+      <i class="icon ion-chevron-up icon-accessory"></i>
+
+    </span>
+
+  <div>
+            <span>
+                  <img class="owl-open" src="images/postHoot.png" alt="">
+            </span>
+    </div>
 
 
-      <!--<div ng-if="!recorder.isAvailable">-->
-        <!--Your browser does not support this feature natively, please use latest version of <a-->
-        <!--href="https://www.google.com/chrome/browser" target="_blank">Google Chrome</a> or <a-->
-        <!--href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Mozilla Firefox</a>. If you're on-->
-        <!--Safari or Internet Explorer, you can install <a href="https://get.adobe.com/flashplayer/">Adobe Flash</a> to-->
-        <!--use this feature.-->
-      <!--</div>-->
 
+</div>
 
     <!--<button class="button button-block button-assertive"-->
-            <!--on-touch=vm.getLatLong()>-->
-      <!--<div style="position:relative; margin-top:-10px;margin-bottom:-10px ">getLat</div>-->
+            <!--on-touch="vm.signOut('login')">-->
+      <!--<div>Sign Out</div>-->
     <!--</button>-->
-
-
-    <!--<div>-->
-      <!--<div id="map" lat="-23.639492" lng="133.709107" zoom="8" map>-->
-      <!--</div>-->
-    <!--</div>-->
-
-    <button class="button button-block button-assertive"
-            on-touch="vm.signOut('login')">
-      <div>Sign Out</div>
-    </button>
+    <!--</div> //new div-->
   </ion-content>
   </ng-audio-recorder>
 </ion-pane>

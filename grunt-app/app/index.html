@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="styles/css/ionic-custom.min.css">
 
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+
+  <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+
   <!-- endbuild -->
 
   <!-- build:css styles/main.css -->
@@ -22,13 +25,14 @@
 </body>
 
 <script>
-  window.onerror = function(error, url, line) {
-     alert(line + ' : ' + error);;
-   };
+//  window.onerror = function(error, url, line) {
+//     alert(line + ' : ' + error);;
+//   };
 </script>
 
 <!-- build:js scripts/ionic.js -->
 <script src="bower_components/ionic/release/js/ionic.bundle.js"></script>
+<!--<script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>-->
 <!-- endbuild -->
 
 <!-- build:js scripts/ngCordova.js -->
@@ -39,12 +43,11 @@
 <script src="cordova.js"></script>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>-->
 
 <!-- build:js scripts/app.js -->
 <script src="src/main/main.module.js"></script>
 <script src="src/main/main.config.js"></script>
-
 
 <script src="src/homepage/homepage.module.js"></script>
 <script src="src/homepage/homepage.config.js"></script>

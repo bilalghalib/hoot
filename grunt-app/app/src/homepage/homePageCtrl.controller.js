@@ -9,7 +9,7 @@
   'use strict';
 
   angular
-    .module('app.homepage')
+    .module('app.homepage', [])
     .controller('homePageCtrl', homePageCtrl);
 
   /* @ngInject */
@@ -17,6 +17,7 @@
     var vm = this;
     var media;
     var extension = null;
+
 
     //-------------- Declarations
     //-----Variables Declarations
@@ -26,17 +27,77 @@
     //-----Functions Declarations
 
     // vm.getLatLong = getLatLong;
+
     vm.changeState = changeState;
     vm.signOut = signOut;
+    vm.getHoots = getHoots;
+    vm.uploadHoot = uploadHoot;
 
-    vm.test1 = function(rightSwipe){
-      console.log("I am right swipe");
-      // console.log(recorder);
+
+
+    // vm.addHoot = addHoot;
+
+
+    // vm.test1 = function(rightSwipe){
+    //   console.log("I am right swipe");
+    //   // console.log(recorder);
+    // };
+
+    vm.test1 = function( ){
+
+        console.log("I am right tap");
+
     };
 
-    vm.test2 = function(leftSwipe){
-      console.log("I am left Swipe")
+    vm.test2 = function( ){
+
+        console.log("I am left tap");
+
     };
+
+     function uploadHoot () {
+
+      if (control.playbackResume === true){
+        console.log("abcadad");
+      }
+
+    };
+    
+    function getHoots(){
+      dataService.hoot.getHoot().then(function(res){
+            if(res.success){
+              console.log('Hoot rec');
+              console.log(res.data);
+
+              vm.changeState('listenHoot');
+
+
+              // getHoots = [];
+              // vm.getHoots = [
+              //   {path:'s3.amazonaws.com/hoot-app-audio/.wav'},
+              //   {path:'s3.amazonaws.com/hoot-app-audio/.wav'}
+              // ];
+              //
+              // // I want to add more images with this:
+              // for(var i=0; i<5; i++) {
+              //   vm.getHoots.push({
+              //     path: 's3.amazonaws.com/hoot-app-audio'+[i]+'/.wav'
+              //     path: 's3.amazonaws.com/hoot-app-audio/585ce73651ede42484c6e9da/.wav'
+              //
+              //
+              //   });
+              //   console.log("hoots received");
+              // }
+
+
+            }
+          },
+          function(err){
+            console.log(err);
+          }
+      )
+    };
+
     /////////////////////
 
     /*
@@ -133,4 +194,4 @@
     }
 
   }
-}());
+} ());
