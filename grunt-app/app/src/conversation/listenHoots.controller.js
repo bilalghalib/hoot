@@ -12,6 +12,7 @@
 
     function listenHoot($state){
 
+      var vm = this;
 
         function changeState(name) {
             console.log(name);
@@ -30,6 +31,7 @@
         }
     }
 
+}());
 
 
 
@@ -71,7 +73,6 @@
 //             )
 //         }
 //     }
- });
 
 //         function vm.getHoots(){
 //

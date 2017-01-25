@@ -1,68 +1,74 @@
-<!--<ion-pane id="listen-hoot" style="background-color: darkseagreen;" ng-cloak="">-->
+<ion-pane id="listen-hoot" style="background-color: darkseagreen;" ng-cloak="">
 
-    <!--<ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">-->
+    <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
-        <!--<ion-content class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-right="vm.homepage()"-->
-                     <!--on-swipe-right="vm.test2()">-->
+        <ion-content class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-right="vm.homepage()"
+                     on-swipe-right="vm.test2()">
 
-            <!--<div class="container"  on-tap="recorder.save()" on-swipe-up="recorder.startRecord()">-->
-            <!--<H1>THIS IS A TEST PAGE</H1>-->
-
-            <!--<div class="hoot">-->
-
-                <!--<ion-spinner-->
-
-                        <!--ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">-->
-
-                <!--</ion-spinner>-->
-
-                <!--<section class="left" on-tap="vm.test1()" ng-if="vm.getHoots == true">-->
-
-                    <!--<h2>Left tap</h2>-->
-
-                <!--</section>-->
-
-                <!--<section class="right" on-tap="vm.test2()" ng-if="vm.getHoots == true">-->
-
-                    <!--<h2>right tap </h2>-->
-
-                <!--</section>-->
-
-                <!--&lt;!&ndash;<img ng-src={{vm.model.hootimage}} class="centered"/>&ndash;&gt;-->
-
-                <!--<div ng-if="recorder.isAvailable">-->
-
-                    <!--<div ng-if="recorder.status.isDenied === true" style="color: red;">-->
-                        <!--You need to grant permission for this application to USE your microphone.-->
-                    <!--</div>-->
-                <!--</div>-->
-
-            <!--</div>-->
-            <!--</div>-->
-            <!--<div class="recorder">-->
-                <!--<h4>-->
-                    <!--Record a Hoot-->
-                <!--</h4>-->
-    <!--<span>-->
-      <!--<i class="icon ion-chevron-up icon-accessory"></i>-->
-
-    <!--</span>-->
-
-                <!--<div>-->
-            <!--<span>-->
-                  <!--<img class="owl-open" src="images/postHoot.png" alt="">-->
-            <!--</span>-->
-                <!--</div>-->
+            <div class="container"  on-tap="recorder.save()" on-swipe-up="recorder.startRecord()">
 
 
+            <div class="hoot" on-tap="">
 
-            <!--</div>-->
+                <div>
+                    <audio class="player" controls autoplay="true"
+                       ng-src="https://s3.amazonaws.com/hoot-app-audio/585ce73651ede42484c6e9df.wav" loop>
+                    </audio>
+                <!--<audio id="audio"  src="https://s3.amazonaws.com/hoot-app-audio/585ce73651ede42484c6e9df.wav" loop></audio>-->
+                </div>
+                <ion-spinner
+
+                        ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">
+
+                </ion-spinner>
+
+                <section class="left" on-tap="vm.test1()" ng-if="vm.getHoots == true">
+
+                    <h2>Left tap</h2>
+
+                </section>
+
+                <section class="right" on-tap="vm.test2()" ng-if="vm.getHoots == true">
+
+                    <h2>right tap </h2>
+
+                </section>
+
+                <!--<img ng-src={{vm.model.hootimage}} class="centered"/>-->
+
+                <div ng-if="recorder.isAvailable">
+
+                    <div ng-if="recorder.status.isDenied === true" style="color: red;">
+                        You need to grant permission for this application to USE your microphone.
+                    </div>
+                </div>
+
+            </div>
+            </div>
+            <div class="recorder">
+                <h4>
+                    Record a Hoot
+                </h4>
+    <span>
+      <i class="icon ion-chevron-up icon-accessory"></i>
+
+    </span>
+
+                <div>
+            <span>
+                  <img class="owl-open" src="images/postHoot.png" alt="">
+            </span>
+                </div>
 
 
 
-            <!--&lt;!&ndash;Insert Random Hoots by User&ndash;&gt;-->
+            </div>
 
-        <!--</ion-content>-->
-    <!--</ng-audio-recorder>-->
-<!--</ion-pane>-->
+
+
+            <!--Insert Random Hoots by User-->
+
+        </ion-content>
+    </ng-audio-recorder>
+</ion-pane>
 

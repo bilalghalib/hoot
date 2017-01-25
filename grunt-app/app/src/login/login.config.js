@@ -7,7 +7,7 @@
     .config(configuration);
 
   function configuration($stateProvider) {
-    console.log('fuck2');
+
 
     //add your state mappings here
     $stateProvider
@@ -17,13 +17,6 @@
           controller: 'loginCtrl as vm'
         }
       );
-    $stateProvider
-      .state('homepage', {
-        cache: false,
-        url: '/homepage',
-        templateUrl: 'src/homepage/homepageview.html',
-        controller: 'homePageCtrl as vm'
-      });
   }
 
 }());

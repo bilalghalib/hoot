@@ -1,5 +1,5 @@
 (function() {
-    console.log('fuck');
+    
     'use strict';
 
     angular
@@ -7,7 +7,7 @@
         .config(configuration);
 
     function configuration($stateProvider) {
-        console.log('fuck3');
+
 
         //add your state mappings here
         $stateProvider
