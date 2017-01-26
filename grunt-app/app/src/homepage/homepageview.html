@@ -1,6 +1,6 @@
 <ion-pane style="background-color: floralwhite;" ng-cloak="">
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
-  <ion-content class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-left="vm.getHoots()"
+  <ion-content class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-left="$root.goto('listenHoot')"
   on-swipe-right="vm.test2(recorder)">
 
     <!--<div on-tap="vm.test1(leftSwipe)">-->

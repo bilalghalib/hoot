@@ -2,17 +2,19 @@
 
     <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
-        <ion-content class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-right="vm.homepage()"
+        <ion-content class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage')"
                      on-swipe-right="vm.test2()">
 
-            <div class="container"  on-tap="recorder.save()" on-swipe-up="recorder.startRecord()">
+            <div class="container"   on-swipe-up="recorder.startRecord()">
+
+                <!--&lt;!&ndash;on-tap="recorder.save()"&ndash;&gt; /save function in the above div on tap-->
 
 
             <div class="hoot" on-tap="">
 
                 <div>
-                    <audio class="player" controls autoplay="true"
-                       ng-src="https://s3.amazonaws.com/hoot-app-audio/585ce73651ede42484c6e9df.wav" loop>
+                    <audio class="player" controls autoplay="true" ng-src="{{$root.hootURL(vm.selectedHoot._id) | trusted}}" type="audio/.wav" loop >
+
                     </audio>
                 <!--<audio id="audio"  src="https://s3.amazonaws.com/hoot-app-audio/585ce73651ede42484c6e9df.wav" loop></audio>-->
                 </div>
@@ -22,13 +24,13 @@
 
                 </ion-spinner>
 
-                <section class="left" on-tap="vm.test1()" ng-if="vm.getHoots == true">
+                <section class="left" on-tap="vm.previousHoot()">
 
                     <h2>Left tap</h2>
 
                 </section>
 
-                <section class="right" on-tap="vm.test2()" ng-if="vm.getHoots == true">
+                <section class="right" on-tap="vm.nextHoot()">
 
                     <h2>right tap </h2>
 

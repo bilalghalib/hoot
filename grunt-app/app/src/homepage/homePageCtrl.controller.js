@@ -28,7 +28,7 @@
 
     // vm.getLatLong = getLatLong;
 
-    vm.changeState = changeState;
+    
     vm.signOut = signOut;
     vm.getHoots = getHoots;
     vm.uploadHoot = uploadHoot;
@@ -64,38 +64,7 @@
     };
     
     function getHoots(){
-      dataService.hoot.getHoot().then(function(res){
-            if(res.success) {
-              console.log('Hoot rec');
-              console.log(res.data);
-
-              vm.changeState('listenHoot');
-
-
-              // getHoots = [];
-              // vm.getHoots = [
-              //   {path:'s3.amazonaws.com/hoot-app-audio/.wav'},
-              //   {path:'s3.amazonaws.com/hoot-app-audio/.wav'}
-              // ];
-              //
-              // // I want to add more images with this:
-              // for(var i=0; i<5; i++) {
-              //   vm.getHoots.push({
-              //     path: 's3.amazonaws.com/hoot-app-audio'+[i]+'/.wav'
-              //     path: 's3.amazonaws.com/hoot-app-audio/585ce73651ede42484c6e9da/.wav'
-              //
-              //
-              //   });
-              //   console.log("hoots received");
-              // }
-
-
-            }
-          },
-          function(err){
-            console.log(err);
-          }
-      )
+      
     };
 
     /////////////////////
@@ -171,10 +140,7 @@
     // }
 
 
-    function changeState(name) {
-      console.log(name);
-      $state.go(name);
-    }
+   
 
 
     function signOut(name){

@@ -2,37 +2,55 @@
  * Created by HP on 1/24/2017.
  */
 
-(function() {
+(function () {
 
-    'use strict';
+  'use strict';
 
-    angular
-        .module('app.listenHoot')
-        .controller('listenHoot', listenHoot);
+  angular
+    .module('app.listenHoot')
+    .controller('listenHoot', listenHoot);
 
-    function listenHoot($state){
+  /* @ngInject */
+  function listenHoot(dataService, S3_BUCKET_ENDPOINT) {
 
-      var vm = this;
+    var vm = this;
+    var currentIndex = 0;
+    vm.previousHoot = previousHoot;
+    vm.nextHoot = nextHoot;
+    vm.hoots = [];
+    vm.selectedHoot = null;
 
-        function changeState(name) {
-            console.log(name);
-            $state.go(name);
+
+    dataService.hoot.getHoot().then(function (res) {
+        if (res.success) {
+          console.log('Hoot rec');
+          vm.hoots = res.data;
+          vm.selectedHoot = vm.hoots[currentIndex];
         }
-
-        vm.changeState = changeState;
-        vm.homepage = homepage;
-
-        function homepage(){
-
-            console.log("abc");
+      },
+      function (err) {
+        console.log(err);
+      });
 
 
-        vm.changeState('homepage');
-        }
+    function previousHoot() {
+      console.log('prev');
+      if (currentIndex >= 0) {
+        vm.selectedHoot = vm.hoots[--currentIndex];
+        console.log(currentIndex);
+      }
     }
 
-}());
+    function nextHoot() {
+      console.log('next');
+      if (currentIndex < vm.hoots.length) {
+        vm.selectedHoot = vm.hoots[++currentIndex];
+        console.log(currentIndex);
+      }
+    }
+  }
 
+}());
 
 
 //     vm.getHoots = getHoots;
