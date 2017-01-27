@@ -30,7 +30,7 @@
           return Restangular.one('hoot').post('',data);
         },
         getHoot: function (){
-            return Restangular.one('hoot').one('getHoot').get({offset:0, limit:10});
+            return Restangular.one('hoot').one('getHoot').get({offset:0, limit:9});
 
         }
     };

@@ -24,17 +24,18 @@
 
                 </ion-spinner>
 
-                <section class="left" on-tap="vm.previousHoot()">
+                <div class="left" ng-click="vm.previousHoot()" ng-disabled="vm.isNotTapable">
 
                     <h2>Left tap</h2>
 
-                </section>
+                </div>
 
-                <section class="right" on-tap="vm.nextHoot()">
+                <div class="right" ng-click="vm.nextHoot()" ng-disabled="vm.isNotTapable">
 
                     <h2>right tap </h2>
+                    <h2>{{vm.isNotTapable}}</h2>
 
-                </section>
+                </div>
 
                 <!--<img ng-src={{vm.model.hootimage}} class="centered"/>-->
 

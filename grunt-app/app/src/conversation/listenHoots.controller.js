@@ -19,9 +19,10 @@
     vm.nextHoot = nextHoot;
     vm.hoots = [];
     vm.selectedHoot = null;
-
+    vm.isNotTapable = false;
 
     dataService.hoot.getHoot().then(function (res) {
+        console.log(res.data);
         if (res.success) {
           console.log('Hoot rec');
           vm.hoots = res.data;
@@ -36,16 +37,30 @@
     function previousHoot() {
       console.log('prev');
       if (currentIndex >= 0) {
-        vm.selectedHoot = vm.hoots[--currentIndex];
+        vm.selectedHoot = vm.hoots[currentIndex--];
         console.log(currentIndex);
       }
     }
 
     function nextHoot() {
       console.log('next');
+      console.log(currentIndex);
       if (currentIndex < vm.hoots.length) {
-        vm.selectedHoot = vm.hoots[++currentIndex];
-        console.log(currentIndex);
+        vm.selectedHoot = vm.hoots[currentIndex++];
+      }
+      else {
+        vm.isNotTapable = true;
+        console.log("Else");
+        dataService.hoot.getHoot().then(function (res) {
+            vm.hoots = vm.hoots.concat(res.data);
+            vm.isNotTapable = false;
+            console.log(vm.hoots.length);
+          },
+          function (err) {
+            vm.isNotTapable = false;
+            console.log(err);
+          });
+
       }
     }
   }
