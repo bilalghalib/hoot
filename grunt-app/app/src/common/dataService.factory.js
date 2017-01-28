@@ -31,8 +31,10 @@
         },
         getHoot: function (){
             return Restangular.one('hoot').one('getHoot').get({offset:0, limit:9});
-
-        }
+        },
+      hootRead: function (id){
+        return Restangular.one('hoot').one('hootRead').one(id).post();
+      }
     };
 
 		return {

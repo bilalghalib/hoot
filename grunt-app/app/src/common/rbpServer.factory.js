@@ -37,7 +37,7 @@
         url: baseUrl + 'connect'
       })
     }
-
+    
     function checkviv(){
       return $http({
         method: 'GET',

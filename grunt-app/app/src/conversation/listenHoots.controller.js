@@ -35,12 +35,19 @@
 
 
     function previousHoot() {
-      console.log('prev');
+      dataService.hoot.hootRead(vm.hoots[currentIndex]).then
+      (function (res) {
+
+      console.log(res.data);
+        console.log('prev');
+      if (res.success){
       if (currentIndex >= 0) {
         vm.selectedHoot = vm.hoots[currentIndex--];
         console.log(currentIndex);
       }
-    }
+      }
+
+    })};
 
     function nextHoot() {
       console.log('next');

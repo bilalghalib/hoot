@@ -16,8 +16,10 @@
   /* @ngInject */
   function run($rootScope, $state, S3_BUCKET_ENDPOINT){
     $rootScope.goto = function(name) {
+      
       console.log(name);
       $state.go(name);
+
     };
 
     $rootScope.hootURL = function(id){

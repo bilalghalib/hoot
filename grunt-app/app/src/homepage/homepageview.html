@@ -4,7 +4,7 @@
   on-swipe-right="vm.test2(recorder)">
 
     <!--<div on-tap="vm.test1(leftSwipe)">-->
-<div class="container"  on-tap="recorder.save()" on-swipe-up="recorder.startRecord()">
+<div class="container"  on-tap="recorder.save()" on-swipe-up="recorder.startRecord() && vm.swipeUp()">
   <p>
 
 
@@ -70,7 +70,7 @@
         <!--</h2>-->
 
       </div>
-<div class="recorder">
+<div class="recorder" on-swipe-up="vm.onSwipe()">
   <h4>
     Record a Hoot
   </h4>
@@ -81,7 +81,7 @@
 
   <div>
             <span>
-                  <img class="owl-open" src="images/postHoot.png" alt="">
+                  <img class="owl-open" ng-src="{{vm.imageUrl}}" on-swipe-up="vm.onSwipe()"  alt="">
             </span>
     </div>
 

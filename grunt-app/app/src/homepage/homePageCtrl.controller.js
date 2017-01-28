@@ -140,6 +140,14 @@
     // }
 
 
+    vm.imageUrl = 'images/preHoot.png';
+
+    vm.onSwipe = function() {
+      console.log('hoot pic');
+      vm.imageUrl = 'images/postHoot.png';
+
+    };
+
    
 
 

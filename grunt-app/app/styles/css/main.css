@@ -2,7 +2,7 @@
   height: 88%; }
 
 .hoot {
-  background: linear-gradient(to right, #69ffa5 0%, #9dffc4 50%, #6fb692 50%, #9dffc4 100%);
+  background-color: whitesmoke;
   height: 85vh;
   width: 100%;
   display: flex; }
@@ -14,6 +14,9 @@
 .left {
   width: 50%;
   height: 100%; }
+
+.left.activated {
+  background: linear-gradient(to right, rgba(204, 204, 204, 0.2), rgba(153, 153, 153, 0)); }
 
 .recorder {
   text-align: center;
