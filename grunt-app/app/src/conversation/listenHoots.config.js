@@ -15,7 +15,12 @@
             .state('listenHoot', {
                 url: '/listenHoot',
                 templateUrl: 'src/conversation/listenHoots.html',
-                controller: 'listenHoot as vm'
+                controller: 'listenHoot as vm',
+              resolve: {
+               r_getHoots: function (dataService){
+                 return dataService.hoot.getHoot();
+               } 
+              }
             });
     }
 }());

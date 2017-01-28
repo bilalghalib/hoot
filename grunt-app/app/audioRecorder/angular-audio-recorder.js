@@ -211,6 +211,7 @@
 
         control.startRecord = function () {
             setTimeout(function () {
+                control.audioModel = null;
 
                 if (!service.isAvailable()) {
                     return;
@@ -225,7 +226,6 @@
                     control.playbackPause();
                     //indicate that this is not paused.
                     status.playback = PLAYBACK.STOPPED;
-
 
                 }
 

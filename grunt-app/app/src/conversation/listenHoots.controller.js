@@ -11,7 +11,7 @@
     .controller('listenHoot', listenHoot);
 
   /* @ngInject */
-  function listenHoot(dataService, S3_BUCKET_ENDPOINT) {
+  function listenHoot(dataService, S3_BUCKET_ENDPOINT, r_getHoots) {
 
     var vm = this;
     var currentIndex = 0;
@@ -20,39 +20,29 @@
     vm.hoots = [];
     vm.selectedHoot = null;
     vm.isNotTapable = false;
+    vm.hoots = r_getHoots.data;
 
-    dataService.hoot.getHoot().then(function (res) {
-        console.log(res.data);
-        if (res.success) {
-          console.log('Hoot rec');
-          vm.hoots = res.data;
-          vm.selectedHoot = vm.hoots[currentIndex];
-        }
-      },
-      function (err) {
-        console.log(err);
-      });
+    console.log(vm.hoots);
+
 
 
     function previousHoot() {
-      currentIndex = currentIndex-1;
+       currentIndex--;
       console.log(currentIndex);
       console.log('prev');
-      dataService.hoot.hootRead(vm.hoots[currentIndex]).then
-      (function (res) {
-
-      console.log(res.data);
-        console.log('prev');
-      if (res.success){
       if (currentIndex >= 0) {
         vm.selectedHoot = vm.hoots[currentIndex];
       }
-      }
-
-    })};
+      };
 
     function nextHoot() {
-      currentIndex = currentIndex + 1;
+      dataService.hoot.hootRead(vm.hoots[currentIndex]._id).then(function (res) {
+          console.log(res.data);
+          console.log('Hoot Read');},
+        function (err) {
+          console.log(err);
+        })
+      currentIndex++;
       console.log(currentIndex);
       console.log('next');
       if (currentIndex < vm.hoots.length) {
@@ -73,7 +63,6 @@
       }
     }
   }
-
 }());
 
 

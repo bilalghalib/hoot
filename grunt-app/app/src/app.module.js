@@ -19,8 +19,9 @@
     'app.listenHoot',
     'app.main',
     'app.login',
-    'angularAudioRecorder'
+    'angularAudioRecorder',
+    'app.conversation',
+    'app.chat'
     ])
 
 }());
-'app.conversation'

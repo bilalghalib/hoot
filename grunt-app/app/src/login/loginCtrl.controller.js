@@ -16,6 +16,8 @@
 
 
     var vm = this;
+    vm.imageUrl = 'images/preHoot.png';
+
 
     var email = "11.00.00.0c.aa.00@hoot.com";
     // var email = "test@hoot.com";
@@ -37,22 +39,24 @@
       $state.go(name);
     }
 
+
     function createUser() {
-      window.MacAddress.getMacAddress(
-        function(macAddress) {
-          //alert(macAddress);
-          vm.email = macAddress + "@hoot.com";
-          var str = vm.email;
-          vm.email = str.replace(/:/g, ".");
-          // alert(vm.email);
-          vm.password = macAddress;
-          // alert(vm.password);
-        },
-        function(fail) {
-          alert(fail);
-        }
-      );
-      hootAPI.createUser(vm.email, vm.password);
+      vm.imageUrl = 'images/postHoot.png';
+      // window.MacAddress.getMacAddress(
+      //   function(macAddress) {
+      //     //alert(macAddress);
+      //     vm.email = macAddress + "@hoot.com";
+      //     var str = vm.email;
+      //     vm.email = str.replace(/:/g, ".");
+      //     // alert(vm.email);
+      //     vm.password = macAddress;
+      //     // alert(vm.password);
+      //   },
+      //   function(fail) {
+      //     alert(fail);
+      //   }
+      // );
+      console.log(user);
       dataService.auth.login(user).then(function(res){
         if(res.success){
           console.log('user found and go inside the app');

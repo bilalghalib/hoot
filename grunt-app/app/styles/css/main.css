@@ -47,4 +47,14 @@ p {
 .player {
   display: none; }
 
+.img-center {
+  width: 100%;
+  height: 100%; }
+
+.img-owl {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 25%; }
+
 /*# sourceMappingURL=main.css.map */

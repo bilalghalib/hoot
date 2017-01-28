@@ -1,13 +1,4 @@
-<ion-pane style="background-color: #182330;" >
-  <ion-content class="padding" >
-    <img ng-src={{vm.model.hootimage}}/>
-
-    <img class="img-center" ng-src="images/preHoot.png" />
-    <button class="button button-block button-assertive" ng-click="vm.createUser();">
-      <div style="position:relative;">
-        Sign In
-      <div>
-    </button>
-
-  </ion-content>
-  <h1 id="audio_position"></p></h1>
+<ion-pane style="background-color: whitesmoke;"  on-tap="vm.createUser()">
+  <img  class="img-owl" ng-src={{vm.imageUrl}} />
+  <img class="img-center" ng-src="images/background.png"/>
+</ion-pane>
