@@ -62,7 +62,6 @@
             vm.isNotTapable = false;
             console.log(err);
           });
-
       }
     }
   }
