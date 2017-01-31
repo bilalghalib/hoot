@@ -14,7 +14,7 @@
   /* @ngInject */
   function configuration(RestangularProvider){
 
-    RestangularProvider.setBaseUrl('http://192.168.10.10:3000/api');
+    RestangularProvider.setBaseUrl('http://192.168.10.13:3000/api');
     // RestangularProvider.setBaseUrl('http://localhost:3000/api');
 
   }

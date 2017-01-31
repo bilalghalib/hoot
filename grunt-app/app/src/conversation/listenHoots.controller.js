@@ -11,20 +11,55 @@
     .controller('listenHoot', listenHoot);
 
   /* @ngInject */
-  function listenHoot(dataService, S3_BUCKET_ENDPOINT, r_getHoots) {
+  function listenHoot(dataService, S3_BUCKET_ENDPOINT, r_getHoots, $ionicScrollDelegate) {
 
     var vm = this;
     var currentIndex = 0;
+    var currentRoomID;
     vm.previousHoot = previousHoot;
     vm.nextHoot = nextHoot;
     vm.hoots = [];
     vm.selectedHoot = null;
     vm.isNotTapable = false;
     vm.hoots = r_getHoots.data;
+    vm.startChat = startChat;
+    vm.reply = reply;
+    
 
     console.log(vm.hoots);
 
 
+    function startChat(recorder){
+      console.log("yeh dekho");
+      console.log("this");
+      // recorder.audioModel = {};
+      $ionicScrollDelegate.$getByHandle('view-scroll').scrollTop(true);
+      dataService.chat.getRoom(vm.hoots[currentIndex].user).then(
+          function(res){
+            console.log(res.data);
+            currentRoomID = res.data._id;
+            recorder.startRecord();
+
+          },
+          function(err){
+          console.log(err);
+          }
+      )
+    };
+    
+    function reply(recorder){
+
+      console.log(vm.hoots[currentIndex]);
+      var data = {
+        hootid: vm.hoots[currentIndex]._id,
+        userid: vm.hoots[currentIndex].user
+      };
+
+
+      recorder.save("reply", data, currentRoomID);
+
+      
+    };
 
     function previousHoot() {
        currentIndex--;

@@ -2,37 +2,47 @@
 
     <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
-        <ion-content class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage')"
+        <ion-content  delegate-handle="view-scroll" class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage')"
                      on-swipe-right="vm.test2()">
 
-            <div class="container"   on-swipe-up="recorder.startRecord()">
+            <div class="container"  on-tap="vm.reply(recorder)"  on-swipe-up="vm.startChat(recorder)">
 
-                <!--&lt;!&ndash;on-tap="recorder.save()"&ndash;&gt; /save function in the above div on tap-->
-
-
-            <div class="hoot" on-tap="">
-
-                <div>
-                    <audio class="player" controls autoplay="true" ng-src="{{$root.hootURL(vm.selectedHoot._id) | trusted}}" type="audio/.wav" loop >
-
-                    </audio>
-                <!--<audio id="audio"  src="https://s3.amazonaws.com/hoot-app-audio/585ce73651ede42484c6e9df.wav" loop></audio>-->
-                </div>
                 <ion-spinner
 
                         ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">
 
                 </ion-spinner>
 
+
+
+                <!--&lt;!&ndash;on-tap="recorder.save()"&ndash;&gt; /save function in the above div on tap-->
+
+
+            <div class="hoot" on-tap="">
+
+
+                <div>
+
+                    <audio class="player" controls autoplay="true" ng-src="{{$root.hootURL(vm.selectedHoot._id) | trusted}}" type="audio/.wav" loop >
+
+                    </audio>
+                <!--<audio id="audio"  src="https://s3.amazonaws.com/hoot-app-audio/585ce73651ede42484c6e9df.wav" loop></audio>-->
+                </div>
+                <!--<ion-spinner-->
+
+                        <!--ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">-->
+
+                <!--</ion-spinner>-->
+
                 <div class="left" ng-click="vm.previousHoot()" ng-disabled="vm.isNotTapable">
 
-                    <h2>Left tap</h2>
+
 
                 </div>
 
                 <div class="right" ng-click="vm.nextHoot()" ng-disabled="vm.isNotTapable">
 
-                    <h2>right tap </h2>
+
                     <h2>{{vm.isNotTapable}}</h2>
 
                 </div>
@@ -57,11 +67,7 @@
 
     </span>
 
-                <div>
-            <span>
-                  <img class="owl-open" src="images/postHoot.png" alt="">
-            </span>
-                </div>
+
 
 
 

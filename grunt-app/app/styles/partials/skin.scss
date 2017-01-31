@@ -4,13 +4,6 @@
 }
 
 .hoot {
-  //background: linear-gradient(
-  //                to right,
-  //                #69ffa5 0%,
-  //                #9dffc4 50%,
-  //                #6fb692 50%,
-  //                #9dffc4 100%
-  //);
 background-color: whitesmoke;
   height: 85vh;
   width: 100%;
@@ -22,6 +15,12 @@ background-color: whitesmoke;
   height: 100%;
 }
 
+.right.activated
+{
+  background: linear-gradient(to left, rgba(204, 204, 204,0.2), rgba(153,153,153,0));
+}
+
+
 .left {
   width: 50%;
   height: 100%;
@@ -32,6 +31,7 @@ background-color: whitesmoke;
   background: linear-gradient(to right, rgba(204, 204, 204,0.2), rgba(153,153,153,0));
 
 }
+
 
 .recorder {
   text-align: center;
@@ -73,4 +73,5 @@ p {
 .player{
   display: none;
 }
+
 

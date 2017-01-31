@@ -38,9 +38,20 @@
       }
     };
 
+    var chat = {
+      getRoom: function (rid){
+        return Restangular.one('room').one(rid).get();
+      },
+       reply: function(rid, data){
+         return Restangular.one('room').one(rid).one('message').post('', data);
+       }
+
+    };
+
 		return {
       auth:auth,
-      hoot: hoot
+      hoot: hoot,
+      chat: chat
 		};
 
 	}

@@ -9,7 +9,7 @@
     "jquery": "^2.2.3",
     "font-awesome": "fontawesome#^4.6.3",
     "angularAudioRecorder": "^1.4.1",
-    "ngstorage": "^0.3.11"
+    "ngstorage": "^0.3.11",
   },
   "devDependencies": {
     "ngCordova-IMEI": "git://github.com/konstantinkrassmann/ngCordova-IMEI"
