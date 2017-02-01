@@ -302,13 +302,19 @@
     };
 
 
+
+
     control.save = function (replyType, replyHootData, roomID) {
+
+      // vm.showSuccess = showSuccess;
+      // showSuccess == false;
 
       if (control.save == true) {
         control.playbackPause();
         playbackAudio = !playbackAudio;
         console.log(control.audioModel);
         console.log("hello!");
+        // vm.showSuccess = true;
         control.audioModel = {};
       }
       var ext;

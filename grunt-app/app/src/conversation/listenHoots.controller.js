@@ -55,8 +55,9 @@
         userid: vm.hoots[currentIndex].user
       };
 
-
+console.log("yeh bhi le lo");
       recorder.save("reply", data, currentRoomID);
+     console.log(recorder.audioModel);
 
       
     };

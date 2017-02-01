@@ -5,7 +5,7 @@
         <ion-content  delegate-handle="view-scroll" class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage')"
                      on-swipe-right="vm.test2()">
 
-            <div class="container"  on-tap="vm.reply(recorder)"  on-swipe-up="vm.startChat(recorder)">
+            <div class="container" ng-disabled="vm.getHoot == true;" on-tap="vm.reply(recorder)"  on-swipe-up="vm.startChat(recorder)">
 
                 <ion-spinner
 
