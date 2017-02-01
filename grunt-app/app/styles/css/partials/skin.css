@@ -1,30 +1,77 @@
-/* line 1, ../../partials/skin.scss */
-.pane {
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: 640px 1050px;
-  background-image: url("../../images/background.png");
+/* line 2, ../../partials/skin.scss */
+.container {
+  height: 88%;
 }
 
-/* line 9, ../../partials/skin.scss */
-#small-space {
-  line-height: 5px;
+/* line 6, ../../partials/skin.scss */
+.hoot {
+  background-color: whitesmoke;
+  height: 85vh;
+  width: 100%;
+  display: flex;
 }
 
 /* line 13, ../../partials/skin.scss */
-IMG.centered {
-  display: block;
-  padding-top: 250px;
-  margin-left: -33px;
+.right {
+  width: 50%;
+  height: 100%;
 }
 
+/* line 18, ../../partials/skin.scss */
+.right.activated {
+  background: linear-gradient(to left, rgba(204, 204, 204, 0.2), rgba(153, 153, 153, 0));
+}
 
+/* line 24, ../../partials/skin.scss */
+.left {
+  width: 50%;
+  height: 100%;
+}
 
-/* line 19, ../../partials/skin.scss */
-#map {
-  width: 80%;
-  height: 400px;
-  margin: 10px auto;
-  box-shadow: 0 3px 25px black;
+/* line 29, ../../partials/skin.scss */
+.left.activated {
+  background: linear-gradient(to right, rgba(204, 204, 204, 0.2), rgba(153, 153, 153, 0));
+}
+
+/* line 36, ../../partials/skin.scss */
+.recorder {
+  text-align: center;
+  margin-top: 5%;
+}
+
+/* line 41, ../../partials/skin.scss */
+.owl-open {
+  width: 60%;
+  height: 40%;
+}
+
+/* line 47, ../../partials/skin.scss */
+.icon {
+  font-size: 34px;
+}
+
+/* line 53, ../../partials/skin.scss */
+p {
+  text-align: center;
+  margin-bottom: 10px !important;
+}
+
+/* line 58, ../../partials/skin.scss */
+.spinner svg {
+  width: 60% !important;
+  height: 70% !important;
+  margin-top: 30%;
+  margin-left: 30%;
+}
+
+/* line 66, ../../partials/skin.scss */
+.home-content {
+  height: 85vh;
+  width: 100%;
+  display: flex;
+}
+
+/* line 73, ../../partials/skin.scss */
+.player {
+  display: none;
 }

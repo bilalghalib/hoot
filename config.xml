@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.soundboard944331" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Hoot</name>
-  <description>&#xD;
-        Do you give a hoot?&#xD;
+  <description>&#xD;&#xD;
+        Do you give a hoot?&#xD;&#xD;
     </description>
-  <author email="bg@bilalghalib.com" href="http://bilalghalib.com/">&#xD;
-      Bilal Ghalib&#xD;
+  <author email="bg@bilalghalib.com" href="http://bilalghalib.com/">&#xD;&#xD;
+      Bilal Ghalib&#xD;&#xD;
     </author>
   <content src="index.html"/>
   <access origin="*"/>

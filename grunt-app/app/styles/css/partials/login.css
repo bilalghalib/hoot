@@ -1,5 +1,13 @@
 /* line 1, ../../partials/login.scss */
 .img-center {
   width: 100%;
-  margin-top: 60%;
+  height: 100%;
+}
+
+/* line 6, ../../partials/login.scss */
+.img-owl {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 25%;
 }

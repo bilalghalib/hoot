@@ -15,6 +15,7 @@
 
   /* @ngInject */
   function run($rootScope, $state, S3_BUCKET_ENDPOINT){
+    $rootScope.showSuccess = false;
     $rootScope.goto = function(name) {
       
       console.log(name);

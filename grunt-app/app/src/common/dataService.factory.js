@@ -14,6 +14,7 @@
 
   /* @ngInject */
   function dataService(Restangular){
+
     var auth = {
         login: function (user) {
           return Restangular.one('users').one('login').post('',user);

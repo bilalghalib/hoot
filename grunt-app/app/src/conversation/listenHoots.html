@@ -5,7 +5,7 @@
         <ion-content  delegate-handle="view-scroll" class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage')"
                      on-swipe-right="vm.test2()">
 
-            <div class="container" ng-disabled="vm.getHoot == true;" on-tap="vm.reply(recorder)"  on-swipe-up="vm.startChat(recorder)">
+            <div class="container"  on-tap="vm.reply(recorder)"  on-swipe-up="vm.startChat(recorder)">
 
                 <ion-spinner
 
@@ -23,16 +23,11 @@
 
                 <div>
 
-                    <audio class="player" controls autoplay="true" ng-src="{{$root.hootURL(vm.selectedHoot._id) | trusted}}" type="audio/.wav" loop >
+                    <audio id="audio-tag" class="player" controls autoplay="true" ng-src="{{$root.hootURL(vm.selectedHoot._id) | trusted}}" type="audio/.wav" loop>
 
                     </audio>
-                <!--<audio id="audio"  src="https://s3.amazonaws.com/hoot-app-audio/585ce73651ede42484c6e9df.wav" loop></audio>-->
+
                 </div>
-                <!--<ion-spinner-->
-
-                        <!--ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">-->
-
-                <!--</ion-spinner>-->
 
                 <div class="left" ng-click="vm.previousHoot()" ng-disabled="vm.isNotTapable">
 
@@ -47,7 +42,7 @@
 
                 </div>
 
-                <!--<img ng-src={{vm.model.hootimage}} class="centered"/>-->
+
 
                 <div ng-if="recorder.isAvailable">
 

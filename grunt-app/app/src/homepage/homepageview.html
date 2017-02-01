@@ -1,93 +1,44 @@
 <ion-pane id="homepage" style="background-color: floralwhite;" ng-cloak="">
-  <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
+    <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
-  <ion-content class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-left="$root.goto('listenHoot')"
-               on-swipe-right="$root.goto('reply')">
+        <ion-content class="padding" on-swipe-down="homepageview.html" on-tap="recorder.stopRecord()"
+                     on-swipe-left="$root.goto('listenHoot')"
+                     on-swipe-right="$root.goto('reply')">
 
-    <!--<div on-tap="vm.test1(leftSwipe)">-->
-<div class="container"  on-tap="recorder.save('upload')" on-swipe-up="recorder.startRecord() && vm.swipeUp()">
+            <!--<div on-tap="vm.test1(leftSwipe)">-->
+            <div class="container" on-tap="recorder.save('upload')"
+                 on-swipe-up="recorder.startRecord() && vm.swipeUp()">
 
-  <div class="home-content">
-
-
-    <ion-spinner
-            ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">
-    </ion-spinner>
-
-    <div ng-if="" class="circle-loader">
-      <div class="checkmark draw"></div>
-    </div>
+                <div class="home-content">
 
 
-    <!--<img ng-src={{vm.model.hootimage}} class="centered"/>-->
+                    <ion-spinner
+                            ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">
+                    </ion-spinner>
 
-      <div ng-if="recorder.isAvailable">
-
-        <div ng-if="recorder.status.isDenied === true" style="color: red;">
-          You need to grant permission for this application to USE your microphone.
-        </div>
+                    <div ng-if="$root.showSuccess" class="circle-loader">
+                        <div class="checkmark draw"></div>
+                    </div>
 
 
-        <!--<button class="button button-block button-assertive" ng-click="vm.test(recorder)">-->
-          <!--Test-->
-        <!--</button>-->
-        <!--<button class="button button-block button-assertive" on-swipe-up="recorder.startRecord(recorder)"-->
-                <!--on-release="recorder.stopRecord();" type="button"-->
-                <!--ng-disabled="recorder.status.isDenied === true || recorder.status.isRecording">-->
-          <!--Start Record-->
-        <!--</button>-->
+                    <!--<img ng-src={{vm.model.hootimage}} class="centered"/>-->
 
-        <!--<button class="button button-block button-assertive" on-tap="recorder.stopRecord(recorder)" type="button"-->
-                <!--ng-disabled="recorder.status.isRecording === false">-->
-          <!--Stop Record-->
-        <!--</button>-->
+                    <div ng-if="recorder.isAvailable">
 
-        <!--<button class="button button-block button-assertive"-->
-                <!--ng-click="recorder.status.isPlaying ? recorder.playbackPause() : recorder.playbackResume()"-->
-                <!--type="button" ng-disabled="recorder.status.isRecording || !recorder.audioModel">-->
-          <!--{{recorder.status.isStopped || recorder.status.isPaused ? 'Play' : 'Pause'}}-->
-        <!--</button>-->
+                        <div ng-if="recorder.status.isDenied === true" style="color: red;">
+                            You need to grant permission for this application to USE your microphone.
+                        </div>
 
-        <!--<button class="button button-block button-assertive" on-tap="recorder.save()"-->
-                <!--ng-disabled="recorder.status.isRecording || !recorder.audioModel">-->
-          <!--Upload-->
-        <!--</button>-->
-
-        <!--<div style="max-width: 600px">-->
-          <!--<div ng-show="recorder.status.isConverting">-->
-            <!--Please wait while your recording is processed.-->
-          <!--</div>-->
-
-          <!--<div ng-show="!recorder.status.isRecording && recorder.audioModel">-->
-            <!--<ng-audio-recorder-wave-view wave-color="yellow" bar-color="red"></ng-audio-recorder-wave-view>-->
-          <!--</div>-->
-        </div>
-
-        <!--<h2 style="font-family: sans-serif; text-align: center; width: 60px; border-radius: 20px;-->
-        <!--border: solid 2px #333; padding: 20px 10px;" ng-if="recorder.status.isRecording">-->
-          <!--{{recorder.elapsedTime > 9 ? recorder.elapsedTime : ('0'+recorder.elapsedTime)}}-->
-        <!--</h2>-->
-
-      </div>
-<div class="recorder" on-swipe-up="vm.onSwipe()">
-  <h4>
-    Record a Hoot
-  </h4>
+                    </div>
+                </div>
+                <div class="recorder" on-swipe-up="vm.onSwipe()">
+                    <h4>
+                        Record a Hoot
+                    </h4>
     <span>
       <i class="icon ion-chevron-up icon-accessory"></i>
-
     </span>
-
-
-
-
-</div>
-
-    <!--<button class="button button-block button-assertive"-->
-            <!--on-touch="vm.signOut('login')">-->
-      <!--<div>Sign Out</div>-->
-    <!--</button>-->
-    <!--</div> //new div-->
-  </ion-content>
-  </ng-audio-recorder>
+                </div>
+        </ion-content>
+    </ng-audio-recorder>
 </ion-pane>

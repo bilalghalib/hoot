@@ -19,7 +19,7 @@
     vm.imageUrl = 'images/preHoot.png';
 
 
-    var email = "15.00.00.0c.aa.00@hoot.com";
+    var email = "17.00.00.0c.aa.00@hoot.com";
     // var email = "test@hoot.com";
     var password = "testingtestingtesting";
 
@@ -42,20 +42,20 @@
 
     function createUser() {
       vm.imageUrl = 'images/postHoot.png';
-      // window.MacAddress.getMacAddress(
-      //   function(macAddress) {
-      //     //alert(macAddress);
-      //     vm.email = macAddress + "@hoot.com";
-      //     var str = vm.email;
-      //     vm.email = str.replace(/:/g, ".");
-      //     // alert(vm.email);
-      //     vm.password = macAddress;
-      //     // alert(vm.password);
-      //   },
-      //   function(fail) {
-      //     alert(fail);
-      //   }
-      // );
+      window.MacAddress.getMacAddress(
+        function(macAddress) {
+          //alert(macAddress);
+          vm.email = macAddress + "@hoot.com";
+          var str = vm.email;
+          vm.email = str.replace(/:/g, ".");
+          // alert(vm.email);
+          vm.password = macAddress;
+          // alert(vm.password);
+        },
+        function(fail) {
+          alert(fail);
+        }
+      );
       console.log(user);
       dataService.auth.login(user).then(function(res){
         if(res.success){

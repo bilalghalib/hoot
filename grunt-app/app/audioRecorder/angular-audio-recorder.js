@@ -66,7 +66,7 @@
     a.readAsDataURL(blob);
   };
 
-  var RecorderController = function (element, service, recorderUtils, $scope, $timeout, $interval, PLAYBACK, dataService) {
+  var RecorderController = function (element, service, recorderUtils, $scope, $timeout, $interval, PLAYBACK, dataService, $rootScope) {
     //used in NON-Angular Async process
     var scopeApply = function (fn) {
       var phase = $scope.$root.$$phase;
@@ -403,12 +403,13 @@
 
           console.log(data);
 
+          $rootScope.showSuccess = true;
 
-          dataService.hoot.add(data).then(function (res) {
-            console.log(res);
-          }, function (err) {
-            console.log(err);
-          });
+          // dataService.hoot.add(data).then(function (res) {
+          //   console.log(res);
+          // }, function (err) {
+          //   console.log(err);
+          // });
         }
         else if (replyType == 'reply') {
 
@@ -586,7 +587,7 @@
 
   };
 
-  RecorderController.$inject = ['$element', 'recorderService', 'recorderUtils', '$scope', '$timeout', '$interval', 'recorderPlaybackStatus', 'dataService'];
+  RecorderController.$inject = ['$element', 'recorderService', 'recorderUtils', '$scope', '$timeout', '$interval', 'recorderPlaybackStatus', 'dataService', '$rootScope'];
 
   angular.module('angularAudioRecorder.controllers')
     .controller('recorderController', RecorderController)
