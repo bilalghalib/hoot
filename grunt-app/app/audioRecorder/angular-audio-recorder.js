@@ -26,6 +26,7 @@
       var path = myUrl.substr(0, myUrl.lastIndexOf('/') + 1);
       var a = document.createElement('a');
       a.href = path;
+
       return a.href;
     }()))
     .constant('recorderPlaybackStatus', {
@@ -207,6 +208,7 @@
       console.log("Object ID   " + audioObjId);
       return service.isCordova ? cordovaMedia.player : document.getElementById(audioObjId);
     };
+
 
 
     control.startRecord = function () {

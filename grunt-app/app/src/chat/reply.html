@@ -1,5 +1,7 @@
-<ion-pane id="reply" style="background-color:teal; ng-cloak="">
-
+<ion-pane id="reply" style="background-color: #1f2f3f; ng-cloak="">
+<img class="img-center" style="
+  width: 100%;
+  height: 100%;" src="images/background.png" alt="">
     <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
         <ion-content class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-left="$root.goto('homepage')"

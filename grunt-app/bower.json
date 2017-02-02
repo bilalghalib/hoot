@@ -10,6 +10,7 @@
     "font-awesome": "fontawesome#^4.6.3",
     "angularAudioRecorder": "^1.4.1",
     "ngstorage": "^0.3.11",
+    "animate.css": "^3.5.2"
   },
   "devDependencies": {
     "ngCordova-IMEI": "git://github.com/konstantinkrassmann/ngCordova-IMEI"

@@ -32,7 +32,7 @@
     vm.signOut = signOut;
     vm.getHoots = getHoots;
     vm.uploadHoot = uploadHoot;
-
+   
 
 
     // vm.addHoot = addHoot;

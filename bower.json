@@ -5,6 +5,7 @@
     "ionic": "driftyco/ionic-bower#1.2.4"
   },
   "dependencies": {
-    "angular-audio": "^1.7.3"
+    "angular-audio": "^1.7.3",
+    "animate.css": "^3.5.2"
   }
 }
