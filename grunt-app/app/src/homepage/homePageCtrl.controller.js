@@ -28,11 +28,10 @@
 
     // vm.getLatLong = getLatLong;
 
-    
+
     vm.signOut = signOut;
-    vm.getHoots = getHoots;
     vm.uploadHoot = uploadHoot;
-   
+
 
 
     // vm.addHoot = addHoot;
@@ -44,28 +43,19 @@
     // };
 
     vm.test1 = function( ){
-
         console.log("I am right tap");
-
     };
 
     vm.test2 = function( ){
-
         console.log("I am left tap");
-
     };
 
      function uploadHoot () {
-
       if (control.playbackResume === true){
         console.log("abcadad");
       }
+    };
 
-    };
-    
-    function getHoots(){
-      
-    };
 
     /////////////////////
 
@@ -141,14 +131,12 @@
 
 
     vm.imageUrl = 'images/preHoot.png';
-
     vm.onSwipe = function() {
       console.log('hoot pic');
       vm.imageUrl = 'images/postHoot.png';
-
     };
 
-   
+
 
 
     function signOut(name){
@@ -161,10 +149,6 @@
       function(err){
         console.log(err);
       });
-
-      // setTimeout(function(){
-      //   vm.changeState(name);
-      // }, 1000)
     }
 
   }

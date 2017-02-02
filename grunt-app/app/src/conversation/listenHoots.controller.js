@@ -25,7 +25,6 @@
     vm.startChat = startChat;
     vm.reply = reply;
 
-
     console.log(vm.hoots);
 
 

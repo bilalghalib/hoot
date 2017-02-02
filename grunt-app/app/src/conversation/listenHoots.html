@@ -1,78 +1,51 @@
-<ion-pane id="listen-hoot" style="background-color:"#1f2f3f" ng-cloak="">
+<ion-pane id="listen-hoot" ng-cloak="">
 
-    <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
+  <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
-        <ion-content  delegate-handle="view-scroll" class="padding" on-swipe-down="homepageview.html"  on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage')"
-                     on-swipe-right="vm.test2()">
+    <ion-content delegate-handle="view-scroll" class="padding" on-swipe-down="homepageview.html"
+                 on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage', recorder)"
+                 on-swipe-right="vm.test2()">
 
-            <div class="container"  on-tap="vm.reply(recorder)"  on-swipe-up="vm.startChat(recorder)">
+      <div class="container" on-tap="vm.reply(recorder)" on-swipe-up="vm.startChat(recorder)">
+        <ion-spinner
+          ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">
+        </ion-spinner>
 
-                <ion-spinner
+        <!--&lt;!&ndash;on-tap="recorder.save()"&ndash;&gt; /save function in the above div on tap-->
 
-                        ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">
+        <div class="hoot" on-tap="">
+          <div>
+            <audio id="audio-tag" class="player" controls autoplay="true"
+                   ng-src="{{$root.hootURL(vm.selectedHoot._id) | trusted}}" type="audio/.wav" loop>
+            </audio>
+          </div>
 
-                </ion-spinner>
+          <div class="left" ng-click="vm.previousHoot()" ng-disabled="vm.isNotTapable">
+          </div>
+          <div class="right" ng-click="vm.nextHoot()" ng-disabled="vm.isNotTapable">
+            <h2>{{vm.isNotTapable}}</h2>
+          </div>
+          <!--<img ng-src={{vm.model.hootimage}} class="centered"/>-->
+          <div ng-if="recorder.isAvailable">
 
-
-
-                <!--&lt;!&ndash;on-tap="recorder.save()"&ndash;&gt; /save function in the above div on tap-->
-
-
-            <div class="hoot" on-tap="">
-
-
-                <div>
-
-                    <audio id="audio-tag" class="player" controls autoplay="true" ng-src="{{$root.hootURL(vm.selectedHoot._id) | trusted}}" type="audio/.wav" loop>
-
-                    </audio>
-
-                </div>
-
-                <div class="left" ng-click="vm.previousHoot()" ng-disabled="vm.isNotTapable">
-
-
-
-                </div>
-
-                <div class="right" ng-click="vm.nextHoot()" ng-disabled="vm.isNotTapable">
-
-
-                    <h2>{{vm.isNotTapable}}</h2>
-
-                </div>
-
-                <!--<img ng-src={{vm.model.hootimage}} class="centered"/>-->
-
-                <div ng-if="recorder.isAvailable">
-
-                    <div ng-if="recorder.status.isDenied === true" style="color: red;">
-                        You need to grant permission for this application to USE your microphone.
-                    </div>
-                </div>
-
+            <div ng-if="recorder.status.isDenied === true" style="color: red;">
+              You need to grant permission for this application to USE your microphone.
             </div>
-            </div>
-            <div class="recorder">
-                <h4>
-                    Record a Hoot
-                </h4>
-    <span>
-      <i class="icon ion-chevron-up icon-accessory"></i>
+          </div>
 
-    </span>
+        </div>
+      </div>
+      <div class="recorder">
+        <h4>
+          Record a Hoot
+        </h4>
+        <span>
+          <i class="icon ion-chevron-up icon-accessory"></i>
+        </span>
+      </div>
+      <!--Insert Random Hoots by User-->
 
-
-
-
-
-            </div>
-
-
-
-            <!--Insert Random Hoots by User-->
-
-        </ion-content>
-    </ng-audio-recorder>
+    </ion-content>
+  </ng-audio-recorder>
 </ion-pane>
 

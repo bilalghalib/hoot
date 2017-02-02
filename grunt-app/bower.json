@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "dependencies": {
     "lodash": "*",
-    "driftyco/ionic": "*",
     "restangular": "*",
     "ngCordova": "^0.1.26-alpha",
     "jquery": "^2.2.3",
     "font-awesome": "fontawesome#^4.6.3",
     "angularAudioRecorder": "^1.4.1",
     "ngstorage": "^0.3.11",
-    "animate.css": "^3.5.2"
+    "animate.css": "^3.5.2",
+    "ionic": "driftyco/ionic-bower#master"
   },
   "devDependencies": {
     "ngCordova-IMEI": "git://github.com/konstantinkrassmann/ngCordova-IMEI"

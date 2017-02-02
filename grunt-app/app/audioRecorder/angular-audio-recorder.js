@@ -312,15 +312,12 @@
       // showSuccess == false;
 
       if (control.save == true) {
-        control.playbackPause();
-        playbackAudio = !playbackAudio;
-        console.log(control.audioModel);
-        console.log("hello!");
-        // vm.showSuccess = true;
-        control.audioModel = {};
+        setTimeout(function(){
+
+        }, 100);
       }
       var ext;
-      if(control.audioModel.type){
+      if(control.audioModel){
       var contentType = control.audioModel.type;
       contentType = contentType.replace('audio/', '');
       }
@@ -512,8 +509,6 @@
       function callback() {
         // console.dir('called every 2 seconds');
         control.playbackResume();
-
-
       }
 
 

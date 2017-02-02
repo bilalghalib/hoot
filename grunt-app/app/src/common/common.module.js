@@ -16,11 +16,12 @@
   /* @ngInject */
   function run($rootScope, $state, S3_BUCKET_ENDPOINT){
     $rootScope.showSuccess = false;
-    $rootScope.goto = function(name) {
-      
-      console.log(name);
-      $state.go(name);
 
+
+    $rootScope.goto = function(name, recorder) {
+      console.log(name);
+      recorder.audioModel = null;
+      $state.go(name);
     };
 
     $rootScope.hootURL = function(id){

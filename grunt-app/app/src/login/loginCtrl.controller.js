@@ -44,13 +44,10 @@
       vm.imageUrl = 'images/postHoot.png';
       // window.MacAddress.getMacAddress(
       //   function(macAddress) {
-      //     //alert(macAddress);
       //     vm.email = macAddress + "@hoot.com";
       //     var str = vm.email;
       //     vm.email = str.replace(/:/g, ".");
-      //     // alert(vm.email);
       //     vm.password = macAddress;
-      //     // alert(vm.password);
       //   },
       //   function(fail) {
       //     alert(fail);

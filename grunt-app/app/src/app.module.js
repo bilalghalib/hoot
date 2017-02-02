@@ -20,7 +20,6 @@
     'app.main',
     'app.login',
     'angularAudioRecorder',
-    'app.conversation',
     'app.chat'
     ])
 
