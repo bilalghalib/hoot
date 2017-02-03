@@ -1,5 +1,7 @@
 <ion-pane id="homepage" style="background-color: floralwhite;" ng-cloak="">
   <img class="homeBackground" src="images/background.png" alt="">
+  {{$root.showSuccess}}
+
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
     <ion-content class="padding" on-swipe-down="homepageview.html" on-tap="recorder.stopRecord()"
@@ -8,7 +10,7 @@
 
       <!--<div on-tap="vm.test1(leftSwipe)">-->
       <div class="container" on-tap="recorder.save('upload')"
-           on-swipe-up="recorder.startRecord() && vm.swipeUp()">
+           on-swipe-up="vm.startRecord(recorder);">
 
         <div class="home-content">
           <img class="homeOwl" ng-src={{vm.imageUrl}}>
@@ -17,7 +19,7 @@
             ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">
           </ion-spinner>
 
-          <div class="circle-loader animated infinite bounce">
+          <div ng-if="$root.showSuccess" class="circle-loader animated slideOutDown">
             <div class="checkmark draw"></div>
           </div>
 

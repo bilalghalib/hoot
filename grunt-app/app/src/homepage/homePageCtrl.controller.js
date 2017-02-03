@@ -31,6 +31,7 @@
 
     vm.signOut = signOut;
     vm.uploadHoot = uploadHoot;
+    vm.startRecord = startRecord;
 
 
 
@@ -149,6 +150,10 @@
       function(err){
         console.log(err);
       });
+    }
+
+    function startRecord(recorder){
+        recorder.startRecord();    
     }
 
   }

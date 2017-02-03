@@ -210,45 +210,45 @@
     };
 
 
-
     control.startRecord = function () {
-      control.audioModel = null;
       setTimeout(function () {
         control.audioModel = null;
-
         if (!service.isAvailable()) {
           return;
         }
-
         if (status.isPlaying) {
-
           if (control.startRecord()) {
             control.startRecord();
           }
-
           control.playbackPause();
           //indicate that this is not paused.
           status.playback = PLAYBACK.STOPPED;
-
         }
-
         //clear audio previously recorded
         control.audioModel = null;
-
 
         var id = control.id, recordHandler = service.getHandler();
         //Record initiation based on browser type
         var start = function () {
           if (service.isCordova) {
-            cordovaMedia.url = recorderUtils.cordovaAudioUrl(control.id);
-            //mobile app needs wav extension to save recording
-            cordovaMedia.recorder = new Media(cordovaMedia.url, function () {
-              console.log('Media successfully played');
-            }, function (err) {
-              console.log('Media could not be launched' + err.code, err);
-            });
-            console.log('CordovaRecording');
-            cordovaMedia.recorder.startRecord();
+            if(cordovaMedia.url){
+              cordovaMedia = {
+                recorder: null,
+                url: null,
+                player: null
+              }
+            }
+            setTimeout(function () {
+              cordovaMedia.url = recorderUtils.cordovaAudioUrl(control.id);
+              //mobile app needs wav extension to save recording
+              cordovaMedia.recorder = new Media(cordovaMedia.url, function () {
+                console.log('Media successfully played');
+              }, function (err) {
+                console.log('Media could not be launched' + err.code, err);
+              });
+              console.log('CordovaRecording');
+              cordovaMedia.recorder.startRecord();
+            },1000);
           }
           else if (service.isHtml5) {
             //HTML5 recording
@@ -281,7 +281,9 @@
         };
 
         if (service.isCordova || recordHandler) {
-          start();
+          setTimeout(function () {
+            start();
+          }, 50);
         } else if (!status.isDenied) {
           //probably permission was never asked
           service.showPermission({
@@ -297,31 +299,18 @@
             }
           });
         }
-
       }, 100);
-
-
     };
 
 
-
-
     control.save = function (replyType, replyHootData, roomID) {
-
       // vm.showSuccess = showSuccess;
       // showSuccess == false;
-
-      if (control.save == true) {
-        setTimeout(function(){
-
-        }, 100);
-      }
       var ext;
-      if(control.audioModel){
-      var contentType = control.audioModel.type;
-      contentType = contentType.replace('audio/', '');
+      if (control.audioModel) {
+        var contentType = control.audioModel.type;
+        contentType = contentType.replace('audio/', '');
       }
-
       if (!service.isAvailable() || status.isRecording || !control.audioModel) {
         return false;
       }
@@ -370,9 +359,7 @@
           //window.open(base64Image);
           //console.log(base64Audio);
           base64 = base64Audio;
-
           //alert(base64);
-
           var data = {
             audio: base64
           };
@@ -392,18 +379,15 @@
       reader.onloadend = function () {
         var base64data = reader.result;
         //  console.log(base64data);
-        var data= {
+        var data = {
           audio: base64data,
           type: contentType,
           name: fileName
         };
 
         if (replyType == 'upload') {
-
           console.log(data);
-
           $rootScope.showSuccess = true;
-
           // dataService.hoot.add(data).then(function (res) {
           //   console.log(res);
           // }, function (err) {
@@ -411,14 +395,10 @@
           // });
         }
         else if (replyType == 'reply') {
-
+          $rootScope.showSuccess = true;
           data.userid = replyHootData.userid;
           data.hootid = replyHootData.hootid;
-
-
           console.log(data);
-
-
           dataService.chat.reply(roomID, data).then(function (res) {
             console.log(res);
           }, function (err) {
@@ -427,34 +407,6 @@
         }
 
       };
-
-
-      // var xhr = new XMLHttpRequest();
-      // console.log( (window.URL || window.webkitURL).createObjectURL(control.audioModel));
-      // xhr.open('GET', (window.URL || window.webkitURL).createObjectURL(control.audioModel), true);
-      // xhr.responseType = 'blob';
-      // alert(xhr);
-      // xhr.onload = function(e) {
-      //   alert(this.status)
-      //   if (this.status == 200) {
-      //     var myBlob = this.response;
-      //     var base64str = btoa(myBlob);
-      //     console.log(base64str);
-      //     var reader = new window.FileReader();
-      //     reader.readAsDataURL(myBlob);
-      //     reader.onloadend = function() {
-      //       var base64data = reader.result;
-      //       console.log(hootAPI);
-      //       hootAPI.storeAudio(myBlob, myBlob, fileName);
-      //     }
-      //   } else {
-      //     alert("Something went Wrong...")
-      //   }
-      // };
-      // setTimeout(function () {
-      //   alert("Initiating Send");
-      //   xhr.send();
-      // },2000);
     };
 
     control.stopRecord = function () {
@@ -471,23 +423,23 @@
           control.audioModel = inputBlob;
           embedPlayer(inputBlob);
         };
-
         if (shouldConvertToMp3) {
           doMp3Conversion(blob, finalize);
         } else {
           finalize(blob)
         }
-
         embedPlayer(null);
         control.onRecordComplete();
       };
-
       //To stop recording
       if (service.isCordova) {
         cordovaMedia.recorder.stopRecord();
         window.resolveLocalFileSystemURL(cordovaMedia.url, function (entry) {
           entry.file(function (blob) {
-            completed(blob);
+            setTimeout(function () {
+              completed(blob);
+              scopeApply();
+            },500);
           });
         }, function (err) {
           console.log('Could not retrieve file, error code:', err.code);
@@ -504,17 +456,12 @@
         recordHandler.stopRecording(id);
         completed(recordHandler.getBlob(id));
       }
-      console.log(control.audioModel);
 
       function callback() {
         // console.dir('called every 2 seconds');
-        control.playbackResume();
+          control.playbackResume();
       }
-
-
-      $interval(callback, 1000);
-
-
+        $interval(callback, 2000);
     };
 
     control.playbackRecording = function () {
@@ -548,8 +495,6 @@
 
 
     control.playbackResume = function () {
-
-      setTimeout(function () {
         if (status.isPlaying || !service.isAvailable() || status.isRecording || !control.audioModel) {
           return false;
         }
@@ -561,9 +506,6 @@
         } else {
           control.playbackRecording();
         }
-        // hootAPI.getAudio();
-      }, 500);
-
     };
 
 
