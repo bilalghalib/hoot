@@ -388,11 +388,11 @@
         if (replyType == 'upload') {
           console.log(data);
           $rootScope.showSuccess = true;
-          // dataService.hoot.add(data).then(function (res) {
-          //   console.log(res);
-          // }, function (err) {
-          //   console.log(err);
-          // });
+          dataService.hoot.add(data).then(function (res) {
+            console.log(res);
+          }, function (err) {
+            console.log(err);
+          });
         }
         else if (replyType == 'reply') {
           $rootScope.showSuccess = true;
@@ -456,12 +456,9 @@
         recordHandler.stopRecording(id);
         completed(recordHandler.getBlob(id));
       }
-
-      function callback() {
-        // console.dir('called every 2 seconds');
-          control.playbackResume();
-      }
-        $interval(callback, 2000);
+      setTimeout(function(){
+        control.playbackRecording();
+      },500);
     };
 
     control.playbackRecording = function () {
