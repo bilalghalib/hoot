@@ -4,9 +4,8 @@
 
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
-    <ion-content class="padding" on-swipe-down="homepageview.html" on-tap="recorder.stopRecord()"
-                 on-swipe-left="$root.goto('listenHoot',recorder)"
-                 on-swipe-right="$root.goto('reply', recorder)">
+    <ion-content has-bouncing="true" class="padding" on-swipe-down="homepageview.html" on-tap="recorder.stopRecord()"
+                 on-swipe-left="$root.goto('listenHoot',recorder)">
 
       <!--<div on-tap="vm.test1(leftSwipe)">-->
       <div class="container" on-tap="recorder.save('upload')"

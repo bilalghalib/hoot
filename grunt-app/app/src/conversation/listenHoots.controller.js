@@ -38,7 +38,7 @@
       $ionicScrollDelegate.$getByHandle('view-scroll').scrollTop(true);
       dataService.chat.getRoom(vm.hoots[currentIndex].user).then(
         function (res) {
-          console.log(res.data);
+          console.log(res);
           currentRoomID = res.data._id;
           recorder.startRecord();
 

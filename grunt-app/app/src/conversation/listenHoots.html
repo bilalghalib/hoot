@@ -3,8 +3,7 @@
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
     <ion-content delegate-handle="view-scroll" class="padding" on-swipe-down="homepageview.html"
-                 on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage', recorder)"
-                 on-swipe-right="vm.test2()">
+                 on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage', recorder)">
 
       <div class="container" on-tap="vm.reply(recorder)" on-swipe-up="vm.startChat(recorder)">
         <ion-spinner
@@ -23,7 +22,6 @@
           <div class="left" ng-click="vm.previousHoot()" ng-disabled="vm.isNotTapable">
           </div>
           <div class="right" ng-click="vm.nextHoot()" ng-disabled="vm.isNotTapable">
-            <h2>{{vm.isNotTapable}}</h2>
           </div>
           <!--<img ng-src={{vm.model.hootimage}} class="centered"/>-->
           <div ng-if="recorder.isAvailable">
