@@ -1,22 +1,21 @@
 <ion-pane id="homepage" style="background-color: floralwhite;" ng-cloak="">
-  <img class="homeBackground" src="images/background.png" alt="">
-  {{$root.showSuccess}}
-
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
-    <ion-content has-bouncing="true" class="padding" on-swipe-down="homepageview.html" on-tap="recorder.stopRecord()"
-                 on-swipe-left="$root.goto('listenHoot',recorder)">
+    <ion-content overflow-scroll="false" has-bouncing="true" class="padding" on-swipe-down="homepageview.html" on-tap="recorder.stopRecord()"
+                 on-swipe-left="$root.goto('listenHoot',recorder)" style="z-index: 99999; padding: 0;">
 
       <!--<div on-tap="vm.test1(leftSwipe)">-->
       <div class="container" on-tap="recorder.save('upload')"
            on-swipe-up="vm.startRecord(recorder);">
 
+        <div ng-show="$root.isRecording">
+          <img class="img-owl animated" ng-class="{'fadeIn': !$root.isRecording}" ng-src="images/postHootfly.png" />
+        </div>
+        <div ng-show="!$root.isRecording">
+        <img class="img-owl animated" ng-class="{'fadeOut': $root.isRecording}"  ng-src="images/postHoot.png" />
+        </div>
         <div class="home-content">
-          <img class="homeOwl" ng-src={{vm.imageUrl}}>
 
-          <ion-spinner
-            ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">
-          </ion-spinner>
 
           <div ng-if="$root.showSuccess" class="circle-loader animated slideOutDown">
             <div class="checkmark draw"></div>
@@ -33,15 +32,13 @@
 
           </div>
         </div>
-        <div class="recorder" on-swipe-up="vm.onSwipe()">
-          <h4>
-            Record a Hoot
-          </h4>
-            <span>
-              <i class="icon ion-chevron-up icon-accessory"></i>
-            </span>
-        </div>
+
       </div>
     </ion-content>
+    <img class="img-sun animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/moon.png"/>
+    <img class="img-tree parallax-animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/tree.png"/>
+    <img class="img-center" ng-src="images/nightmotion.gif"/>
+    <img class="img-center animated" ng-class="{'fadeOut': $root.isRecording, 'fadeInDown': !$root.isRecording}" ng-src="images/nightsky.jpg"/>
+
   </ng-audio-recorder>
 </ion-pane>

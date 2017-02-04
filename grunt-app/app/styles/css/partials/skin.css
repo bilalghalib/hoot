@@ -1,77 +1,76 @@
 /* line 2, ../../partials/skin.scss */
 .container {
-  height: 88%;
+  height: 100%;
 }
 
-/* line 6, ../../partials/skin.scss */
+/* line 5, ../../partials/skin.scss */
 .hoot {
-  background-color: whitesmoke;
   height: 85vh;
   width: 100%;
   display: flex;
 }
 
-/* line 13, ../../partials/skin.scss */
+/* line 11, ../../partials/skin.scss */
 .right {
   width: 50%;
   height: 100%;
 }
 
-/* line 18, ../../partials/skin.scss */
+/* line 16, ../../partials/skin.scss */
 .right.activated {
   background: linear-gradient(to left, rgba(204, 204, 204, 0.2), rgba(153, 153, 153, 0));
 }
 
-/* line 24, ../../partials/skin.scss */
+/* line 22, ../../partials/skin.scss */
 .left {
   width: 50%;
   height: 100%;
 }
 
-/* line 29, ../../partials/skin.scss */
+/* line 27, ../../partials/skin.scss */
 .left.activated {
   background: linear-gradient(to right, rgba(204, 204, 204, 0.2), rgba(153, 153, 153, 0));
 }
 
-/* line 36, ../../partials/skin.scss */
+/* line 34, ../../partials/skin.scss */
 .recorder {
   text-align: center;
   margin-top: 5%;
 }
 
-/* line 41, ../../partials/skin.scss */
+/* line 39, ../../partials/skin.scss */
 .owl-open {
   width: 60%;
   height: 40%;
 }
 
-/* line 47, ../../partials/skin.scss */
+/* line 45, ../../partials/skin.scss */
 .icon {
   font-size: 34px;
 }
 
-/* line 53, ../../partials/skin.scss */
+/* line 51, ../../partials/skin.scss */
 p {
   text-align: center;
   margin-bottom: 10px !important;
 }
 
-/* line 58, ../../partials/skin.scss */
+/* line 56, ../../partials/skin.scss */
 .spinner svg {
-  width: 60% !important;
-  height: 70% !important;
-  margin-top: 30%;
-  margin-left: 30%;
+  width: 100% !important;
+  height: 100% !important;
+  margin-top: 15%;
+  margin-left: 12%;
 }
 
-/* line 66, ../../partials/skin.scss */
+/* line 64, ../../partials/skin.scss */
 .home-content {
-  height: 85vh;
+  height: 100.5vh;
   width: 100%;
   display: flex;
 }
 
-/* line 73, ../../partials/skin.scss */
+/* line 71, ../../partials/skin.scss */
 .player {
   display: none;
 }

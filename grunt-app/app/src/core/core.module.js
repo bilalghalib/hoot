@@ -12,7 +12,8 @@
     'restangular',
     'ionic',
     'ngCordova',
-    'ngStorage'
+    'ngStorage',
+    'ngAnimate'
   ]);
 
 }());

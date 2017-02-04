@@ -1,5 +1,5 @@
 .container {
-  height: 88%; }
+  height: 100%; }
 
 .hoot {
   height: 85vh;
@@ -42,7 +42,7 @@ p {
   margin-left: 12%; }
 
 .home-content {
-  height: 85vh;
+  height: 100.5vh;
   width: 100%;
   display: flex; }
 
@@ -51,13 +51,51 @@ p {
 
 .img-center {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  position: absolute; }
 
 .img-owl {
   width: 100%;
-  height: 50%;
+  height: auto;
   position: absolute;
-  top: 25%; }
+  top: 25%;
+  z-index: 1001; }
+
+.img-sun {
+  top: 20%;
+  left: auto;
+  width: 127%;
+  right: -13%;
+  height: auto;
+  z-index: 999;
+  position: absolute; }
+
+.img-tree {
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  left: -4px;
+  position: absolute; }
+
+.tap-text {
+  text-align: center;
+  margin-bottom: 10px !important;
+  z-index: 111111;
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  font-size: 16px;
+  color: white;
+  opacity: 1;
+  text-transform: capitalize;
+  font-family: "Comic Sans MS"; }
+
+.parallax-animated {
+  -webkit-animation-duration: 800ms;
+  animation-duration: 800ms;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
 
 #homepage {
   /*.circle-loader {
@@ -134,6 +172,7 @@ p {
 .homeOwl {
   width: 100%;
   height: 50%;
+  z-index: 9999;
   position: absolute;
   top: 25%; }
 

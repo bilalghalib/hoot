@@ -13,11 +13,11 @@
     .controller('homePageCtrl', homePageCtrl);
 
   /* @ngInject */
-  function homePageCtrl($state, dataService) {
+  function homePageCtrl($state, dataService, $rootScope) {
     var vm = this;
     var media;
     var extension = null;
-
+    $rootScope.isRecording = false;
 
     //-------------- Declarations
     //-----Variables Declarations
@@ -131,10 +131,8 @@
     // }
 
 
-    vm.imageUrl = 'images/preHoot.png';
     vm.onSwipe = function() {
       console.log('hoot pic');
-      vm.imageUrl = 'images/postHoot.png';
     };
 
 
@@ -153,7 +151,8 @@
     }
 
     function startRecord(recorder){
-        recorder.startRecord();    
+        $rootScope.isRecording = true;
+        recorder.startRecord();
     }
 
   }

@@ -1,4 +1,11 @@
 <ion-pane style="background-color: whitesmoke;"  on-tap="vm.createUser()">
   <img  class="img-owl" ng-src={{vm.imageUrl}} />
-  <img class="img-center" ng-src="images/background.png"/>
+  <img class="img-sun" ng-class="{'animated slideInRight': vm.activateNight}" ng-src="images/moon.png"/>
+  <img class="img-sun" ng-class="{'animated slideOutLeft': vm.activateNight}" ng-src="images/sun.png"/>
+  <img class="img-tree" ng-src="images/tree.png"/>
+  <img class="img-center" ng-src="images/nightsky.jpg"/>
+  <img class="img-center" ng-class="{'animated fadeOut': vm.activateNight}" ng-src="images/owlNtree1.gif"/>
+  <div ng-hide="vm.activateNight">
+    <p class="tap-text animated pulse infinite">Tap to Login</p>
+  </div>
 </ion-pane>

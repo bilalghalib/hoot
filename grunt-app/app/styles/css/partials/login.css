@@ -2,12 +2,50 @@
 .img-center {
   width: 100%;
   height: 100%;
+  position: absolute;
 }
 
-/* line 6, ../../partials/login.scss */
+/* line 7, ../../partials/login.scss */
 .img-owl {
   width: 100%;
-  height: 50%;
+  height: auto;
   position: absolute;
   top: 25%;
+  z-index: 1001;
+}
+
+/* line 15, ../../partials/login.scss */
+.img-sun {
+  top: 20%;
+  left: auto;
+  width: 127%;
+  right: -13%;
+  height: auto;
+  z-index: 999;
+  position: absolute;
+}
+
+/* line 25, ../../partials/login.scss */
+.img-tree {
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  left: -4px;
+  position: absolute;
+}
+
+/* line 33, ../../partials/login.scss */
+.tap-text {
+  text-align: center;
+  margin-bottom: 10px !important;
+  z-index: 111111;
+  display: block;
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  font-size: 16px;
+  color: white;
+  opacity: 1;
+  text-transform: capitalize;
+  font-family: "Comic Sans MS";
 }

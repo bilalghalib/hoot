@@ -410,6 +410,7 @@
     };
 
     control.stopRecord = function () {
+      $rootScope.isRecording = false;
       var id = control.id;
       if (!service.isAvailable() || !status.isRecording) {
         return false;
