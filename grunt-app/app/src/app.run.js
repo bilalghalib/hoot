@@ -4,7 +4,7 @@
     .run(run);
 
    function run ($ionicPlatform, $cordovaSplashscreen, $timeout, recorderService, $rootScope) {
-         $rootScope.isRecording = false;
+         $rootScope.isLoggedIn = false;
 
     //   if (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) {
     //     console.log('Running run function');

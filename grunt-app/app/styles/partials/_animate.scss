@@ -10,3 +10,80 @@
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
+
+.zoomOutAnimate {
+  -webkit-animation-name: zoomOutAnimate;
+  animation-name: zoomOutAnimate;
+}
+
+.zoomOutMoodAnimate {
+  -webkit-animation-name: zoomOutMoodAnimate;
+  animation-name: zoomOutMoodAnimate;
+}
+
+.zoomInSkyAnimate {
+  -webkit-animation-name: zoomInSkyAnimate;
+  animation-name: zoomInSkyAnimate;
+}
+
+
+@-webkit-keyframes zoomOutAnimate {
+  0% {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.3);
+  }
+}
+
+@keyframes zoomOutAnimate {
+  0% {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.3);
+  }
+}
+
+@-webkit-keyframes zoomOutMoodAnimate {
+  0% {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.6);
+  }
+}
+
+@keyframes zoomOutMoodAnimate {
+  0% {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.6);
+  }
+}
+
+
+@-webkit-keyframes zoomInSkyAnimate {
+  0% {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes zoomInSkyAnimate {
+  0% {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}

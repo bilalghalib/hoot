@@ -47,14 +47,15 @@
   }
   .checkmark:after {
     opacity: 1;
-    height: 4em;
-    width: 2em;
+    height: 1.5em;
+    width: 0.7em;
     transform-origin: left top;
-    border-right: 5px solid #5cb85c;
-    border-top: 5px solid #5cb85c;
+    border-right: 4px solid #ffffff;
+    border-top: 4px solid #ffffff;
     content: '';
-    left: 2em;
-    top: 4em;
+    left: 12.9em;
+    top: 23.3em;
+    z-index: 100001;
     position: absolute;
   }
 
@@ -66,17 +67,17 @@
     }
     20% {
       height: 0;
-      width: 2em;
+      width: 0.7em;
       opacity: 1;
     }
     40% {
-      height: 4em;
-      width: 2em;
+      height: 1.5em;
+      width: 0.7em;
       opacity: 1;
     }
     100% {
-      height: 4em;
-      width: 2em;
+      height: 1.5em;
+      width: 0.7em;
       opacity: 1;
     }
   }

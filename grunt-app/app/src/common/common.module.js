@@ -20,6 +20,9 @@
 
     $rootScope.goto = function(name, recorder) {
       console.log(name);
+      if(name == 'listenHoot'){
+        $rootScope.PageChange = true;
+      }
       if(recorder)
        recorder.audioModel = null;
       $state.go(name);

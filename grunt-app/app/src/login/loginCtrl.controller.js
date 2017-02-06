@@ -50,7 +50,6 @@
         if(res.success){
           console.log('user found and go inside the app');
           console.log(res);
-
           $localStorage.token = res.data.token;
           Restangular.setDefaultHeaders({'x-access-token': res.data.token});
           setTimeout(function(){

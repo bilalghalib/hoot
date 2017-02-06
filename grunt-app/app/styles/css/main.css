@@ -54,7 +54,7 @@ p {
 
 .main-text {
   width: 100%;
-  top: 4em;
+  top: 5em;
   position: absolute;
   z-index: 9999;
   font-family: des_passion; }
@@ -69,6 +69,12 @@ p {
   width: 100%;
   height: 100%;
   position: absolute; }
+
+.img-center-motion {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1; }
 
 .img-owl {
   width: 100%;
@@ -91,6 +97,21 @@ p {
   height: 100%;
   z-index: 1000;
   left: -4px;
+  position: absolute; }
+
+.img-tree-hidden {
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  left: 100%;
+  position: absolute; }
+
+.img-success {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  z-index: 100000;
+  top: 25%;
   position: absolute; }
 
 .img-recorded {
@@ -132,6 +153,48 @@ p {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }
 
+.zoomOutAnimate {
+  -webkit-animation-name: zoomOutAnimate;
+  animation-name: zoomOutAnimate; }
+
+.zoomOutMoodAnimate {
+  -webkit-animation-name: zoomOutMoodAnimate;
+  animation-name: zoomOutMoodAnimate; }
+
+.zoomInSkyAnimate {
+  -webkit-animation-name: zoomInSkyAnimate;
+  animation-name: zoomInSkyAnimate; }
+
+@-webkit-keyframes zoomOutAnimate {
+  0% {
+    transform: scale(1); }
+  to {
+    transform: scale(0.3); } }
+@keyframes zoomOutAnimate {
+  0% {
+    transform: scale(1); }
+  to {
+    transform: scale(0.3); } }
+@-webkit-keyframes zoomOutMoodAnimate {
+  0% {
+    transform: scale(1); }
+  to {
+    transform: scale(0.6); } }
+@keyframes zoomOutMoodAnimate {
+  0% {
+    transform: scale(1); }
+  to {
+    transform: scale(0.6); } }
+@-webkit-keyframes zoomInSkyAnimate {
+  0% {
+    transform: scale(1); }
+  to {
+    transform: scale(1.1); } }
+@keyframes zoomInSkyAnimate {
+  0% {
+    transform: scale(1); }
+  to {
+    transform: scale(1.1); } }
 #homepage {
   /*.circle-loader {
 
@@ -168,14 +231,15 @@ p {
     transform: scaleX(-1) rotate(135deg); }
   #homepage .checkmark:after {
     opacity: 1;
-    height: 4em;
-    width: 2em;
+    height: 1.5em;
+    width: 0.7em;
     transform-origin: left top;
-    border-right: 5px solid #5cb85c;
-    border-top: 5px solid #5cb85c;
+    border-right: 4px solid #ffffff;
+    border-top: 4px solid #ffffff;
     content: '';
-    left: 2em;
-    top: 4em;
+    left: 12.9em;
+    top: 23.3em;
+    z-index: 100001;
     position: absolute; }
 @keyframes checkmark {
   0% {
@@ -184,15 +248,15 @@ p {
     opacity: 1; }
   20% {
     height: 0;
-    width: 2em;
+    width: 0.7em;
     opacity: 1; }
   40% {
-    height: 4em;
-    width: 2em;
+    height: 1.5em;
+    width: 0.7em;
     opacity: 1; }
   100% {
-    height: 4em;
-    width: 2em;
+    height: 1.5em;
+    width: 0.7em;
     opacity: 1; } }
 @-webkit-keyframes fadeinout {
   0%,100% {

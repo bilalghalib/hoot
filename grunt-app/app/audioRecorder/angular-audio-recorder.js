@@ -390,9 +390,14 @@
           $rootScope.showSuccess = true;
           dataService.hoot.add(data).then(function (res) {
             console.log(res);
+
+            $rootScope.showSuccess = false;
           }, function (err) {
             console.log(err);
           });
+          setTimeout(function () {
+            $rootScope.showSuccess = false;
+          },1500);
         }
         else if (replyType == 'reply') {
           $rootScope.showSuccess = true;
@@ -404,6 +409,9 @@
           }, function (err) {
             console.log(err);
           });
+          setTimeout(function () {
+            $rootScope.showSuccess = false;
+          },1500);
         }
 
       };

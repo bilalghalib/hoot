@@ -7,20 +7,33 @@
 (function(){
 
   'use strict';
-
   angular
     .module('app.homepage', [])
     .controller('homePageCtrl', homePageCtrl);
 
+
+
   /* @ngInject */
   function homePageCtrl($state, dataService, $rootScope) {
+
+    (function() {
+      $('img').removeClass('animated fadeOutDown');
+      $('div').removeClass('animated');
+      $('img').removeClass('parallax-animated');
+    }());
+
+    setTimeout(function () {
+      $('div').addClass('animated');
+      $('img').addClass('animated');
+      $('.img-tree').addClass('parallax-animated');
+    }, 1500);
+
     var vm = this;
     var media;
     var extension = null;
     $rootScope.isRecording = false;
+    $rootScope.isLoggedIn = true;
 
-    var audio = new Audio('../../sounds/loggedIn.mp3');
-    audio.play();
 
     //-------------- Declarations
     //-----Variables Declarations
@@ -39,14 +52,7 @@
 
 
     // vm.addHoot = addHoot;
-    $('img').removeClass('animated');
-    $('div').removeClass('animated');
-    $('.img-tree').removeClass('parallax-animated');
-    setTimeout(function () {
-      $('div').addClass('animated');
-      $('img').addClass('animated');
-      $('.img-tree').addClass('parallax-animated');
-    },1000);
+
 
 
     // vm.test1 = function(rightSwipe){

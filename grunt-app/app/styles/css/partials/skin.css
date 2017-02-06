@@ -1,61 +1,65 @@
-/* line 2, ../../partials/skin.scss */
+@font-face {
+  font-family: des_passion;
+  src: url(../../fonts/PassionTea.ttf);
+}
+/* line 6, ../../partials/skin.scss */
 .container {
   height: 100%;
 }
 
-/* line 5, ../../partials/skin.scss */
+/* line 9, ../../partials/skin.scss */
 .hoot {
   height: 85vh;
   width: 100%;
   display: flex;
 }
 
-/* line 11, ../../partials/skin.scss */
+/* line 15, ../../partials/skin.scss */
 .right {
   width: 50%;
   height: 100%;
 }
 
-/* line 16, ../../partials/skin.scss */
+/* line 20, ../../partials/skin.scss */
 .right.activated {
   background: linear-gradient(to left, rgba(204, 204, 204, 0.2), rgba(153, 153, 153, 0));
 }
 
-/* line 22, ../../partials/skin.scss */
+/* line 26, ../../partials/skin.scss */
 .left {
   width: 50%;
   height: 100%;
 }
 
-/* line 27, ../../partials/skin.scss */
+/* line 31, ../../partials/skin.scss */
 .left.activated {
   background: linear-gradient(to right, rgba(204, 204, 204, 0.2), rgba(153, 153, 153, 0));
 }
 
-/* line 34, ../../partials/skin.scss */
+/* line 38, ../../partials/skin.scss */
 .recorder {
   text-align: center;
   margin-top: 5%;
 }
 
-/* line 39, ../../partials/skin.scss */
+/* line 43, ../../partials/skin.scss */
 .owl-open {
   width: 60%;
   height: 40%;
 }
 
-/* line 45, ../../partials/skin.scss */
+/* line 49, ../../partials/skin.scss */
 .icon {
   font-size: 34px;
 }
 
-/* line 51, ../../partials/skin.scss */
+/* line 55, ../../partials/skin.scss */
 p {
   text-align: center;
   margin-bottom: 10px !important;
 }
 
-/* line 56, ../../partials/skin.scss */
+/* line 60, ../../partials/skin.scss */
 .spinner svg {
   width: 100% !important;
   height: 100% !important;
@@ -63,14 +67,31 @@ p {
   margin-left: 12%;
 }
 
-/* line 64, ../../partials/skin.scss */
+/* line 68, ../../partials/skin.scss */
 .home-content {
   height: 100.5vh;
   width: 100%;
   display: flex;
 }
 
-/* line 71, ../../partials/skin.scss */
+/* line 75, ../../partials/skin.scss */
 .player {
   display: none;
+}
+
+/* line 79, ../../partials/skin.scss */
+.main-text {
+  width: 100%;
+  top: 4em;
+  position: absolute;
+  z-index: 9999;
+  font-family: des_passion;
+}
+
+/* line 87, ../../partials/skin.scss */
+.text-hoot {
+  font-size: 30px;
+  color: white;
+  letter-spacing: 1px;
+  opacity: 0.9;
 }

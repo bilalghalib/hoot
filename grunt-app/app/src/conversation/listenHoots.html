@@ -1,9 +1,14 @@
 <ion-pane id="listen-hoot" ng-cloak="">
 
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
+    <div>
+      <audio id="audio-tag" class="player" controls autoplay="true"
+             ng-src="{{$root.hootURL(vm.selectedHoot._id) | trusted}}" type="audio/.wav" loop>
+      </audio>
+    </div>
 
     <ion-content delegate-handle="view-scroll" class="padding" on-swipe-down="homepageview.html"
-                 on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage', recorder)">
+                 on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage', recorder)" style="z-index: 99999; padding: 0;">
 
       <div class="container" on-tap="vm.reply(recorder)" on-swipe-up="vm.startChat(recorder)">
         <ion-spinner
@@ -12,13 +17,13 @@
 
         <!--&lt;!&ndash;on-tap="recorder.save()"&ndash;&gt; /save function in the above div on tap-->
 
-        <div class="hoot" on-tap="">
+        <div>
+
           <div>
-            <audio id="audio-tag" class="player" controls autoplay="true"
-                   ng-src="{{$root.hootURL(vm.selectedHoot._id) | trusted}}" type="audio/.wav" loop>
-            </audio>
+            <img class="img-owl animated" ng-class="{'fadeOut': $root.isRecording, 'zoomOutAnimate': $root.PageChange}"  ng-src="images/postHoot.png" />
           </div>
 
+          <div class="home-content">
           <div class="left" ng-click="vm.previousHoot()" ng-disabled="vm.isNotTapable">
           </div>
           <div class="right" ng-click="vm.nextHoot()" ng-disabled="vm.isNotTapable">
@@ -33,17 +38,16 @@
 
         </div>
       </div>
-      <div class="recorder">
-        <h4>
-          Record a Hoot
-        </h4>
-        <span>
-          <i class="icon ion-chevron-up icon-accessory"></i>
-        </span>
-      </div>
+
       <!--Insert Random Hoots by User-->
 
     </ion-content>
+    <img ng-show="$root.showSuccess" class="img-success animated" ng-src="images/success.png" alt="">
+    <img class="img-center animated" ng-src="images/nightsky.jpg"/>
+    <img class="img-recorded" ng-if="recorder.status.isPlaying" ng-src="images/listen.gif" alt="">
+    <img class="img-sun animated" ng-src="images/moon.png"/>
+    <img class="img-tree parallax-animated" ng-src="images/tree.png"/>
+    <img class="img-center-motion" ng-src="images/nightmotion.gif"/>
   </ng-audio-recorder>
 </ion-pane>
 
