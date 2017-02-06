@@ -20,7 +20,8 @@
 
     $rootScope.goto = function(name, recorder) {
       console.log(name);
-      recorder.audioModel = null;
+      if(recorder)
+       recorder.audioModel = null;
       $state.go(name);
     };
 

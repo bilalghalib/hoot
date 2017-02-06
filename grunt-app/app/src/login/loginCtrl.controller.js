@@ -29,16 +29,7 @@
     };
 
     /** Function Declaration **/
-    vm.changeState = changeState;
     vm.createUser = createUser;
-
-
-    /** Function Definitions**/
-    function changeState(name) {
-      console.log(name);
-      $state.go(name);
-    }
-
 
     function createUser() {
       vm.activateNight = true;
@@ -63,7 +54,7 @@
           $localStorage.token = res.data.token;
           Restangular.setDefaultHeaders({'x-access-token': res.data.token});
           setTimeout(function(){
-            vm.changeState('homepage');
+            $rootScope.goto('homepage');
           },300)
         }
 

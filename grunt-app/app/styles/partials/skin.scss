@@ -1,3 +1,7 @@
+@font-face {
+  font-family: des_passion;
+  src: url(../../fonts/PassionTea.ttf);
+}
 
 .container {
   height: 100%;}
@@ -72,4 +76,17 @@ p {
   display: none;
 }
 
+.main-text{
+  width: 100%;
+  top: 4em;
+  position: absolute;
+  z-index: 9999;
+  font-family: des_passion;
+}
 
+.text-hoot{
+  font-size: 30px;
+  color: white;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}

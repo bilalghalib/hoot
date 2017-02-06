@@ -1,6 +1,11 @@
 <ion-pane id="homepage" style="background-color: floralwhite;" ng-cloak="">
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
+    <div class="main-text animated" ng-hide="$root.isRecording" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}">
+      <p class="text-hoot">Give a Hoot </p>
+      <p class="text-hoot">Take a Hoot</p>
+    </div>
+
     <ion-content overflow-scroll="false" has-bouncing="true" class="padding" on-swipe-down="homepageview.html" on-tap="recorder.stopRecord()"
                  on-swipe-left="$root.goto('listenHoot',recorder)" style="z-index: 99999; padding: 0;">
 
@@ -17,9 +22,9 @@
         <div class="home-content">
 
 
-          <div ng-if="$root.showSuccess" class="circle-loader animated slideOutDown">
-            <div class="checkmark draw"></div>
-          </div>
+          <!--<div class="circle-loader slideOutDown infinite">-->
+            <!--<div class="checkmark animated draw infinite"></div>-->
+          <!--</div>-->
 
 
           <!--<img ng-src={{vm.model.hootimage}} class="centered"/>-->
@@ -35,6 +40,8 @@
 
       </div>
     </ion-content>
+
+    <img class="img-recorded" ng-if="recorder.status.isPlaying" ng-src="images/listen.gif" alt="">
     <img class="img-sun animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/moon.png"/>
     <img class="img-tree parallax-animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/tree.png"/>
     <img class="img-center" ng-src="images/nightmotion.gif"/>

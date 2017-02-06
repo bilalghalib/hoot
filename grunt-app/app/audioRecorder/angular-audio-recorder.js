@@ -459,7 +459,7 @@
       }
       setTimeout(function(){
         control.playbackRecording();
-      },500);
+      },1500);
     };
 
     control.playbackRecording = function () {

@@ -19,6 +19,9 @@
     var extension = null;
     $rootScope.isRecording = false;
 
+    var audio = new Audio('../../sounds/loggedIn.mp3');
+    audio.play();
+
     //-------------- Declarations
     //-----Variables Declarations
     vm.loginData = {};
@@ -36,6 +39,14 @@
 
 
     // vm.addHoot = addHoot;
+    $('img').removeClass('animated');
+    $('div').removeClass('animated');
+    $('.img-tree').removeClass('parallax-animated');
+    setTimeout(function () {
+      $('div').addClass('animated');
+      $('img').addClass('animated');
+      $('.img-tree').addClass('parallax-animated');
+    },1000);
 
 
     // vm.test1 = function(rightSwipe){

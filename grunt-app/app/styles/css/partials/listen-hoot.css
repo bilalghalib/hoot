@@ -1,0 +1,15 @@
+/* line 5, ../../partials/listen-hoot.scss */
+.hoot {
+  background-color: red;
+  height: 85vh;
+  width: 100%;
+  display: flex;
+}
+
+/* line 12, ../../partials/listen-hoot.scss */
+.img-center {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 25%;
+}
