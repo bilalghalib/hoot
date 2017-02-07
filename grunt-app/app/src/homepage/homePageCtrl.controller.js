@@ -17,7 +17,7 @@
   function homePageCtrl($state, dataService, $rootScope) {
 
     (function() {
-       $('img').removeClass('animated');
+       $('img').removeClass('animated ');
       $('div').removeClass('animated');
       $('img').removeClass('parallax-animated');
     }());
@@ -168,7 +168,8 @@
     }
 
     function startRecord(recorder){
-        $rootScope.isRecording = true;
+      $('img').removeClass('zoomInSkyAnimate ');
+      $rootScope.isRecording = true;
         recorder.startRecord();
     }
 

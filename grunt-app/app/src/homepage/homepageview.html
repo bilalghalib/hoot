@@ -17,11 +17,12 @@
            on-swipe-up="vm.startRecord(recorder);">
 
 
-        <div ng-show="$root.isRecording">
-          <img class="img-owl animated" ng-class="{'fadeIn': !$root.isRecording}" ng-src="images/postHootfly.png" />
-        </div>
+
         <div ng-show="!$root.isRecording">
-        <img class="img-owl animated" ng-class="{'fadeOut': $root.isRecording, 'zoomOutAnimate': $root.PageChange, 'zoomInAnimate': !$root.PageChange}"  ng-src="images/postHoot.png" />
+        <img class="img-owl animated" ng-class="{'fadeOut': $root.isRecording, 'fadeIn': !$root.isRecording, 'zoomOutAnimate': $root.PageChange, 'zoomInAnimate': !$root.PageChange}"  ng-src="images/postHoot.png" />
+        </div>
+        <div ng-show="$root.isRecording">
+          <img class="img-owl animated" ng-class="{'fadeIn': $root.isRecording, 'fadeOut': !$root.isRecording}" ng-src="images/postHootfly.png" />
         </div>
         <div class="home-content">
           <!--<img ng-src={{vm.model.hootimage}} class="centered"/>-->
@@ -38,9 +39,9 @@
       </div>
     </ion-content>
     <img ng-show="$root.showSuccess"  ng-class="{'fadeIn': $root.showSuccess, 'fadeOut': !$root.showSuccess}" class="img-success animated" ng-src="images/success.png" alt="">
-    <img class="img-center animated" ng-class="{'fadeOutUp': $root.isRecording, 'fadeInDown': !$root.isRecording, 'zoomInSkyAnimate': $root.PageChange}" ng-src="images/nightsky.jpg"/>
+    <img class="img-center animated" ng-class="{'fadeOutUp': $root.isRecording, 'fadeInDown': !$root.isRecording}" ng-src="images/nightsky.jpg"/>
     <img class="img-recorded" ng-if="recorder.status.isPlaying" ng-src="images/listen.gif" alt="">
-    <img class="img-sun animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording, 'zoomOutMoonAnimate': $root.PageChange}" ng-src="images/moon.png"/>
+    <img class="img-sun animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/moon.png"/>
     <img class="img-tree parallax-animated" ng-class="{'fadeOutDown': $root.isRecording  || $root.PageChange, 'fadeInUp': !$root.isRecording }" ng-src="images/tree.png"/>
     <img class="img-center-motion" ng-src="images/nightmotion.gif"/>
 

@@ -11,10 +11,6 @@
                  on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage', recorder)" style="z-index: 99999; padding: 0;">
 
       <div class="container" on-tap="vm.reply(recorder)" on-swipe-up="vm.startChat(recorder)">
-        <ion-spinner
-          ng-show="recorder.status.isRecording" icon="ripple" class="spinner-assertive">
-        </ion-spinner>
-
         <!--&lt;!&ndash;on-tap="recorder.save()"&ndash;&gt; /save function in the above div on tap-->
 
         <div>
@@ -43,10 +39,11 @@
 
     </ion-content>
     <img ng-show="$root.showSuccess" class="img-success" ng-src="images/success.png" alt="">
-    <img class="img-center zoomedOutSky" ng-src="images/nightsky.jpg"/>
+    <img class="img-center animated" ng-class="{'fadeOutUp': $root.isRecording, 'fadeIn': !$root.isRecording}" ng-src="images/nightsky.jpg"/>
     <img class="img-recorded" ng-if="recorder.status.isPlaying" ng-src="images/listen.gif" alt="">
-    <img class="img-sun zoomedOutMoon" ng-src="images/moon.png"/>
-    <img class="img-center-motion" ng-src="images/nightmotion.gif"/>
+    <img class="animated img-sun" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/moon.png"/>
+    <img ng-class="{'animated fadeIn': !$root.isRecording}" class="img-center-motion" ng-src="images/nightmotion.gif"/>
+
   </ng-audio-recorder>
 </ion-pane>
 

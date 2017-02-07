@@ -12,6 +12,15 @@
 
   /* @ngInject */
   function listenHoot(dataService, S3_BUCKET_ENDPOINT, r_getHoots, $ionicScrollDelegate, $rootScope) {
+    $rootScope.isRecording = false;
+    (function() {
+      $('img').removeClass('animated');
+    }());
+
+    setTimeout(function () {
+      $('img').removeClass('zoomedOutSky');
+      $('img').addClass('animated');
+    },1000);
 
     var vm = this;
     var currentIndex = 0;
@@ -29,6 +38,7 @@
 
 
     function startChat(recorder) {
+      $rootScope.isRecording = true;
       var play = document.getElementById('audio-tag');
       console.log(play);
       play.src = "";
