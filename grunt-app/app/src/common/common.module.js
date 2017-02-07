@@ -23,6 +23,9 @@
       if(name == 'listenHoot'){
         $rootScope.PageChange = true;
       }
+      if(name == 'homepage'){
+        $rootScope.PageChange = false;
+      }
       if(recorder)
        recorder.audioModel = null;
       $state.go(name);

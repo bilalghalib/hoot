@@ -1,4 +1,4 @@
-<ion-pane id="listen-hoot" ng-cloak="">
+<ion-pane id="listen-hoot"  ng-cloak="">
 
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
     <div>
@@ -20,7 +20,7 @@
         <div>
 
           <div>
-            <img class="img-owl animated" ng-class="{'fadeOut': $root.isRecording, 'zoomOutAnimate': $root.PageChange}"  ng-src="images/postHoot.png" />
+            <img class="img-owl zoomedOutOwl" ng-src="images/postHoot.png" />
           </div>
 
           <div class="home-content">
@@ -38,15 +38,14 @@
 
         </div>
       </div>
-
+      </div>
       <!--Insert Random Hoots by User-->
 
     </ion-content>
-    <img ng-show="$root.showSuccess" class="img-success animated" ng-src="images/success.png" alt="">
-    <img class="img-center animated" ng-src="images/nightsky.jpg"/>
+    <img ng-show="$root.showSuccess" class="img-success" ng-src="images/success.png" alt="">
+    <img class="img-center zoomedOutSky" ng-src="images/nightsky.jpg"/>
     <img class="img-recorded" ng-if="recorder.status.isPlaying" ng-src="images/listen.gif" alt="">
-    <img class="img-sun animated" ng-src="images/moon.png"/>
-    <img class="img-tree parallax-animated" ng-src="images/tree.png"/>
+    <img class="img-sun zoomedOutMoon" ng-src="images/moon.png"/>
     <img class="img-center-motion" ng-src="images/nightmotion.gif"/>
   </ng-audio-recorder>
 </ion-pane>

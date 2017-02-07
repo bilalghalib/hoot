@@ -11,7 +11,7 @@
     .controller('listenHoot', listenHoot);
 
   /* @ngInject */
-  function listenHoot(dataService, S3_BUCKET_ENDPOINT, r_getHoots, $ionicScrollDelegate) {
+  function listenHoot(dataService, S3_BUCKET_ENDPOINT, r_getHoots, $ionicScrollDelegate, $rootScope) {
 
     var vm = this;
     var currentIndex = 0;
@@ -24,7 +24,7 @@
     vm.hoots = r_getHoots.data;
     vm.startChat = startChat;
     vm.reply = reply;
-
+    $rootScope.showSuccess = false;
     console.log(vm.hoots);
 
 

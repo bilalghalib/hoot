@@ -65,25 +65,22 @@ p {
   letter-spacing: 1px;
   opacity: 0.9; }
 
-.img-center {
+#login .img-center {
   width: 100%;
   height: 100%;
   position: absolute; }
-
-.img-center-motion {
+#login .img-center-motion {
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: -1; }
-
-.img-owl {
+#login .img-owl {
   width: 100%;
   height: auto;
   position: absolute;
   top: 25%;
   z-index: 1001; }
-
-.img-sun {
+#login .img-sun {
   top: 20%;
   left: auto;
   width: 127%;
@@ -91,30 +88,26 @@ p {
   height: auto;
   z-index: 999;
   position: absolute; }
-
-.img-tree {
+#login .img-tree {
   width: 100%;
   height: 100%;
   z-index: 1000;
   left: -4px;
   position: absolute; }
-
-.img-tree-hidden {
+#login .img-tree-hidden {
   width: 100%;
   height: 100%;
   z-index: 1000;
   left: 100%;
   position: absolute; }
-
-.img-success {
+#login .img-success {
   width: 100%;
   height: auto;
   margin: auto;
   z-index: 100000;
   top: 25%;
   position: absolute; }
-
-.img-recorded {
+#login .img-recorded {
   width: 100%;
   height: 99%;
   z-index: 1000;
@@ -157,44 +150,182 @@ p {
   -webkit-animation-name: zoomOutAnimate;
   animation-name: zoomOutAnimate; }
 
-.zoomOutMoodAnimate {
-  -webkit-animation-name: zoomOutMoodAnimate;
-  animation-name: zoomOutMoodAnimate; }
+.zoomInAnimate {
+  -webkit-animation-name: zoomInAnimate;
+  animation-name: zoomInAnimate; }
+
+.zoomOutMoonAnimate {
+  -webkit-animation-name: zoomOutMoonAnimate;
+  animation-name: zoomOutMoonAnimate; }
+
+.zoomInMoonAnimate {
+  -webkit-animation-name: zoomInMoonAnimate;
+  animation-name: zoomInMoonAnimate; }
 
 .zoomInSkyAnimate {
   -webkit-animation-name: zoomInSkyAnimate;
   animation-name: zoomInSkyAnimate; }
 
+.zoomOutSkyAnimate {
+  -webkit-animation-name: zoomOutSkyAnimate;
+  animation-name: zoomOutSkyAnimate; }
+
 @-webkit-keyframes zoomOutAnimate {
   0% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
     transform: scale(1); }
   to {
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    -o-transform: scale(0.3);
     transform: scale(0.3); } }
 @keyframes zoomOutAnimate {
   0% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
     transform: scale(1); }
   to {
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    -o-transform: scale(0.3);
     transform: scale(0.3); } }
-@-webkit-keyframes zoomOutMoodAnimate {
+@-webkit-keyframes zoomOutMoonAnimate {
   0% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
     transform: scale(1); }
   to {
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -o-transform: scale(0.6);
     transform: scale(0.6); } }
-@keyframes zoomOutMoodAnimate {
+@keyframes zoomOutMoonAnimate {
   0% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
     transform: scale(1); }
   to {
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -o-transform: scale(0.6);
     transform: scale(0.6); } }
 @-webkit-keyframes zoomInSkyAnimate {
   0% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
     transform: scale(1); }
   to {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
     transform: scale(1.1); } }
 @keyframes zoomInSkyAnimate {
   0% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
     transform: scale(1); }
   to {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
     transform: scale(1.1); } }
+@-webkit-keyframes zoomInAnimate {
+  0% {
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    -o-transform: scale(0.3);
+    transform: scale(0.3); }
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); } }
+@keyframes zoomInAnimate {
+  0% {
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    -o-transform: scale(0.3);
+    transform: scale(0.3); }
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); } }
+@-webkit-keyframes zoomInMoonAnimate {
+  0% {
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -o-transform: scale(0.6);
+    transform: scale(0.6); }
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); } }
+@keyframes zoomInMoonAnimate {
+  0% {
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -o-transform: scale(0.6);
+    transform: scale(0.6); }
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); } }
+@-webkit-keyframes zoomOutSkyAnimate {
+  0% {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1); }
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); } }
+@keyframes zoomOutSkyAnimate {
+  0% {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1); }
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); } }
 #homepage {
   /*.circle-loader {
 
@@ -258,6 +389,56 @@ p {
     height: 1.5em;
     width: 0.7em;
     opacity: 1; } }
+  #homepage .img-center {
+    width: 100%;
+    height: 100%;
+    position: absolute; }
+  #homepage .img-center-motion {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1; }
+  #homepage .img-owl {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 25%;
+    z-index: 1001; }
+  #homepage .img-sun {
+    top: 20%;
+    left: auto;
+    width: 127%;
+    right: -13%;
+    height: auto;
+    z-index: 999;
+    position: absolute; }
+  #homepage .img-tree {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    left: -4px;
+    position: absolute; }
+  #homepage .img-tree-hidden {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    left: 100%;
+    position: absolute; }
+  #homepage .img-success {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    z-index: 100000;
+    top: 25%;
+    position: absolute; }
+  #homepage .img-recorded {
+    width: 100%;
+    height: 99%;
+    z-index: 1000;
+    left: -4px;
+    opacity: 0.1 !important;
+    position: absolute; }
+
 @-webkit-keyframes fadeinout {
   0%,100% {
     opacity: 0; }
@@ -278,5 +459,79 @@ p {
 .homeBackground {
   width: 100%;
   height: 100%; }
+
+#listen-hoot .zoomedOutMoon {
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  -ms-transform: scale(0.6);
+  -o-transform: scale(0.6);
+  transform: scale(0.6); }
+#listen-hoot .zoomedOutOwl {
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  -o-transform: scale(0.3);
+  transform: scale(0.3); }
+#listen-hoot .zoomedOutSky {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1); }
+#listen-hoot .img-center {
+  width: 100%;
+  height: 100%;
+  position: absolute; }
+#listen-hoot .img-center-motion {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1; }
+#listen-hoot .img-owl {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 25%;
+  z-index: 1001; }
+#listen-hoot .img-sun {
+  top: 20%;
+  left: auto;
+  width: 127%;
+  right: -13%;
+  height: auto;
+  z-index: 999;
+  position: absolute; }
+#listen-hoot .img-tree {
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  left: -4px;
+  position: absolute; }
+#listen-hoot .img-tree-hidden {
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  left: 100%;
+  position: absolute; }
+#listen-hoot .img-success {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  z-index: 100000;
+  top: 25%;
+  position: absolute; }
+#listen-hoot .img-recorded {
+  width: 100%;
+  height: 99%;
+  z-index: 1000;
+  left: -4px;
+  opacity: 0.1 !important;
+  position: absolute; }
+
+.hoot {
+  background-color: red;
+  height: 85vh;
+  width: 100%;
+  display: flex; }
 
 /*# sourceMappingURL=main.css.map */

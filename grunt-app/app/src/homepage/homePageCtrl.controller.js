@@ -17,7 +17,7 @@
   function homePageCtrl($state, dataService, $rootScope) {
 
     (function() {
-      $('img').removeClass('animated fadeOutDown');
+       $('img').removeClass('animated');
       $('div').removeClass('animated');
       $('img').removeClass('parallax-animated');
     }());

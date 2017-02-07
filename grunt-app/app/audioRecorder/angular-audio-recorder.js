@@ -411,7 +411,7 @@
           });
           setTimeout(function () {
             $rootScope.showSuccess = false;
-          },1500);
+          },1200);
         }
 
       };

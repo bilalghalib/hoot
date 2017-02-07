@@ -15,75 +15,246 @@
   -webkit-animation-name: zoomOutAnimate;
   animation-name: zoomOutAnimate;
 }
+.zoomInAnimate {
+  -webkit-animation-name: zoomInAnimate;
+  animation-name: zoomInAnimate;
+}
 
-.zoomOutMoodAnimate {
-  -webkit-animation-name: zoomOutMoodAnimate;
-  animation-name: zoomOutMoodAnimate;
+.zoomOutMoonAnimate {
+  -webkit-animation-name: zoomOutMoonAnimate;
+  animation-name: zoomOutMoonAnimate;
+}
+.zoomInMoonAnimate {
+  -webkit-animation-name: zoomInMoonAnimate;
+  animation-name: zoomInMoonAnimate;
 }
 
 .zoomInSkyAnimate {
   -webkit-animation-name: zoomInSkyAnimate;
   animation-name: zoomInSkyAnimate;
 }
-
+.zoomOutSkyAnimate {
+  -webkit-animation-name: zoomOutSkyAnimate;
+  animation-name: zoomOutSkyAnimate;
+}
 
 @-webkit-keyframes zoomOutAnimate {
   0% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform:    scale(1);
+    -ms-transform:     scale(1);
+    -o-transform:      scale(1);
+    transform:         scale(1);
   }
 
   to {
-    transform: scale(0.3);
+    -webkit-transform: scale(0.3);
+    -moz-transform:    scale(0.3);
+    -ms-transform:     scale(0.3);
+    -o-transform:      scale(0.3);
+    transform:         scale(0.3);
   }
 }
 
 @keyframes zoomOutAnimate {
   0% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform:    scale(1);
+    -ms-transform:     scale(1);
+    -o-transform:      scale(1);
+    transform:         scale(1);
   }
 
   to {
-    transform: scale(0.3);
+    -webkit-transform: scale(0.3);
+    -moz-transform:    scale(0.3);
+    -ms-transform:     scale(0.3);
+    -o-transform:      scale(0.3);
+    transform:         scale(0.3);
   }
 }
 
-@-webkit-keyframes zoomOutMoodAnimate {
+@-webkit-keyframes zoomOutMoonAnimate {
   0% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform:    scale(1);
+    -ms-transform:     scale(1);
+    -o-transform:      scale(1);
+    transform:         scale(1);
   }
 
   to {
-    transform: scale(0.6);
+    -webkit-transform: scale(0.6);
+    -moz-transform:    scale(0.6);
+    -ms-transform:     scale(0.6);
+    -o-transform:      scale(0.6);
+    transform:         scale(0.6);
   }
 }
 
-@keyframes zoomOutMoodAnimate {
+@keyframes zoomOutMoonAnimate {
   0% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform:    scale(1);
+    -ms-transform:     scale(1);
+    -o-transform:      scale(1);
+    transform:         scale(1);
   }
 
   to {
-    transform: scale(0.6);
+    -webkit-transform: scale(0.6);
+    -moz-transform:    scale(0.6);
+    -ms-transform:     scale(0.6);
+    -o-transform:      scale(0.6);
+    transform:         scale(0.6);
   }
 }
 
 
 @-webkit-keyframes zoomInSkyAnimate {
   0% {
-    transform: scale(1);
-  }
+    -webkit-transform: scale(1);
+    -moz-transform:    scale(1);
+    -ms-transform:     scale(1);
+    -o-transform:      scale(1);
+    transform:         scale(1);  }
 
   to {
-    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform:    scale(1.1);
+    -ms-transform:     scale(1.1);
+    -o-transform:      scale(1.1);
+    transform:         scale(1.1);
   }
 }
 
 @keyframes zoomInSkyAnimate {
   0% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform:    scale(1);
+    -ms-transform:     scale(1);
+    -o-transform:      scale(1);
+    transform:         scale(1);  }
+
+  to {
+    -webkit-transform: scale(1.1);
+    -moz-transform:    scale(1.1);
+    -ms-transform:     scale(1.1);
+    -o-transform:      scale(1.1);
+    transform:         scale(1.1);
+  }
+}
+
+
+////
+@-webkit-keyframes zoomInAnimate {
+  0% {
+    -webkit-transform: scale(0.3);
+    -moz-transform:    scale(0.3);
+    -ms-transform:     scale(0.3);
+    -o-transform:      scale(0.3);
+    transform:         scale(0.3);
   }
 
   to {
-    transform: scale(1.1);
+    -webkit-transform: scale(1);
+    -moz-transform:    scale(1);
+    -ms-transform:     scale(1);
+    -o-transform:      scale(1);
+    transform:         scale(1);
+  }
+}
+
+@keyframes zoomInAnimate {
+  0% {
+    -webkit-transform: scale(0.3);
+    -moz-transform:    scale(0.3);
+    -ms-transform:     scale(0.3);
+    -o-transform:      scale(0.3);
+    transform:         scale(0.3);
+  }
+
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform:    scale(1);
+    -ms-transform:     scale(1);
+    -o-transform:      scale(1);
+    transform:         scale(1);
+
+  }
+}
+
+@-webkit-keyframes zoomInMoonAnimate {
+  0% {
+    -webkit-transform: scale(0.6);
+    -moz-transform:    scale(0.6);
+    -ms-transform:     scale(0.6);
+    -o-transform:      scale(0.6);
+    transform:         scale(0.6);
+  }
+
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform:    scale(1);
+    -ms-transform:     scale(1);
+    -o-transform:      scale(1);
+    transform:         scale(1);
+  }
+}
+
+@keyframes zoomInMoonAnimate {
+  0% {
+    -webkit-transform: scale(0.6);
+    -moz-transform:    scale(0.6);
+    -ms-transform:     scale(0.6);
+    -o-transform:      scale(0.6);
+    transform:         scale(0.6);
+  }
+
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform:    scale(1);
+    -ms-transform:     scale(1);
+    -o-transform:      scale(1);
+    transform:         scale(1);
+
+  }
+}
+
+
+@-webkit-keyframes zoomOutSkyAnimate {
+  0% {
+    -webkit-transform: scale(1.1);
+    -moz-transform:    scale(1.1);
+    -ms-transform:     scale(1.1);
+    -o-transform:      scale(1.1);
+    transform:         scale(1.1);
+  }
+
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform:    scale(1);
+    -ms-transform:     scale(1);
+    -o-transform:      scale(1);
+    transform:         scale(1);
+  }
+}
+
+@keyframes zoomOutSkyAnimate {
+  0% {
+    -webkit-transform: scale(1.1);
+    -moz-transform:    scale(1.1);
+    -ms-transform:     scale(1.1);
+    -o-transform:      scale(1.1);
+    transform:         scale(1.1);
+  }
+
+  to {
+    -webkit-transform: scale(1);
+    -moz-transform:    scale(1);
+    -ms-transform:     scale(1);
+    -o-transform:      scale(1);
+    transform:         scale(1);
+
   }
 }
