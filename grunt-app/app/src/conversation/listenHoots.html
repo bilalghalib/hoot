@@ -3,12 +3,12 @@
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
     <div>
       <audio id="audio-tag" class="player" controls autoplay="true"
-             ng-src="{{$root.hootURL(vm.selectedHoot._id) | trusted}}" type="audio/.wav" loop>
+             ng-src="{{$root.hootURL(vm.selectedHoot._id) | trusted}}" type="audio/.wav">
       </audio>
     </div>
 
     <ion-content delegate-handle="view-scroll" class="padding" on-swipe-down="homepageview.html"
-                 on-tap="recorder.stopRecord()" on-swipe-right="$root.goto('homepage', recorder)" style="z-index: 99999; padding: 0;">
+                 on-tap="vm.stopRecord(recorder)" on-swipe-right="$root.goto('homepage', recorder)" style="z-index: 99999; padding: 0;">
 
       <div class="container" on-tap="vm.reply(recorder)" on-swipe-up="vm.startChat(recorder)">
         <!--&lt;!&ndash;on-tap="recorder.save()"&ndash;&gt; /save function in the above div on tap-->
@@ -38,7 +38,7 @@
       <!--Insert Random Hoots by User-->
 
     </ion-content>
-    <img ng-show="$root.showSuccess" class="img-success" ng-src="images/success.png" alt="">
+    <!--<img ng-show="$root.showSuccess" class="img-success" ng-src="images/success.png" alt="">-->
     <img class="img-center animated" ng-class="{'fadeOutUp': $root.isRecording, 'fadeIn': !$root.isRecording}" ng-src="images/nightsky.jpg"/>
     <img class="img-recorded" ng-if="recorder.status.isPlaying" ng-src="images/listen.gif" alt="">
     <img class="animated img-sun" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/moon.png"/>

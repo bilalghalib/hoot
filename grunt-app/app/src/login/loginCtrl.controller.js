@@ -19,7 +19,7 @@
     vm.imageUrl = 'images/preHoot.png';
     vm.activateNight = false;
 
-    var email = "17.00.00.0c.55.00@hoot.com";
+    var email = "17.00.00.0d.55.00@hoot.com";
     // var email = "test@hoot.com";
     var password = "testingtestingtesting";
 

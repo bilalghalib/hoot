@@ -36,12 +36,23 @@
     $rootScope.showSuccess = false;
     console.log(vm.hoots);
 
+    vm.stopRecord = stopRecord;
+
+
+
+    function stopRecord(recorder) {
+      recorder.stopRecord();
+      vm.isNotTapable = false;
+    }
 
     function startChat(recorder) {
+      vm.isNotTapable = true;
       $rootScope.isRecording = true;
       var play = document.getElementById('audio-tag');
       console.log(play);
-      play.src = "";
+      setTimeout(function(){
+        play.src = "";
+      },300);
       console.log("reply recording shuru");
 
       recorder.audioModel = null;
