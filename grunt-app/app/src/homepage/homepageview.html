@@ -6,7 +6,7 @@
       <p class="text-hoot">Take a Hoot</p>
     </div>
 
-    <ion-content overflow-scroll="false" has-bouncing="true" class="padding" on-swipe-down="homepageview.html" on-tap="recorder.stopRecord()"
+    <ion-content overflow-scroll="false" has-bouncing="true" class="padding" on-swipe-down="homepageview.html" on-hold="recorder.stopRecord()"
                  on-swipe-left="$root.goto('listenHoot',recorder)" style="z-index: 99999; padding: 0;">
 
       <audio id="audio-tag" class="player" controls autoplay="true"
@@ -38,6 +38,7 @@
 
       </div>
     </ion-content>
+    <img ng-hide="$root.isRecording" class="img-mic pulse infinite animated" ng-src="images/mic-arrow-gif.gif" alt="">
     <img ng-show="$root.showSuccess"  ng-class="{'fadeIn': $root.showSuccess, 'fadeOut': !$root.showSuccess}" class="img-success animated" ng-src="images/success.png" alt="">
     <img class="img-center animated" ng-class="{'fadeOutUp': $root.isRecording, 'fadeInDown': !$root.isRecording}" ng-src="images/nightsky.jpg"/>
     <img class="img-recorded" ng-if="recorder.status.isPlaying" ng-src="images/listen.gif" alt="">

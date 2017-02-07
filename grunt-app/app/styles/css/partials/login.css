@@ -1,21 +1,34 @@
-/* line 1, ../../partials/login.scss */
-.img-center {
+/* line 2, ../../partials/login.scss */
+#login .img-zzz {
+  width: 100%;
+  height: 50%;
+  top: 23%;
+  position: absolute;
+  z-index: 8888;
+}
+/* line 10, ../../partials/login.scss */
+#login .img-center {
   width: 100%;
   height: 100%;
   position: absolute;
 }
-
-/* line 7, ../../partials/login.scss */
-.img-owl {
+/* line 16, ../../partials/login.scss */
+#login .img-center-motion {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+/* line 23, ../../partials/login.scss */
+#login .img-owl {
   width: 100%;
   height: auto;
   position: absolute;
   top: 25%;
   z-index: 1001;
 }
-
-/* line 15, ../../partials/login.scss */
-.img-sun {
+/* line 31, ../../partials/login.scss */
+#login .img-sun {
   top: 20%;
   left: auto;
   width: 127%;
@@ -24,18 +37,33 @@
   z-index: 999;
   position: absolute;
 }
-
-/* line 25, ../../partials/login.scss */
-.img-tree {
+/* line 41, ../../partials/login.scss */
+#login .img-tree {
   width: 100%;
   height: 100%;
   z-index: 1000;
   left: -4px;
   position: absolute;
 }
-
-/* line 33, ../../partials/login.scss */
-.img-recorded {
+/* line 49, ../../partials/login.scss */
+#login .img-tree-hidden {
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  left: 100%;
+  position: absolute;
+}
+/* line 57, ../../partials/login.scss */
+#login .img-success {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  z-index: 100000;
+  top: 25%;
+  position: absolute;
+}
+/* line 66, ../../partials/login.scss */
+#login .img-recorded {
   width: 100%;
   height: 99%;
   z-index: 1000;
@@ -44,7 +72,7 @@
   position: absolute;
 }
 
-/* line 42, ../../partials/login.scss */
+/* line 76, ../../partials/login.scss */
 .tap-text {
   text-align: center;
   margin-bottom: 10px !important;

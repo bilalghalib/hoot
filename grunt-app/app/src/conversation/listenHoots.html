@@ -8,7 +8,7 @@
     </div>
 
     <ion-content delegate-handle="view-scroll" class="padding" on-swipe-down="homepageview.html"
-                 on-tap="vm.stopRecord(recorder)" on-swipe-right="$root.goto('homepage', recorder)" style="z-index: 99999; padding: 0;">
+                 on-hold="vm.stopRecord(recorder)" on-swipe-right="$root.goto('homepage', recorder)" style="z-index: 99999; padding: 0;">
 
       <div class="container" on-tap="vm.reply(recorder)" on-swipe-up="vm.startChat(recorder)">
         <!--&lt;!&ndash;on-tap="recorder.save()"&ndash;&gt; /save function in the above div on tap-->
@@ -20,9 +20,9 @@
           </div>
 
           <div class="home-content">
-          <div class="left" ng-click="vm.previousHoot()" ng-disabled="vm.isNotTapable">
+          <div class="left" ng-click="vm.previousHoot()">
           </div>
-          <div class="right" ng-click="vm.nextHoot()" ng-disabled="vm.isNotTapable">
+          <div class="right" ng-click="vm.nextHoot()">
           </div>
           <!--<img ng-src={{vm.model.hootimage}} class="centered"/>-->
           <div ng-if="recorder.isAvailable">
@@ -43,6 +43,7 @@
     <img class="img-recorded" ng-if="recorder.status.isPlaying" ng-src="images/listen.gif" alt="">
     <img class="animated img-sun" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/moon.png"/>
     <img ng-class="{'animated fadeIn': !$root.isRecording}" class="img-center-motion" ng-src="images/nightmotion.gif"/>
+    <img ng-hide="$root.isRecording" class="img-mic pulse infinite animated" ng-src="images/mic-arrow-gif.gif" alt="">
 
   </ng-audio-recorder>
 </ion-pane>

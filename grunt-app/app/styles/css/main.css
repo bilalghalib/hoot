@@ -410,6 +410,14 @@ p {
     position: absolute;
     top: 25%;
     z-index: 1001; }
+  #homepage .img-mic {
+    width: auto;
+    height: 7em;
+    position: absolute;
+    top: 78%;
+    opacity: 1;
+    right: 40%;
+    z-index: 1001; }
   #homepage .img-sun {
     top: 20%;
     left: auto;
@@ -533,6 +541,14 @@ p {
   left: -4px;
   opacity: 0.1 !important;
   position: absolute; }
+#listen-hoot .img-mic {
+  width: auto;
+  height: 7em;
+  position: absolute;
+  top: 78%;
+  opacity: 1;
+  right: 40%;
+  z-index: 1001; }
 
 .hoot {
   background-color: red;

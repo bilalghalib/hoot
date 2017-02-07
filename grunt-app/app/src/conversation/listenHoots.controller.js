@@ -87,6 +87,9 @@
     };
 
     function previousHoot() {
+      if(vm.isNotTapable){
+        return;
+      }
       currentIndex--;
       console.log(currentIndex);
       console.log('prev hoot hai');
@@ -96,6 +99,9 @@
     };
 
     function nextHoot() {
+      if(vm.isNotTapable){
+        return;
+      }
       var play = document.getElementById('audio-tag');
       play.src = "";
       dataService.hoot.hootRead(vm.hoots[currentIndex]._id).then(function (res) {

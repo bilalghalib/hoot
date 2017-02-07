@@ -82,7 +82,7 @@ p {
 /* line 79, ../../partials/skin.scss */
 .main-text {
   width: 100%;
-  top: 4em;
+  top: 5em;
   position: absolute;
   z-index: 9999;
   font-family: des_passion;
