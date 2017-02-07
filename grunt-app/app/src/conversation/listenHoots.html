@@ -8,7 +8,7 @@
     </div>
 
     <ion-content delegate-handle="view-scroll" class="padding" on-swipe-down="homepageview.html"
-                 on-hold="vm.stopRecord(recorder)" on-swipe-right="$root.goto('homepage', recorder)" style="z-index: 99999; padding: 0;">
+                 on-tap="vm.stopRecord(recorder)" on-swipe-right="$root.goto('homepage', recorder)" style="z-index: 99999; padding: 0;">
 
       <div class="container" on-tap="vm.reply(recorder)" on-swipe-up="vm.startChat(recorder)">
         <!--&lt;!&ndash;on-tap="recorder.save()"&ndash;&gt; /save function in the above div on tap-->

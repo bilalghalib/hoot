@@ -13,14 +13,14 @@
   /* @ngInject */
   function listenHoot(dataService, S3_BUCKET_ENDPOINT, r_getHoots, $ionicScrollDelegate, $rootScope) {
     $rootScope.isRecording = false;
-    (function() {
+    (function () {
       $('img').removeClass('animated');
     }());
 
     setTimeout(function () {
       $('img').removeClass('zoomedOutSky');
       $('img').addClass('animated');
-    },1000);
+    }, 1000);
 
     var vm = this;
     var currentIndex = 0;
@@ -39,7 +39,6 @@
     vm.stopRecord = stopRecord;
 
 
-
     function stopRecord(recorder) {
       recorder.stopRecord();
       vm.isNotTapable = false;
@@ -50,9 +49,9 @@
       $rootScope.isRecording = true;
       var play = document.getElementById('audio-tag');
       console.log(play);
-      setTimeout(function(){
+      setTimeout(function () {
         play.src = "";
-      },300);
+      }, 300);
       console.log("reply recording shuru");
 
       recorder.audioModel = null;
@@ -87,49 +86,53 @@
     };
 
     function previousHoot() {
-      if(vm.isNotTapable){
-        return;
+      if (vm.isNotTapable) {
+        console.log("Here");
       }
-      currentIndex--;
-      console.log(currentIndex);
-      console.log('prev hoot hai');
-      if (currentIndex >= 0) {
-        vm.selectedHoot = vm.hoots[currentIndex];
+      else {
+        currentIndex--;
+        console.log(currentIndex);
+        console.log('prev hoot hai');
+        if (currentIndex >= 0) {
+          vm.selectedHoot = vm.hoots[currentIndex];
+        }
       }
     };
 
     function nextHoot() {
-      if(vm.isNotTapable){
-        return;
-      }
-      var play = document.getElementById('audio-tag');
-      play.src = "";
-      dataService.hoot.hootRead(vm.hoots[currentIndex]._id).then(function (res) {
-          console.log(res.data);
-          console.log('next hoot hai');
-
-        },
-        function (err) {
-          console.log(err);
-        })
-      currentIndex++;
-      console.log(currentIndex);
-      console.log('next');
-      if (currentIndex < vm.hoots.length) {
-        vm.selectedHoot = vm.hoots[currentIndex];
+      if (vm.isNotTapable) {
+        console.log("Here 2");
       }
       else {
-        vm.isNotTapable = true;
-        console.log("Else");
-        dataService.hoot.getHoot().then(function (res) {
-            vm.hoots = vm.hoots.concat(res.data);
-            vm.isNotTapable = false;
-            console.log(vm.hoots.length);
+        var play = document.getElementById('audio-tag');
+        play.src = "";
+        dataService.hoot.hootRead(vm.hoots[currentIndex]._id).then(function (res) {
+            console.log(res.data);
+            console.log('next hoot hai');
+
           },
           function (err) {
-            vm.isNotTapable = false;
             console.log(err);
-          });
+          })
+        currentIndex++;
+        console.log(currentIndex);
+        console.log('next');
+        if (currentIndex < vm.hoots.length) {
+          vm.selectedHoot = vm.hoots[currentIndex];
+        }
+        else {
+          vm.isNotTapable = true;
+          console.log("Else");
+          dataService.hoot.getHoot().then(function (res) {
+              vm.hoots = vm.hoots.concat(res.data);
+              vm.isNotTapable = false;
+              console.log(vm.hoots.length);
+            },
+            function (err) {
+              vm.isNotTapable = false;
+              console.log(err);
+            });
+        }
       }
     }
   }

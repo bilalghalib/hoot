@@ -6,7 +6,7 @@
       <p class="text-hoot">Take a Hoot</p>
     </div>
 
-    <ion-content overflow-scroll="false" has-bouncing="true" class="padding" on-swipe-down="homepageview.html" on-hold="recorder.stopRecord()"
+    <ion-content overflow-scroll="false" has-bouncing="true" class="padding" on-swipe-down="homepageview.html" on-tap="recorder.stopRecord()"
                  on-swipe-left="$root.goto('listenHoot',recorder)" style="z-index: 99999; padding: 0;">
 
       <audio id="audio-tag" class="player" controls autoplay="true"

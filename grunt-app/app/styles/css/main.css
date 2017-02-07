@@ -415,7 +415,7 @@ p {
     height: 7em;
     position: absolute;
     top: 78%;
-    opacity: 1;
+    opacity: 0.9;
     right: 40%;
     z-index: 1001; }
   #homepage .img-sun {
@@ -546,7 +546,7 @@ p {
   height: 7em;
   position: absolute;
   top: 78%;
-  opacity: 1;
+  opacity: 0.9;
   right: 40%;
   z-index: 1001; }
 

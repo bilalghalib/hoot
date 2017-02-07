@@ -87,8 +87,18 @@
   opacity: 0.1 !important;
   position: absolute;
 }
+/* line 91, ../../partials/listen-hoot.scss */
+#listen-hoot .img-mic {
+  width: auto;
+  height: 7em;
+  position: absolute;
+  top: 78%;
+  opacity: 0.9;
+  right: 40%;
+  z-index: 1001;
+}
 
-/* line 94, ../../partials/listen-hoot.scss */
+/* line 103, ../../partials/listen-hoot.scss */
 .hoot {
   background-color: red;
   height: 85vh;
