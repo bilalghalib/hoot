@@ -236,19 +236,19 @@
                 recorder: null,
                 url: null,
                 player: null
-              }
+              };
+              setTimeout(function () {
+                cordovaMedia.url = recorderUtils.cordovaAudioUrl(control.id);
+                //mobile app needs wav extension to save recording
+                cordovaMedia.recorder = new Media(cordovaMedia.url, function () {
+                  console.log('Media successfully played');
+                }, function (err) {
+                  console.log('Media could not be launched' + err.code, err);
+                });
+                console.log('CordovaRecording');
+                cordovaMedia.recorder.startRecord();
+              },700);
             }
-            setTimeout(function () {
-              cordovaMedia.url = recorderUtils.cordovaAudioUrl(control.id);
-              //mobile app needs wav extension to save recording
-              cordovaMedia.recorder = new Media(cordovaMedia.url, function () {
-                console.log('Media successfully played');
-              }, function (err) {
-                console.log('Media could not be launched' + err.code, err);
-              });
-              console.log('CordovaRecording');
-              cordovaMedia.recorder.startRecord();
-            },1000);
           }
           else if (service.isHtml5) {
             //HTML5 recording
@@ -397,7 +397,7 @@
           });
           setTimeout(function () {
             $rootScope.showSuccess = false;
-          },1500);
+          },800);
         }
         else if (replyType == 'reply') {
           $rootScope.showSuccess = true;
@@ -411,7 +411,7 @@
           });
           setTimeout(function () {
             $rootScope.showSuccess = false;
-          },1200);
+          },800);
         }
 
       };
@@ -448,7 +448,7 @@
             setTimeout(function () {
               completed(blob);
               scopeApply();
-            },500);
+            },100);
           });
         }, function (err) {
           console.log('Could not retrieve file, error code:', err.code);
@@ -467,7 +467,7 @@
       }
       setTimeout(function(){
         control.playbackRecording();
-      },1500);
+      },700);
     };
 
     control.playbackRecording = function () {
@@ -893,7 +893,7 @@
                 swfHandlerConfig.allowed = true;
                 setTimeout(function () {
                   swfHandlerConfig.setAllowed();
-                }, 100);
+                }, 50);
               }
 
             }
@@ -1190,7 +1190,7 @@
 
       setTimeout(function () {
         Recorder.connect(name, attempts + 1);
-      }, 100);
+      }, 50);
     },
 
     playBack: function (name) {

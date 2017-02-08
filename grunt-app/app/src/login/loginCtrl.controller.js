@@ -34,17 +34,17 @@
     function createUser() {
       vm.activateNight = true;
       vm.imageUrl = 'images/postHoot.png';
-      window.MacAddress.getMacAddress(
-        function(macAddress) {
-          vm.email = macAddress + "@hoot.com";
-          var str = vm.email;
-          vm.email = str.replace(/:/g, ".");
-          vm.password = macAddress;
-        },
-        function(fail) {
-          alert(fail);
-        }
-      );
+      // window.MacAddress.getMacAddress(
+      //   function(macAddress) {
+      //     vm.email = macAddress + "@hoot.com";
+      //     var str = vm.email;
+      //     vm.email = str.replace(/:/g, ".");
+      //     vm.password = macAddress;
+      //   },
+      //   function(fail) {
+      //     alert(fail);
+      //   }
+      // );
       console.log(user);
       dataService.auth.login(user).then(function(res){
         if(res.success){

@@ -12,6 +12,7 @@
     //add your state mappings here
     $stateProvider
       .state('login', {
+          cache: false,
           url: '/login',
           templateUrl: 'src/login/loginview.html',
           controller: 'loginCtrl as vm'

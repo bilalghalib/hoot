@@ -51,7 +51,7 @@
       console.log(play);
       setTimeout(function () {
         play.src = "";
-      }, 300);
+      }, 200);
       console.log("reply recording shuru");
 
       recorder.audioModel = null;
@@ -70,7 +70,10 @@
     };
 
     function reply(recorder) {
-
+      if (vm.isNotTapable) {
+        console.log("Inside Reply Function");
+        return;
+      }
       console.log(vm.hoots[currentIndex]);
       var data = {
         hootid: vm.hoots[currentIndex]._id,
@@ -87,7 +90,7 @@
 
     function previousHoot() {
       if (vm.isNotTapable) {
-        console.log("Here");
+        console.log("Previous Hoot Function");
       }
       else {
         currentIndex--;
@@ -101,7 +104,7 @@
 
     function nextHoot() {
       if (vm.isNotTapable) {
-        console.log("Here 2");
+        console.log("Next Hoot Function");
       }
       else {
         var play = document.getElementById('audio-tag');

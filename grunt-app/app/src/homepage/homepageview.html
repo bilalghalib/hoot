@@ -1,4 +1,4 @@
-<ion-pane id="homepage" style="background-color: floralwhite;" ng-cloak="">
+<ion-pane id="homepage" style="background-color: floralwhite;" ng-cloak="" ng-show="$root.viewEntered">
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
     <div class="main-text animated" ng-hide="$root.isRecording" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}">
@@ -10,7 +10,7 @@
                  on-swipe-left="$root.goto('listenHoot',recorder)" style="z-index: 99999; padding: 0;">
 
       <audio id="audio-tag" class="player" controls autoplay="true"
-             ng-src="{{'../../sounds/loggedIn.mp3' | trusted}}" type="audio/.wav">
+             ng-src="{{'/sounds/loggedIn.mp3' | trusted}}">
       </audio>
       <!--<div on-tap="vm.test1(leftSwipe)">-->
       <div class="container" on-tap="recorder.save('upload')"
@@ -38,7 +38,7 @@
 
       </div>
     </ion-content>
-    <img ng-hide="$root.isRecording" class="img-mic pulse infinite animated" ng-src="images/mic-arrow-gif.gif" alt="">
+    <img ng-hide="$root.isRecording" class="img-mic animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/mic-arrow-gif.gif" alt="">
     <img ng-show="$root.showSuccess"  ng-class="{'fadeIn': $root.showSuccess, 'fadeOut': !$root.showSuccess}" class="img-success animated" ng-src="images/success.png" alt="">
     <img class="img-center animated" ng-class="{'fadeOutUp': $root.isRecording, 'fadeInDown': !$root.isRecording}" ng-src="images/nightsky.jpg"/>
     <img class="img-recorded" ng-if="recorder.status.isPlaying" ng-src="images/listen.gif" alt="">

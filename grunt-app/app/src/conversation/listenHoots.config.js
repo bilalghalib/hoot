@@ -13,13 +13,14 @@
         //add your state mappings here
         $stateProvider
             .state('listenHoot', {
+                cache: false,
                 url: '/listenHoot',
                 templateUrl: 'src/conversation/listenHoots.html',
                 controller: 'listenHoot as vm',
               resolve: {
                r_getHoots: function (dataService){
                  return dataService.hoot.getHoot();
-               } 
+               }
               }
             });
     }
