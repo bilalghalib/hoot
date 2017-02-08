@@ -211,6 +211,7 @@
 
 
     control.startRecord = function () {
+
       setTimeout(function () {
         control.audioModel = null;
         if (!service.isAvailable()) {
@@ -306,6 +307,7 @@
     control.save = function (replyType, replyHootData, roomID) {
       // vm.showSuccess = showSuccess;
       // showSuccess == false;
+
       var ext;
       if (control.audioModel) {
         var contentType = control.audioModel.type;
@@ -392,12 +394,18 @@
             console.log(res);
 
             $rootScope.showSuccess = false;
+
+            $rootScope.isAvailable = false;
+            console.log($rootScope.isAvailable);
           }, function (err) {
             console.log(err);
           });
           setTimeout(function () {
             $rootScope.showSuccess = false;
-          },800);
+
+            $rootScope.isAvailable = false;
+            console.log($rootScope.isAvailable);
+          },1200);
         }
         else if (replyType == 'reply') {
           $rootScope.showSuccess = true;
@@ -411,13 +419,15 @@
           });
           setTimeout(function () {
             $rootScope.showSuccess = false;
-          },800);
+          },1200);
         }
 
       };
     };
 
     control.stopRecord = function () {
+      $rootScope.isAvailable = true;
+
       $rootScope.isRecording = false;
       var id = control.id;
       if (!service.isAvailable() || !status.isRecording) {

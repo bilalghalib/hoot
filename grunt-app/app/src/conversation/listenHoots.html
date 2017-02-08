@@ -1,4 +1,4 @@
-<ion-pane id="listen-hoot"  ng-cloak="" ng-show="$root.viewEntered">
+<ion-pane id="listen-hoot" ng-cloak="" ng-show="$root.viewEntered">
 
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
     <div>
@@ -7,7 +7,7 @@
       </audio>
     </div>
 
-    <ion-content delegate-handle="view-scroll" class="padding" on-swipe-down="homepageview.html"
+    <ion-content delegate-handle="view-scroll" class="padding" on-swipe-down="$root.goto('homepage', recorder)"
                  on-tap="vm.stopRecord(recorder)" on-swipe-right="$root.goto('homepage', recorder)" style="z-index: 99999; padding: 0;">
 
       <div class="container" on-tap="vm.reply(recorder)" on-swipe-up="vm.startChat(recorder)">
@@ -44,7 +44,7 @@
     <img class="animated img-sun" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/moon.png"/>
     <img ng-class="{'animated fadeIn': !$root.isRecording}" class="img-center-motion" ng-src="images/nightmotion.gif"/>
     <img ng-hide="$root.isRecording" class="img-mic animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/mic-arrow-gif.gif" alt="">
-    <img class="img-mic animated" ng-src="images/tap-icon.gif" alt="">
+    <img ng-hide="!$root.isAvailable" class="img-upload animated" ng-class="{'fadeOut': !$root.isAvailable || $root.isRecording || $root.showSuccess, 'fadeIn': $root.isAvailable}" ng-src="images/ripple.svg" alt="">
 
   </ng-audio-recorder>
 </ion-pane>
