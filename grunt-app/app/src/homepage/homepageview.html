@@ -46,6 +46,7 @@
     <img class="img-tree parallax-animated" ng-class="{'fadeOutDown': $root.isRecording  || $root.PageChange, 'fadeInUp': !$root.isRecording }" ng-src="images/tree.png"/>
     <img class="img-center-motion" ng-src="images/nightmotion.gif"/>
     <img ng-hide="!$root.isAvailable" class="img-upload animated" ng-class="{'fadeOut': !$root.isAvailable || $root.isRecording || $root.showSuccess, 'fadeIn': $root.isAvailable}" ng-src="images/ripple.svg" alt="">
+    <p class="upload-text">Tap to Upload</p>
 
   </ng-audio-recorder>
 </ion-pane>
