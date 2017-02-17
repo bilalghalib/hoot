@@ -28,7 +28,7 @@
       }
       if(recorder)
        recorder.audioModel = null;
-      $state.go(name);
+    //  $state.go(name);
     };
 
     $rootScope.hootURL = function(id){

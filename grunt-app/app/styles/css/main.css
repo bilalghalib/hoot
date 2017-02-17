@@ -343,6 +343,40 @@ p {
     animation-timing-function: linear;
 
   }*/ }
+  #homepage .left-motion-trees {
+    -webkit-transform: translateX(-135em);
+    -moz-transform: translateX(-135em);
+    -ms-transform: translateX(-135em);
+    -o-transform: translateX(-135em);
+    transform: translateX(-135em);
+    -webkit-transition: 1.2s linear;
+    -moz-transition: 1.2s linear;
+    -o-transition: 1.2s linear;
+    transition: 1.2s linear; }
+  #homepage .left-motion-trees1 {
+    -webkit-transform: translateX(-135em);
+    -moz-transform: translateX(-135em);
+    -ms-transform: translateX(-135em);
+    -o-transform: translateX(-135em);
+    transform: translateX(-135em);
+    -webkit-transition: 2.1s linear;
+    -moz-transition: 2.1s linear;
+    -o-transition: 2.1s linear;
+    transition: 2.1s linear; }
+  #homepage .left-motion-branch1 {
+    -webkit-transform: translateX(-30em);
+    -moz-transform: translateX(-30em);
+    -ms-transform: translateX(-30em);
+    -o-transform: translateX(-30em);
+    transform: translateX(-30em);
+    -webkit-transition: .7s ease-out;
+    -moz-transition: .7s ease-out;
+    -o-transition: .7s ease-out;
+    transition: .7s ease-out;
+    -webkit-transition-delay: 1.1s;
+    -moz-transition-delay: 1.1s;
+    -o-transition-delay: 1.1s;
+    transition-delay: 1.1s; }
   #homepage body {
     padding: 5em;
     text-align: center; }
@@ -469,6 +503,33 @@ p {
     top: 67%;
     opacity: 0.9;
     z-index: 1001; }
+  #homepage .img-trees {
+    height: 100%;
+    left: 35em;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    position: absolute;
+    z-index: 1078; }
+  #homepage .img-trees1 {
+    height: 100%;
+    left: 30em;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    position: absolute;
+    z-index: 1078; }
+  #homepage .img-branch1 {
+    height: 100%;
+    left: 30em;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    position: absolute;
+    z-index: 1078; }
 
 @-webkit-keyframes fadeinout {
   0%,100% {
@@ -582,6 +643,32 @@ p {
     top: 67%;
     opacity: 0.9;
     z-index: 1001; }
+  #listen-hoot .img-egg {
+    width: 40%;
+    height: auto;
+    top: 25.3em;
+    left: 7.8em;
+    z-index: 999;
+    position: absolute; }
+  #listen-hoot .img-nest-back {
+    width: 46%;
+    top: 22.8em;
+    left: 7em;
+    height: 200px;
+    z-index: 999;
+    position: absolute; }
+  #listen-hoot .img-nest-front {
+    width: 46%;
+    top: 22.8em;
+    left: 7em;
+    height: 200px;
+    z-index: 1000;
+    position: absolute; }
+  #listen-hoot .img-branch {
+    width: 100%;
+    height: auto;
+    z-index: 1000;
+    position: absolute; }
 
 .hoot {
   background-color: red;

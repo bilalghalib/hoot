@@ -116,6 +116,40 @@
     z-index: 1001;
   }
 
+  .img-egg{
+    width: 40%;
+    height: auto;
+    top: 25.3em;
+    left: 7.8em;
+    z-index: 999;
+    position: absolute;
+  }
+
+  .img-nest-back{
+    width: 46%;
+    top: 22.8em;
+    left: 7em;
+    height: 200px;
+    z-index: 999;
+    position: absolute;
+  }
+
+  .img-nest-front{
+    width: 46%;
+    top: 22.8em;
+    left: 7em;
+    height: 200px;
+    z-index: 1000;
+    position: absolute;
+  }
+
+  .img-branch{
+    width: 100%;
+    height: auto;
+    z-index: 1000;
+    position: absolute;
+  }
+
 }
 
 .hoot {

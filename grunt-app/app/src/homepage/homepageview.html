@@ -1,7 +1,7 @@
 <ion-pane id="homepage" style="background-color: floralwhite;" ng-cloak="" ng-show="$root.viewEntered">
   <ng-audio-recorder id="mainAudio" audio-model="recorded" vm="vm" show-player="false" time-limit="time-limit">
 
-    <div class="main-text animated" ng-hide="$root.isRecording" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}">
+    <div class="main-text animated" ng-hide="$root.isRecording" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording, 'fadeOutUp': $root.PageChange, 'fadeInDown': !$root.PageChange}">
       <p class="text-hoot">Give a Hoot{{$root.isAvailable}}</p>
       <p class="text-hoot">Take a Hoot</p>
     </div>
@@ -19,7 +19,7 @@
 
 
         <div ng-show="!$root.isRecording">
-        <img class="img-owl animated" ng-class="{'fadeOut': $root.isRecording, 'fadeIn': !$root.isRecording, 'zoomOutAnimate': $root.PageChange, 'zoomInAnimate': !$root.PageChange}"  ng-src="images/postHoot.png" />
+        <img class="img-owl animated" ng-class="{'fadeOut': $root.isRecording, 'fadeIn': !$root.isRecording, 'fadeOutUp': $root.PageChange, 'fadeInDown': !$root.PageChange}"  ng-src="images/postHoot.png" />
         </div>
         <div ng-show="$root.isRecording">
           <img class="img-owl animated" ng-class="{'fadeIn': $root.isRecording, 'fadeOut': !$root.isRecording}" ng-src="images/postHootfly.png" />
@@ -38,14 +38,19 @@
 
       </div>
     </ion-content>
-    <img ng-hide="$root.isRecording" class="img-mic animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/mic-arrow-gif.gif" alt="">
+
+    <img class="img-trees1 animated" ng-class="{'left-motion-trees1': $root.PageChange}" ng-src="images/trees1.png" alt="">
+    <img class="img-trees animated"  ng-class="{'left-motion-trees': $root.PageChange}" ng-src="images/trees.png" alt="">
+    <img class="img-branch1 animated" ng-class="{'left-motion-branch1': $root.PageChange}" ng-src="images/branch1.png" alt="">
+    <img ng-hide="$root.isRecording" class="img-mic animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording, 'fadeOut': $root.PageChange, 'fadeIn': !$root.PageChange}" ng-src="images/mic-arrow-gif.gif" alt="">
     <img ng-show="$root.showSuccess"  ng-class="{'fadeIn': $root.showSuccess, 'fadeOut': !$root.showSuccess}" class="img-success animated" ng-src="images/success.png" alt="">
     <img class="img-center animated" ng-class="{'fadeOutUp': $root.isRecording, 'fadeInDown': !$root.isRecording}" ng-src="images/nightsky.jpg"/>
     <img class="img-recorded" ng-if="recorder.status.isPlaying" ng-src="images/listen.gif" alt="">
-    <img class="img-sun animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/moon.png"/>
+    <img class="img-sun animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording, 'fadeOut': $root.PageChange, 'fadeIn': !$root.PageChange}" ng-src="images/moon.png"/>
     <img class="img-tree parallax-animated" ng-class="{'fadeOutDown': $root.isRecording  || $root.PageChange, 'fadeInUp': !$root.isRecording }" ng-src="images/tree.png"/>
     <img class="img-center-motion" ng-src="images/nightmotion.gif"/>
     <img ng-hide="!$root.isAvailable" class="img-upload animated" ng-class="{'fadeOut': !$root.isAvailable || $root.isRecording || $root.showSuccess, 'fadeIn': $root.isAvailable}" ng-src="images/ripple.svg" alt="">
+
     <p class="upload-text">Tap to Upload</p>
 
   </ng-audio-recorder>
