@@ -22,13 +22,17 @@
       console.log(name);
       if(name == 'listenHoot'){
         $rootScope.PageChange = true;
+        $rootScope.isListenHootPage = true;
+        setTimeout(function () {
+          $state.go(name);
+        },500);
       }
       if(name == 'homepage'){
         $rootScope.PageChange = false;
+        $state.go(name);
       }
       if(recorder)
        recorder.audioModel = null;
-    //  $state.go(name);
     };
 
     $rootScope.hootURL = function(id){

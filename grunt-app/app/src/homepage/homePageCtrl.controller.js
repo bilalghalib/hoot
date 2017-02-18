@@ -80,7 +80,7 @@
     /*
 
      ionic.Platform.ready(function() {
-     if ($window.cordova) {
+     if ($window.cordova) { 
      console.log("onPhone");
      if (ionic.Platform.isAndroid()) {
      vm.model.path = cordova.file.externalRootDirectory;

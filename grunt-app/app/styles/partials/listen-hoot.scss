@@ -117,28 +117,30 @@
   }
 
   .img-egg{
-    width: 40%;
+    width: 100%;
     height: auto;
-    top: 25.3em;
-    left: 7.8em;
+    padding: 6em 9em;
     z-index: 999;
+    bottom: 0;
     position: absolute;
   }
 
   .img-nest-back{
-    width: 46%;
-    top: 22.8em;
-    left: 7em;
-    height: 200px;
+    width: 100%;
+    bottom: 1em;
+    margin-left: auto;
+    padding: 4em 7em 4.4em 7em;
+    margin-right: auto;
     z-index: 999;
     position: absolute;
   }
 
   .img-nest-front{
-    width: 46%;
-    top: 22.8em;
-    left: 7em;
-    height: 200px;
+    width: 100%;
+    bottom: 1em;
+    margin-left: auto;
+    padding: 4em 7em 4.4em 7em;
+    margin-right: auto;
     z-index: 1000;
     position: absolute;
   }
@@ -146,10 +148,37 @@
   .img-branch{
     width: 100%;
     height: auto;
-    z-index: 1000;
+    z-index: 998;
+    bottom: 0;
     position: absolute;
   }
 
+  .img-net-front{
+    width: 120%;
+    height: auto;
+    left: -2em;
+    z-index: 1000;
+    top: -3em;
+    position: absolute;
+  }
+
+  .img-net-back{
+    width: 120%;
+    height: auto;
+    left: -2em;
+    z-index: 998;
+    top: -3em;
+    position: absolute;
+  }
+
+  .img-net-egg{
+    width: 120%;
+    height: auto;
+    left: -2em;
+    z-index: 999;
+    top: -3.4em;
+    position: absolute;
+  }
 }
 
 .hoot {

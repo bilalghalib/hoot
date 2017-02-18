@@ -6,10 +6,10 @@
     -ms-transform:     translateX(-135em);
     -o-transform:      translateX(-135em);
     transform:         translateX(-135em);
-    -webkit-transition:  1.2s linear;
-    -moz-transition:  1.2s linear;
-    -o-transition:  1.2s linear;
-    transition:  1.2s linear;
+    -webkit-transition:  0.5s linear;
+    -moz-transition:  0.5s linear;
+    -o-transition:  0.5s linear;
+    transition:  0.5s linear;
   }
 
   .left-motion-trees1{
@@ -18,10 +18,10 @@
     -ms-transform:     translateX(-135em);
     -o-transform:      translateX(-135em);
     transform:         translateX(-135em);
-    -webkit-transition:  2.1s linear;
-    -moz-transition:  2.1s linear;
-    -o-transition:  2.1s linear;
-    transition:  2.1s linear;
+    -webkit-transition:  1.4s linear;
+    -moz-transition:  1.4s linear;
+    -o-transition:  1.4s linear;
+    transition:  1.4s linear;
   }
 
   .left-motion-branch1{
@@ -30,14 +30,14 @@
     -ms-transform:     translateX(-30em);
     -o-transform:      translateX(-30em);
     transform:         translateX(-30em);
-    -webkit-transition:  .7s ease-out;
-    -moz-transition:  .7s ease-out;
-    -o-transition:  .7s ease-out;
-    transition:  .7s ease-out;
-    -webkit-transition-delay:  1.1s;
-    -moz-transition-delay:  1.1s;
-    -o-transition-delay:  1.1s;
-    transition-delay:  1.1s;
+    -webkit-transition:  .3s ease-out;
+    -moz-transition:  .3s ease-out;
+    -o-transition:  .3s ease-out;
+    transition:  .3s ease-out;
+    -webkit-transition-delay:  0.8s;
+    -moz-transition-delay:  0.8s;
+    -o-transition-delay:  0.8s;
+    transition-delay:  0.8s;
 
   }
 
@@ -241,15 +241,45 @@
     z-index: 1078;
   }
 
-  .img-branch1{
-    height: 100%;
-    left: 30em;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
+  .img-egg{
     width: 100%;
+    left: 30em;
+    height: auto;
+    padding: 6em 9em;
+    z-index: 999;
+    bottom: 0;
     position: absolute;
-    z-index: 1078;
+  }
+
+  .img-nest-back{
+    width: 100%;
+    bottom: 1em;
+    left: 30em;
+    margin-left: auto;
+    padding: 4em 7em 4.4em 7em;
+    margin-right: auto;
+    z-index: 999;
+    position: absolute;
+  }
+
+  .img-nest-front{
+    width: 100%;
+    bottom: 1em;
+    left: 30em;
+    margin-left: auto;
+    padding: 4em 7em 4.4em 7em;
+    margin-right: auto;
+    z-index: 1000;
+    position: absolute;
+  }
+
+  .img-branch{
+    width: 100%;
+    left: 30em;
+    height: auto;
+    z-index: 998;
+    bottom: 0;
+    position: absolute;
   }
 
 }

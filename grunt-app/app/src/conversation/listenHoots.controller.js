@@ -11,7 +11,7 @@
     .controller('listenHoot', listenHoot);
 
   /* @ngInject */
-  function listenHoot(dataService, S3_BUCKET_ENDPOINT, r_getHoots, $ionicScrollDelegate, $rootScope) {
+  function listenHoot(dataService, S3_BUCKET_ENDPOINT, r_getHoots, $ionicScrollDelegate, $rootScope, $scope) {
     $rootScope.isRecording = false;
     (function () {
       $('img').removeClass('animated');
@@ -21,15 +21,20 @@
       $('img').removeClass('zoomedOutSky');
       $('img').addClass('animated');
     }, 1000);
+    var play = document.getElementById('audio-tag');
+
 
     var vm = this;
     var currentIndex = 0;
     var currentRoomID;
+    vm.isPlaying = false;
+    vm.isPaused = true;
     vm.previousHoot = previousHoot;
     vm.nextHoot = nextHoot;
     vm.hoots = [];
     vm.selectedHoot = null;
     vm.isNotTapable = false;
+    vm.isHootChanged = false;
     vm.hoots = r_getHoots.data;
     vm.startChat = startChat;
     vm.reply = reply;
@@ -89,55 +94,72 @@
     };
 
     function previousHoot() {
-      if (vm.isNotTapable) {
-        console.log("Previous Hoot Function");
-      }
-      else {
-        currentIndex--;
-        console.log(currentIndex);
-        console.log('prev hoot hai');
-        if (currentIndex >= 0) {
-          vm.selectedHoot = vm.hoots[currentIndex];
-        }
-      }
-    };
-
-    function nextHoot() {
-      if (vm.isNotTapable) {
-        console.log("Next Hoot Function");
-      }
-      else {
-        var play = document.getElementById('audio-tag');
-        play.src = "";
-        dataService.hoot.hootRead(vm.hoots[currentIndex]._id).then(function (res) {
-            console.log(res.data);
-            console.log('next hoot hai');
-
-          },
-          function (err) {
-            console.log(err);
-          })
-        currentIndex++;
-        console.log(currentIndex);
-        console.log('next');
-        if (currentIndex < vm.hoots.length) {
-          vm.selectedHoot = vm.hoots[currentIndex];
+      vm.isPlaying = true;
+      vm.isHootChanged = false;
+      setTimeout(function () {
+        vm.isHootChanged = true;
+        $scope.$apply();
+        if (vm.isNotTapable) {
+          console.log("Previous Hoot Function");
         }
         else {
-          vm.isNotTapable = true;
-          console.log("Else");
-          dataService.hoot.getHoot().then(function (res) {
-              vm.hoots = vm.hoots.concat(res.data);
-              vm.isNotTapable = false;
-              console.log(vm.hoots.length);
+          currentIndex--;
+          console.log(currentIndex);
+          console.log('prev hoot hai');
+          if (currentIndex >= 0) {
+            vm.selectedHoot = vm.hoots[currentIndex];
+          }
+        }
+      },400);
+    };
+
+
+
+    function nextHoot() {
+      vm.isPlaying = true;
+
+      vm.isHootChanged = false;
+      setTimeout(function () {
+        if (vm.isNotTapable) {
+          console.log("Next Hoot Function");
+        }
+        else {
+          vm.isHootChanged = true;
+          console.log(play.paused);
+          play.src = "";
+          dataService.hoot.hootRead(vm.hoots[currentIndex]._id).then(function (res) {
+              console.log(res.data);
+              console.log('next hoot hai');
+
             },
             function (err) {
-              vm.isNotTapable = false;
               console.log(err);
-            });
+            })
+          currentIndex++;
+          console.log(currentIndex);
+          console.log('next');
+          if (currentIndex < vm.hoots.length) {
+            vm.selectedHoot = vm.hoots[currentIndex];
+          }
+          else {
+            vm.isNotTapable = true;
+            console.log("Else");
+            dataService.hoot.getHoot().then(function (res) {
+                vm.hoots = vm.hoots.concat(res.data);
+                vm.isNotTapable = false;
+                console.log(vm.hoots.length);
+              },
+              function (err) {
+                vm.isNotTapable = false;
+                console.log(err);
+              });
+          }
         }
-      }
+      },400);
     }
+
+
+
   }
 }());
 

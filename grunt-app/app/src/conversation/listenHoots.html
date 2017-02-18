@@ -38,14 +38,16 @@
       <!--Insert Random Hoots by User-->
 
     </ion-content>
-    <!--<img ng-show="$root.showSuccess" class="img-success" ng-src="images/success.png" alt="">-->
+    <img class="img-net-back" ng-class="{'bounceInDown animated': $root.isListenHootPage, 'bounceOutUp animated': !$root.isListenHootPage}" ng-src="images/net-back.png" alt="">
+    <img class="img-net-egg" ng-class="{'bounceInDown animated': $root.isListenHootPage, 'bounceOutUp animated': !$root.isListenHootPage}" ng-src="images/eggs-move.gif" alt="">
+    <img class="img-net-front animated" ng-class="{'bounceInDown animated': $root.isListenHootPage, 'bounceOutUp animated': !$root.isListenHootPage}" ng-src="images/net-front.png" alt="">
     <img class="img-branch" ng-src="images/branch.png" alt="">
     <img class="img-nest-back" ng-src="images/nest-back.png" alt="">
-    <!--<img class="img-branch" ng-src="images/branch1.png" alt="">-->
     <img class="img-nest-front" ng-src="images/nest-front.png" alt="">
-    <img class="img-egg" ng-src="images/egg.png" alt="">
+    <img class="img-egg" ng-class="{'fadeInDownBig animated': !vm.PageChanged, 'fadeOut animated': vm.isPlaying, 'fadeIn animated': !vm.isPaused}" ng-src="images/egg.png" alt="">
+    <img class="img-egg" ng-class="{'fadeOut animated': !vm.isPlaying, 'fadeIn animated': vm.isPaused}" ng-src="images/egg-glow.png" alt="">
     <img class="img-center animated" ng-class="{'fadeOutUp': $root.isRecording, 'fadeIn': !$root.isRecording}" ng-src="images/nightsky.jpg"/>
-    <img class="img-recorded" ng-if="recorder.status.isPlaying" ng-src="images/listen.gif" alt="">
+    <!--<img class="img-recorded" ng-if="recorder.status.isPlaying" ng-src="images/listen.gif" alt="">-->
     <img ng-class="{'animated fadeIn': !$root.isRecording}" class="img-center-motion" ng-src="images/nightmotion.gif"/>
     <!--<img ng-hide="$root.isRecording" class="img-mic animated" ng-class="{'fadeOutDown': $root.isRecording, 'fadeInUp': !$root.isRecording}" ng-src="images/mic-arrow-gif.gif" alt="">-->
     <img ng-hide="!$root.isAvailable" class="img-upload animated" ng-class="{'fadeOut': !$root.isAvailable || $root.isRecording || $root.showSuccess, 'fadeIn': $root.isAvailable}" ng-src="images/ripple.svg" alt="">

@@ -349,34 +349,34 @@ p {
     -ms-transform: translateX(-135em);
     -o-transform: translateX(-135em);
     transform: translateX(-135em);
-    -webkit-transition: 1.2s linear;
-    -moz-transition: 1.2s linear;
-    -o-transition: 1.2s linear;
-    transition: 1.2s linear; }
+    -webkit-transition: 0.5s linear;
+    -moz-transition: 0.5s linear;
+    -o-transition: 0.5s linear;
+    transition: 0.5s linear; }
   #homepage .left-motion-trees1 {
     -webkit-transform: translateX(-135em);
     -moz-transform: translateX(-135em);
     -ms-transform: translateX(-135em);
     -o-transform: translateX(-135em);
     transform: translateX(-135em);
-    -webkit-transition: 2.1s linear;
-    -moz-transition: 2.1s linear;
-    -o-transition: 2.1s linear;
-    transition: 2.1s linear; }
+    -webkit-transition: 1.4s linear;
+    -moz-transition: 1.4s linear;
+    -o-transition: 1.4s linear;
+    transition: 1.4s linear; }
   #homepage .left-motion-branch1 {
     -webkit-transform: translateX(-30em);
     -moz-transform: translateX(-30em);
     -ms-transform: translateX(-30em);
     -o-transform: translateX(-30em);
     transform: translateX(-30em);
-    -webkit-transition: .7s ease-out;
-    -moz-transition: .7s ease-out;
-    -o-transition: .7s ease-out;
-    transition: .7s ease-out;
-    -webkit-transition-delay: 1.1s;
-    -moz-transition-delay: 1.1s;
-    -o-transition-delay: 1.1s;
-    transition-delay: 1.1s; }
+    -webkit-transition: .3s ease-out;
+    -moz-transition: .3s ease-out;
+    -o-transition: .3s ease-out;
+    transition: .3s ease-out;
+    -webkit-transition-delay: 0.8s;
+    -moz-transition-delay: 0.8s;
+    -o-transition-delay: 0.8s;
+    transition-delay: 0.8s; }
   #homepage body {
     padding: 5em;
     text-align: center; }
@@ -521,15 +521,39 @@ p {
     width: auto;
     position: absolute;
     z-index: 1078; }
-  #homepage .img-branch1 {
-    height: 100%;
-    left: 30em;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
+  #homepage .img-egg {
     width: 100%;
-    position: absolute;
-    z-index: 1078; }
+    left: 30em;
+    height: auto;
+    padding: 6em 9em;
+    z-index: 999;
+    bottom: 0;
+    position: absolute; }
+  #homepage .img-nest-back {
+    width: 100%;
+    bottom: 1em;
+    left: 30em;
+    margin-left: auto;
+    padding: 4em 7em 4.4em 7em;
+    margin-right: auto;
+    z-index: 999;
+    position: absolute; }
+  #homepage .img-nest-front {
+    width: 100%;
+    bottom: 1em;
+    left: 30em;
+    margin-left: auto;
+    padding: 4em 7em 4.4em 7em;
+    margin-right: auto;
+    z-index: 1000;
+    position: absolute; }
+  #homepage .img-branch {
+    width: 100%;
+    left: 30em;
+    height: auto;
+    z-index: 998;
+    bottom: 0;
+    position: absolute; }
 
 @-webkit-keyframes fadeinout {
   0%,100% {
@@ -644,30 +668,54 @@ p {
     opacity: 0.9;
     z-index: 1001; }
   #listen-hoot .img-egg {
-    width: 40%;
+    width: 100%;
     height: auto;
-    top: 25.3em;
-    left: 7.8em;
+    padding: 6em 9em;
     z-index: 999;
+    bottom: 0;
     position: absolute; }
   #listen-hoot .img-nest-back {
-    width: 46%;
-    top: 22.8em;
-    left: 7em;
-    height: 200px;
+    width: 100%;
+    bottom: 1em;
+    margin-left: auto;
+    padding: 4em 7em 4.4em 7em;
+    margin-right: auto;
     z-index: 999;
     position: absolute; }
   #listen-hoot .img-nest-front {
-    width: 46%;
-    top: 22.8em;
-    left: 7em;
-    height: 200px;
+    width: 100%;
+    bottom: 1em;
+    margin-left: auto;
+    padding: 4em 7em 4.4em 7em;
+    margin-right: auto;
     z-index: 1000;
     position: absolute; }
   #listen-hoot .img-branch {
     width: 100%;
     height: auto;
+    z-index: 998;
+    bottom: 0;
+    position: absolute; }
+  #listen-hoot .img-net-front {
+    width: 120%;
+    height: auto;
+    left: -2em;
     z-index: 1000;
+    top: -3em;
+    position: absolute; }
+  #listen-hoot .img-net-back {
+    width: 120%;
+    height: auto;
+    left: -2em;
+    z-index: 998;
+    top: -3em;
+    position: absolute; }
+  #listen-hoot .img-net-egg {
+    width: 120%;
+    height: auto;
+    left: -2em;
+    z-index: 999;
+    top: -3.4em;
     position: absolute; }
 
 .hoot {
