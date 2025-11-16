@@ -1,0 +1,57 @@
+name: hoot
+description: Voice-based social media platform - Give a Hoot, Take a Hoot!
+publish_to: 'none'
+version: 3.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Supabase
+  supabase_flutter: ^2.3.0
+
+  # State Management
+  flutter_riverpod: ^2.4.9
+
+  # Audio
+  record: ^5.0.4
+  just_audio: ^0.9.36
+  audio_waveforms: ^1.0.5
+  path_provider: ^2.1.1
+
+  # UI
+  flutter_animate: ^4.3.0
+  lottie: ^3.0.0
+  cached_network_image: ^3.3.0
+  shimmer: ^3.0.0
+
+  # Utilities
+  intl: ^0.18.1
+  uuid: ^4.2.2
+  equatable: ^2.0.5
+
+  # Icons
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/sounds/
+    - assets/animations/
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat-Regular.ttf
+        - asset: fonts/Montserrat-Bold.ttf
+          weight: 700
