@@ -1,0 +1,19 @@
+# Package files
+package.json
+package-lock.json
+
+# Build outputs
+dist/
+www/
+.angular/
+
+# Dependencies
+node_modules/
+
+# IDE
+.idea/
+.vscode/
+
+# Capacitor
+android/
+ios/

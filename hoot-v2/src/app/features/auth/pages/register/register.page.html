@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/auth/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="register-container">
+    <div class="logo-section">
+      <h1>🦉 Join Hoot</h1>
+      <p>Create your account to start sharing</p>
+    </div>
+
+    <div class="form-section">
+      <ion-item>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input
+          type="text"
+          [(ngModel)]="username"
+          [disabled]="loading"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input
+          type="email"
+          [(ngModel)]="email"
+          [disabled]="loading"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input
+          type="password"
+          [(ngModel)]="password"
+          [disabled]="loading"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Confirm Password</ion-label>
+        <ion-input
+          type="password"
+          [(ngModel)]="confirmPassword"
+          (keyup.enter)="onRegister()"
+          [disabled]="loading"
+        ></ion-input>
+      </ion-item>
+
+      @if (errorMessage) {
+        <ion-text color="danger">
+          <p class="error-message">{{ errorMessage }}</p>
+        </ion-text>
+      }
+
+      <ion-button
+        expand="block"
+        (click)="onRegister()"
+        [disabled]="loading"
+        class="register-button"
+      >
+        @if (loading) {
+          <ion-spinner name="crescent"></ion-spinner>
+        } @else {
+          Create Account
+        }
+      </ion-button>
+
+      <div class="login-link">
+        <ion-text>
+          Already have an account?
+          <a routerLink="/auth/login">Login here</a>
+        </ion-text>
+      </div>
+    </div>
+  </div>
+</ion-content>

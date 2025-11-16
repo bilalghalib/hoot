@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>🦉 Hoot</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToFeed()">
+        <ion-icon name="arrow-forward"></ion-icon>
+        Feed
+      </ion-button>
+      <ion-button (click)="logout()">Logout</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="home-container">
+    <div class="title-section">
+      <h1>Give a Hoot</h1>
+      <p>Tap the microphone to record your voice message</p>
+    </div>
+
+    <div class="recording-area">
+      @if (recordingState.isRecording) {
+        <div class="recording-indicator">
+          <div class="pulse-circle"></div>
+          <ion-icon name="mic" class="mic-icon recording"></ion-icon>
+          <p class="recording-text">Recording...</p>
+          <p class="duration">{{ formatDuration(recordingState.duration) }}</p>
+        </div>
+      } @else if (recordingState.audioUrl) {
+        <div class="recorded-preview">
+          <ion-icon name="stop" class="mic-icon"></ion-icon>
+          <p class="preview-text">Recording ready!</p>
+          <p class="duration">{{ formatDuration(recordingState.duration) }}</p>
+        </div>
+      } @else {
+        <div class="idle-state">
+          <ion-icon name="mic" class="mic-icon"></ion-icon>
+          <p class="idle-text">Ready to record</p>
+        </div>
+      }
+
+      @if (errorMessage) {
+        <ion-text color="danger">
+          <p class="error-message">{{ errorMessage }}</p>
+        </ion-text>
+      }
+
+      @if (uploadSuccess) {
+        <ion-text color="success">
+          <p class="success-message">✓ Hoot uploaded successfully!</p>
+        </ion-text>
+      }
+    </div>
+
+    <div class="controls">
+      @if (!recordingState.isRecording && !recordingState.audioUrl) {
+        <ion-button
+          expand="block"
+          size="large"
+          (click)="startRecording()"
+          class="record-button"
+        >
+          <ion-icon slot="start" name="mic"></ion-icon>
+          Start Recording
+        </ion-button>
+      }
+
+      @if (recordingState.isRecording) {
+        <ion-button
+          expand="block"
+          size="large"
+          color="danger"
+          (click)="stopRecording()"
+          class="stop-button"
+        >
+          <ion-icon slot="start" name="stop"></ion-icon>
+          Stop Recording
+        </ion-button>
+
+        <ion-button expand="block" fill="outline" (click)="cancelRecording()">
+          Cancel
+        </ion-button>
+      }
+
+      @if (recordingState.audioUrl && !recordingState.isRecording) {
+        <ion-button
+          expand="block"
+          size="large"
+          color="success"
+          (click)="uploadHoot()"
+          [disabled]="uploading"
+          class="upload-button"
+        >
+          @if (uploading) {
+            <ion-spinner name="crescent"></ion-spinner>
+          } @else {
+            <ion-icon slot="start" name="send"></ion-icon>
+            Upload Hoot
+          }
+        </ion-button>
+
+        <ion-button
+          expand="block"
+          fill="outline"
+          (click)="cancelRecording()"
+          [disabled]="uploading"
+        >
+          Re-record
+        </ion-button>
+      }
+    </div>
+
+    <div class="help-text">
+      <p>Swipe left to view your feed →</p>
+    </div>
+  </div>
+</ion-content>

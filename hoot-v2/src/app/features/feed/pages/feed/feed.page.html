@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Feed</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="feed-container">
+    <h2>Hoot Feed</h2>
+    <p class="subtitle">Listen to Hoots from the community</p>
+
+    @if (loading) {
+      <div class="loading-state">
+        <ion-spinner name="crescent"></ion-spinner>
+        <p>Loading Hoots...</p>
+      </div>
+    } @else if (hoots.length === 0) {
+      <div class="empty-state">
+        <ion-icon name="heart" size="large"></ion-icon>
+        <h3>No Hoots Yet</h3>
+        <p>Be the first to share a Hoot!</p>
+        <ion-button (click)="goBack()">Go back to record</ion-button>
+      </div>
+    } @else {
+      <!-- TODO: Implement hoot cards -->
+      <p>Hoots will appear here</p>
+    }
+  </div>
+</ion-content>
